@@ -1,0 +1,3380 @@
+{
+  "Dialga": {
+    "id": 554,
+    "slug": "dialga",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Tauros": {
+    "id": 2,
+    "slug": "tauros",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Armaldo": {
+    "id": 3,
+    "slug": "armaldo",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Charmander": {
+    "id": 4,
+    "slug": "charmander",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Mightyena": {
+    "id": 5,
+    "slug": "mightyena",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Ekans": {
+    "id": 6,
+    "slug": "ekans",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Bayleef": {
+    "id": 7,
+    "slug": "bayleef",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Snubbull": {
+    "id": 8,
+    "slug": "snubbull",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Plusle": {
+    "id": 9,
+    "slug": "plusle",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Seedot": {
+    "id": 10,
+    "slug": "seedot",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Metagross": {
+    "id": 11,
+    "slug": "metagross",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Sentret": {
+    "id": 12,
+    "slug": "sentret",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Golem": {
+    "id": 13,
+    "slug": "golem",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Spinarak": {
+    "id": 14,
+    "slug": "spinarak",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Aipom": {
+    "id": 15,
+    "slug": "aipom",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Sandshrew": {
+    "id": 16,
+    "slug": "sandshrew",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Murkrow": {
+    "id": 17,
+    "slug": "murkrow",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Caterpie": {
+    "id": 18,
+    "slug": "caterpie",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Mudkip": {
+    "id": 19,
+    "slug": "mudkip",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Bidoof": {
+    "id": 646,
+    "slug": "bidoof",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Steelix": {
+    "id": 564,
+    "slug": "steelix",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Marill": {
+    "id": 22,
+    "slug": "marill",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Raticate": {
+    "id": 23,
+    "slug": "raticate",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Machop": {
+    "id": 24,
+    "slug": "machop",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Luxray": {
+    "id": 25,
+    "slug": "luxray",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Poliwag": {
+    "id": 26,
+    "slug": "poliwag",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Teddiursa": {
+    "id": 27,
+    "slug": "teddiursa",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Tyrogue": {
+    "id": 28,
+    "slug": "tyrogue",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Chespin": {
+    "id": 29,
+    "slug": "chespin",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Lugia": {
+    "id": 30,
+    "slug": "lugia",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shinx": {
+    "id": 31,
+    "slug": "shinx",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Aron": {
+    "id": 32,
+    "slug": "aron",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Emolga": {
+    "id": 33,
+    "slug": "emolga",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Doduo": {
+    "id": 34,
+    "slug": "doduo",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Treecko": {
+    "id": 35,
+    "slug": "treecko",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Heracross": {
+    "id": 565,
+    "slug": "heracross",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Combee": {
+    "id": 38,
+    "slug": "combee",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Squirtle": {
+    "id": 39,
+    "slug": "squirtle",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Meowth": {
+    "id": 40,
+    "slug": "meowth",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Zubat": {
+    "id": 41,
+    "slug": "zubat",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Ho-Oh": {
+    "id": 42,
+    "slug": "ho-oh",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Skarmory": {
+    "id": 43,
+    "slug": "skarmory",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Audino": {
+    "id": 44,
+    "slug": "audino",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Machamp": {
+    "id": 45,
+    "slug": "machamp",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Kyogre": {
+    "id": 46,
+    "slug": "kyogre",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Psyduck": {
+    "id": 47,
+    "slug": "psyduck",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Spinda": {
+    "id": 48,
+    "slug": "spinda",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Shroomish": {
+    "id": 49,
+    "slug": "shroomish",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Charizard": {
+    "id": 50,
+    "slug": "charizard",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Wobbuffet": {
+    "id": 51,
+    "slug": "wobbuffet",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Pikachu": {
+    "id": 557,
+    "slug": "pikachu",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Palkia": {
+    "id": 555,
+    "slug": "palkia",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Cacnea": {
+    "id": 54,
+    "slug": "cacnea",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Froakie": {
+    "id": 55,
+    "slug": "froakie",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Dratini": {
+    "id": 56,
+    "slug": "dratini",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Eevee": {
+    "id": 526,
+    "slug": "eevee",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Minun": {
+    "id": 58,
+    "slug": "minun",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Pinsir": {
+    "id": 561,
+    "slug": "pinsir",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Feraligatr": {
+    "id": 60,
+    "slug": "feraligatr",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Bagon": {
+    "id": 61,
+    "slug": "bagon",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Kabuto": {
+    "id": 62,
+    "slug": "kabuto",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Geodude": {
+    "id": 63,
+    "slug": "geodude",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Bulbasaur": {
+    "id": 64,
+    "slug": "bulbasaur",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Magnemite": {
+    "id": 65,
+    "slug": "magnemite",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Fennekin": {
+    "id": 66,
+    "slug": "fennekin",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Darkrai": {
+    "id": 556,
+    "slug": "darkrai",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Absol": {
+    "id": 572,
+    "slug": "absol",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Drowzee": {
+    "id": 69,
+    "slug": "drowzee",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Salamence": {
+    "id": 70,
+    "slug": "salamence",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Mareep": {
+    "id": 71,
+    "slug": "mareep",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Exeggcute": {
+    "id": 72,
+    "slug": "exeggcute",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Scyther": {
+    "id": 73,
+    "slug": "scyther",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Goomy": {
+    "id": 74,
+    "slug": "goomy",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Smoochum": {
+    "id": 75,
+    "slug": "smoochum",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Spearow": {
+    "id": 76,
+    "slug": "spearow",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Gabite": {
+    "id": 77,
+    "slug": "gabite",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Dedenne": {
+    "id": 78,
+    "slug": "dedenne",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Hawlucha": {
+    "id": 79,
+    "slug": "hawlucha",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Groudon": {
+    "id": 80,
+    "slug": "groudon",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Nidoran&#9794;": {
+    "id": 81,
+    "slug": "nidoranm",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Fletchling": {
+    "id": 82,
+    "slug": "fletchling",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Espurr": {
+    "id": 83,
+    "slug": "espurr",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Beedrill": {
+    "id": 84,
+    "slug": "beedrill",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Ledyba": {
+    "id": 85,
+    "slug": "ledyba",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Rhyhorn": {
+    "id": 86,
+    "slug": "rhyhorn",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Torchic": {
+    "id": 87,
+    "slug": "torchic",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Mankey": {
+    "id": 88,
+    "slug": "mankey",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Zangoose": {
+    "id": 89,
+    "slug": "zangoose",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Weedle": {
+    "id": 90,
+    "slug": "weedle",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Drapion": {
+    "id": 91,
+    "slug": "drapion",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Pachirisu": {
+    "id": 92,
+    "slug": "pachirisu",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Venusaur": {
+    "id": 93,
+    "slug": "venusaur",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Seviper": {
+    "id": 94,
+    "slug": "seviper",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Piplup": {
+    "id": 95,
+    "slug": "piplup",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Mewtwo": {
+    "id": 96,
+    "slug": "mewtwo",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Weezing": {
+    "id": 97,
+    "slug": "weezing",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Goodra": {
+    "id": 584,
+    "slug": "goodra",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Girafarig": {
+    "id": 99,
+    "slug": "girafarig",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Butterfree": {
+    "id": 100,
+    "slug": "butterfree",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Blastoise": {
+    "id": 101,
+    "slug": "blastoise",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Lapras": {
+    "id": 102,
+    "slug": "lapras",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Staraptor": {
+    "id": 103,
+    "slug": "staraptor",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Bronzong": {
+    "id": 106,
+    "slug": "bronzong",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Sneasel": {
+    "id": 107,
+    "slug": "sneasel",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Carvanha": {
+    "id": 108,
+    "slug": "carvanha",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Turtwig": {
+    "id": 109,
+    "slug": "turtwig",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Mew": {
+    "id": 110,
+    "slug": "mew",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Taillow": {
+    "id": 111,
+    "slug": "taillow",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Rayquaza": {
+    "id": 112,
+    "slug": "rayquaza",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Tropius": {
+    "id": 114,
+    "slug": "tropius",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Pangoro": {
+    "id": 115,
+    "slug": "pangoro",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Rattata": {
+    "id": 116,
+    "slug": "rattata",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Electabuzz": {
+    "id": 117,
+    "slug": "electabuzz",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Tyranitar": {
+    "id": 566,
+    "slug": "tyranitar",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Zygarde": {
+    "id": 119,
+    "slug": "zygarde",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Tentacruel": {
+    "id": 120,
+    "slug": "tentacruel",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Snorlax": {
+    "id": 121,
+    "slug": "snorlax",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Bellsprout": {
+    "id": 122,
+    "slug": "bellsprout",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Voltorb": {
+    "id": 123,
+    "slug": "voltorb",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Xatu": {
+    "id": 124,
+    "slug": "xatu",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Chimchar": {
+    "id": 125,
+    "slug": "chimchar",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Banette": {
+    "id": 571,
+    "slug": "banette",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Slaking": {
+    "id": 127,
+    "slug": "slaking",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Haunter": {
+    "id": 128,
+    "slug": "haunter",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Larvitar": {
+    "id": 129,
+    "slug": "larvitar",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Keldeo": {
+    "id": 130,
+    "slug": "keldeo",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Giratina": {
+    "id": 131,
+    "slug": "giratina",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Hariyama": {
+    "id": 132,
+    "slug": "hariyama",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Diglett": {
+    "id": 133,
+    "slug": "diglett",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Corphish": {
+    "id": 134,
+    "slug": "corphish",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Jigglypuff": {
+    "id": 135,
+    "slug": "jigglypuff",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Mawile": {
+    "id": 568,
+    "slug": "mawile",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Cyndaquil": {
+    "id": 137,
+    "slug": "cyndaquil",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Xerneas": {
+    "id": 138,
+    "slug": "xerneas",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Yveltal": {
+    "id": 139,
+    "slug": "yveltal",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Liepard": {
+    "id": 140,
+    "slug": "liepard",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Bibarel": {
+    "id": 141,
+    "slug": "bibarel",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Chesnaught": {
+    "id": 142,
+    "slug": "chesnaught",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Poliwhirl": {
+    "id": 143,
+    "slug": "poliwhirl",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Lairon": {
+    "id": 144,
+    "slug": "lairon",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Skorupi": {
+    "id": 145,
+    "slug": "skorupi",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Onix": {
+    "id": 146,
+    "slug": "onix",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Gible": {
+    "id": 147,
+    "slug": "gible",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Pancham": {
+    "id": 148,
+    "slug": "pancham",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Quilladin": {
+    "id": 149,
+    "slug": "quilladin",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Graveler": {
+    "id": 150,
+    "slug": "graveler",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Koffing": {
+    "id": 152,
+    "slug": "koffing",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Gastly": {
+    "id": 153,
+    "slug": "gastly",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Hoothoot": {
+    "id": 154,
+    "slug": "hoothoot",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Metapod": {
+    "id": 155,
+    "slug": "metapod",
+    "rarity": "UC",
+    "mp": 0
+  },
+  "Shelgon": {
+    "id": 156,
+    "slug": "shelgon",
+    "rarity": "C",
+    "mp": 1
+  },
+  "Tentacool": {
+    "id": 158,
+    "slug": "tentacool",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Pichu": {
+    "id": 159,
+    "slug": "pichu",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Monferno": {
+    "id": 160,
+    "slug": "monferno",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Grotle": {
+    "id": 161,
+    "slug": "grotle",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Wartortle": {
+    "id": 162,
+    "slug": "wartortle",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Gyarados": {
+    "id": 562,
+    "slug": "gyarados",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Frogadier": {
+    "id": 164,
+    "slug": "frogadier",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Prinplup": {
+    "id": 166,
+    "slug": "prinplup",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Swellow": {
+    "id": 167,
+    "slug": "swellow",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Swampert": {
+    "id": 168,
+    "slug": "swampert",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Flaaffy": {
+    "id": 169,
+    "slug": "flaaffy",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Greninja": {
+    "id": 170,
+    "slug": "greninja",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Electivire": {
+    "id": 171,
+    "slug": "electivire",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Rhydon": {
+    "id": 172,
+    "slug": "rhydon",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Flygon": {
+    "id": 173,
+    "slug": "flygon",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Purrloin": {
+    "id": 174,
+    "slug": "purrloin",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Ledian": {
+    "id": 175,
+    "slug": "ledian",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Sylveon": {
+    "id": 534,
+    "slug": "sylveon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Pupitar": {
+    "id": 177,
+    "slug": "pupitar",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Igglybuff": {
+    "id": 178,
+    "slug": "igglybuff",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Leafeon": {
+    "id": 532,
+    "slug": "leafeon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Croconaw": {
+    "id": 180,
+    "slug": "croconaw",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Munchlax": {
+    "id": 181,
+    "slug": "munchlax",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Makuhita": {
+    "id": 182,
+    "slug": "makuhita",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Bronzor": {
+    "id": 183,
+    "slug": "bronzor",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Golbat": {
+    "id": 185,
+    "slug": "golbat",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Rhyperior": {
+    "id": 186,
+    "slug": "rhyperior",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Vaporeon": {
+    "id": 527,
+    "slug": "vaporeon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Jolteon": {
+    "id": 528,
+    "slug": "jolteon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Marshtomp": {
+    "id": 189,
+    "slug": "marshtomp",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Garchomp": {
+    "id": 190,
+    "slug": "garchomp",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Empoleon": {
+    "id": 191,
+    "slug": "empoleon",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Poliwrath": {
+    "id": 192,
+    "slug": "poliwrath",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Poochyena": {
+    "id": 193,
+    "slug": "poochyena",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Luxio": {
+    "id": 196,
+    "slug": "luxio",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Hypno": {
+    "id": 197,
+    "slug": "hypno",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Magikarp": {
+    "id": 198,
+    "slug": "magikarp",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Ivysaur": {
+    "id": 199,
+    "slug": "ivysaur",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Elekid": {
+    "id": 200,
+    "slug": "elekid",
+    "rarity": "C",
+    "mp": 3
+  },
+  "Natu": {
+    "id": 201,
+    "slug": "natu",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Raichu": {
+    "id": 202,
+    "slug": "raichu",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Lucario": {
+    "id": 203,
+    "slug": "lucario",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Kakuna": {
+    "id": 205,
+    "slug": "kakuna",
+    "rarity": "UC",
+    "mp": 0
+  },
+  "Wigglytuff": {
+    "id": 206,
+    "slug": "wigglytuff",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Aggron": {
+    "id": 207,
+    "slug": "aggron",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Infernape": {
+    "id": 208,
+    "slug": "infernape",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Totodile": {
+    "id": 209,
+    "slug": "totodile",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Politoed": {
+    "id": 210,
+    "slug": "politoed",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Gardevoir": {
+    "id": 211,
+    "slug": "gardevoir",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Vibrava": {
+    "id": 212,
+    "slug": "vibrava",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Nuzleaf": {
+    "id": 213,
+    "slug": "nuzleaf",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Shiftry": {
+    "id": 214,
+    "slug": "shiftry",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Kirlia": {
+    "id": 215,
+    "slug": "kirlia",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Noctowl": {
+    "id": 216,
+    "slug": "noctowl",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Ralts": {
+    "id": 217,
+    "slug": "ralts",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Deoxys": {
+    "id": 229,
+    "slug": "deoxys",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Exeggutor": {
+    "id": 220,
+    "slug": "exeggutor",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Slakoth": {
+    "id": 221,
+    "slug": "slakoth",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Chikorita": {
+    "id": 222,
+    "slug": "chikorita",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Glaceon": {
+    "id": 533,
+    "slug": "glaceon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Weavile": {
+    "id": 225,
+    "slug": "weavile",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Manaphy": {
+    "id": 226,
+    "slug": "manaphy",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Heatran": {
+    "id": 227,
+    "slug": "heatran",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mr. Mime": {
+    "id": 228,
+    "slug": "mr.mime",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Torterra": {
+    "id": 230,
+    "slug": "torterra",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Suicune": {
+    "id": 231,
+    "slug": "suicune",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Zekrom": {
+    "id": 232,
+    "slug": "zekrom",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Raikou": {
+    "id": 233,
+    "slug": "raikou",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Latios": {
+    "id": 234,
+    "slug": "latios",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Genesect": {
+    "id": 235,
+    "slug": "genesect",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Latias": {
+    "id": 237,
+    "slug": "latias",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Vigoroth": {
+    "id": 238,
+    "slug": "vigoroth",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Sliggoo": {
+    "id": 239,
+    "slug": "sliggoo",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Crobat": {
+    "id": 240,
+    "slug": "crobat",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Sharpedo": {
+    "id": 570,
+    "slug": "sharpedo",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mime Jr.": {
+    "id": 242,
+    "slug": "mimejr.",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Talonflame": {
+    "id": 243,
+    "slug": "talonflame",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Entei": {
+    "id": 244,
+    "slug": "entei",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Quilava": {
+    "id": 245,
+    "slug": "quilava",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Braixen": {
+    "id": 246,
+    "slug": "braixen",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Fletchinder": {
+    "id": 247,
+    "slug": "fletchinder",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Flareon": {
+    "id": 529,
+    "slug": "flareon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Arbok": {
+    "id": 249,
+    "slug": "arbok",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Magmar": {
+    "id": 250,
+    "slug": "magmar",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Shuppet": {
+    "id": 251,
+    "slug": "shuppet",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Seaking": {
+    "id": 252,
+    "slug": "seaking",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Delphox": {
+    "id": 253,
+    "slug": "delphox",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Magby": {
+    "id": 254,
+    "slug": "magby",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Charmeleon": {
+    "id": 255,
+    "slug": "charmeleon",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Umbreon": {
+    "id": 531,
+    "slug": "umbreon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Typhlosion": {
+    "id": 258,
+    "slug": "typhlosion",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Espeon": {
+    "id": 530,
+    "slug": "espeon",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Corsola": {
+    "id": 260,
+    "slug": "corsola",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Reshiram": {
+    "id": 261,
+    "slug": "reshiram",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Magmortar": {
+    "id": 262,
+    "slug": "magmortar",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Goldeen": {
+    "id": 263,
+    "slug": "goldeen",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Hydreigon": {
+    "id": 264,
+    "slug": "hydreigon",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Trapinch": {
+    "id": 265,
+    "slug": "trapinch",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Zweilous": {
+    "id": 266,
+    "slug": "zweilous",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Riolu": {
+    "id": 268,
+    "slug": "riolu",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Zapdos": {
+    "id": 269,
+    "slug": "zapdos",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Vespiquen": {
+    "id": 270,
+    "slug": "vespiquen",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Moltres": {
+    "id": 271,
+    "slug": "moltres",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Crawdaunt": {
+    "id": 272,
+    "slug": "crawdaunt",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Floatzel": {
+    "id": 273,
+    "slug": "floatzel",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Articuno": {
+    "id": 274,
+    "slug": "articuno",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mega Venusaur": {
+    "id": 275,
+    "slug": "megavenusaur",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Charizard X": {
+    "id": 276,
+    "slug": "megacharizardx",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Charizard Y": {
+    "id": 277,
+    "slug": "megacharizardy",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Blastoise": {
+    "id": 278,
+    "slug": "megablastoise",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Beedrill": {
+    "id": 279,
+    "slug": "megabeedrill",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Dragonair": {
+    "id": 280,
+    "slug": "dragonair",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Dragonite": {
+    "id": 281,
+    "slug": "dragonite",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Grovyle": {
+    "id": 282,
+    "slug": "grovyle",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Sceptile": {
+    "id": 283,
+    "slug": "sceptile",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mega Sceptile": {
+    "id": 284,
+    "slug": "megasceptile",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Combusken": {
+    "id": 285,
+    "slug": "combusken",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Blaziken": {
+    "id": 286,
+    "slug": "blaziken",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mega Blaziken": {
+    "id": 287,
+    "slug": "megablaziken",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Swampert": {
+    "id": 288,
+    "slug": "megaswampert",
+    "rarity": "UX",
+    "mp": 1
+  },
+  "Nincada": {
+    "id": 289,
+    "slug": "nincada",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Ninjask": {
+    "id": 290,
+    "slug": "ninjask",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Mega Salamence": {
+    "id": 292,
+    "slug": "megasalamence",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Spiritomb": {
+    "id": 293,
+    "slug": "spiritomb",
+    "rarity": "R",
+    "mp": 0
+  },
+  "Tympole": {
+    "id": 294,
+    "slug": "tympole",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Palpitoad": {
+    "id": 295,
+    "slug": "palpitoad",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Seismitoad": {
+    "id": 296,
+    "slug": "seismitoad",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Cottonee": {
+    "id": 297,
+    "slug": "cottonee",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Whimsicott": {
+    "id": 298,
+    "slug": "whimsicott",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Petilil": {
+    "id": 299,
+    "slug": "petilil",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Lilligant": {
+    "id": 300,
+    "slug": "lilligant",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Gothita": {
+    "id": 303,
+    "slug": "gothita",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Gothorita": {
+    "id": 304,
+    "slug": "gothorita",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Gothitelle": {
+    "id": 305,
+    "slug": "gothitelle",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Solosis": {
+    "id": 306,
+    "slug": "solosis",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Duosion": {
+    "id": 307,
+    "slug": "duosion",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Reuniclus": {
+    "id": 308,
+    "slug": "reuniclus",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Joltik": {
+    "id": 309,
+    "slug": "joltik",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Galvantula": {
+    "id": 310,
+    "slug": "galvantula",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Stunfisk": {
+    "id": 311,
+    "slug": "stunfisk",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Druddigon": {
+    "id": 312,
+    "slug": "druddigon",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Heatmor": {
+    "id": 314,
+    "slug": "heatmor",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Durant": {
+    "id": 315,
+    "slug": "durant",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Cobalion": {
+    "id": 316,
+    "slug": "cobalion",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Terrakion": {
+    "id": 317,
+    "slug": "terrakion",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Virizion": {
+    "id": 318,
+    "slug": "virizion",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Honedge": {
+    "id": 319,
+    "slug": "honedge",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Doublade": {
+    "id": 320,
+    "slug": "doublade",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Inkay": {
+    "id": 321,
+    "slug": "inkay",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Malamar": {
+    "id": 322,
+    "slug": "malamar",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Phantump": {
+    "id": 323,
+    "slug": "phantump",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Trevenant": {
+    "id": 324,
+    "slug": "trevenant",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Pumpkaboo": {
+    "id": 325,
+    "slug": "pumpkaboo",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Gourgeist": {
+    "id": 326,
+    "slug": "gourgeist",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Bergmite": {
+    "id": 327,
+    "slug": "bergmite",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Avalugg": {
+    "id": 328,
+    "slug": "avalugg",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Noibat": {
+    "id": 329,
+    "slug": "noibat",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Noivern": {
+    "id": 330,
+    "slug": "noivern",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Aegislash Blade Forme": {
+    "id": 331,
+    "slug": "aegislashbladeforme",
+    "rarity": "EX",
+    "mp": 0
+  },
+  "Aegislash Shield Forme": {
+    "id": 332,
+    "slug": "aegislashshieldforme",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mega Scizor": {
+    "id": 336,
+    "slug": "megascizor",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Gengar": {
+    "id": 337,
+    "slug": "megagengar",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Tapu Koko": {
+    "id": 338,
+    "slug": "tapukoko",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Vikavolt": {
+    "id": 339,
+    "slug": "vikavolt",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Magnezone": {
+    "id": 340,
+    "slug": "magnezone",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Solgaleo": {
+    "id": 341,
+    "slug": "solgaleo",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Tapu Lele": {
+    "id": 342,
+    "slug": "tapulele",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Scizor": {
+    "id": 343,
+    "slug": "scizor",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Lunala": {
+    "id": 344,
+    "slug": "lunala",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Gengar": {
+    "id": 345,
+    "slug": "gengar",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Chandelure": {
+    "id": 346,
+    "slug": "chandelure",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Decidueye": {
+    "id": 347,
+    "slug": "decidueye",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Incineroar": {
+    "id": 348,
+    "slug": "incineroar",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Tapu Bulu": {
+    "id": 349,
+    "slug": "tapubulu",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Primarina": {
+    "id": 350,
+    "slug": "primarina",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Tapu Fini": {
+    "id": 351,
+    "slug": "tapufini",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Magearna": {
+    "id": 352,
+    "slug": "magearna",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Alolan Ninetales": {
+    "id": 353,
+    "slug": "alolanninetales",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Electrode": {
+    "id": 354,
+    "slug": "electrode",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Magneton": {
+    "id": 355,
+    "slug": "magneton",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Alolan Raichu": {
+    "id": 357,
+    "slug": "alolanraichu",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Cosmoem": {
+    "id": 358,
+    "slug": "cosmoem",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Golisopod": {
+    "id": 359,
+    "slug": "golisopod",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Metang": {
+    "id": 360,
+    "slug": "metang",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Cosmog": {
+    "id": 361,
+    "slug": "cosmog",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Sableye": {
+    "id": 362,
+    "slug": "sableye",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Mimikyu": {
+    "id": 363,
+    "slug": "mimikyu",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Dartrix": {
+    "id": 364,
+    "slug": "dartrix",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Torracat": {
+    "id": 365,
+    "slug": "torracat",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Ludicolo": {
+    "id": 366,
+    "slug": "ludicolo",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Mow Rotom": {
+    "id": 367,
+    "slug": "mowrotom",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Brionne": {
+    "id": 368,
+    "slug": "brionne",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Azumarill": {
+    "id": 369,
+    "slug": "azumarill",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Lanturn": {
+    "id": 370,
+    "slug": "lanturn",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Wash Rotom": {
+    "id": 371,
+    "slug": "washrotom",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Grubbin": {
+    "id": 372,
+    "slug": "grubbin",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Charjabug": {
+    "id": 373,
+    "slug": "charjabug",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Oricorio Pom-Pom Style": {
+    "id": 375,
+    "slug": "oricoriopom-pomstyle",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Wimpod": {
+    "id": 376,
+    "slug": "wimpod",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Beldum": {
+    "id": 377,
+    "slug": "beldum",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Oricorio Pau Style": {
+    "id": 378,
+    "slug": "oricoriopaustyle",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Litwick": {
+    "id": 379,
+    "slug": "litwick",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Lampent": {
+    "id": 380,
+    "slug": "lampent",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Alolan Grimer": {
+    "id": 381,
+    "slug": "alolangrimer",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Salandit": {
+    "id": 382,
+    "slug": "salandit",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Oricorio Sensu Style": {
+    "id": 383,
+    "slug": "oricoriosensustyle",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Rowlet": {
+    "id": 384,
+    "slug": "rowlet",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Litten": {
+    "id": 385,
+    "slug": "litten",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Lombre": {
+    "id": 386,
+    "slug": "lombre",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Salazzle": {
+    "id": 387,
+    "slug": "salazzle",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Oricorio Baile Style": {
+    "id": 388,
+    "slug": "oricoriobailestyle",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Popplio": {
+    "id": 389,
+    "slug": "popplio",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Delibird": {
+    "id": 390,
+    "slug": "delibird",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Stantler": {
+    "id": 391,
+    "slug": "stantler",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Togedemaru": {
+    "id": 392,
+    "slug": "togedemaru",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Chinchou": {
+    "id": 393,
+    "slug": "chinchou",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Lotad": {
+    "id": 394,
+    "slug": "lotad",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Shiny Rayquaza": {
+    "id": 395,
+    "slug": "shinyrayquaza",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Shiny Metagross": {
+    "id": 397,
+    "slug": "shinymetagross",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Shiny Ho-Oh": {
+    "id": 399,
+    "slug": "shinyho-oh",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiny Gyarados": {
+    "id": 400,
+    "slug": "shinygyarados",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Shiny Magikarp": {
+    "id": 401,
+    "slug": "shinymagikarp",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Mega Gardevoir": {
+    "id": 402,
+    "slug": "megagardevoir",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Altaria": {
+    "id": 403,
+    "slug": "megaaltaria",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Nihilego": {
+    "id": 404,
+    "slug": "nihilego",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Mewtwo Y": {
+    "id": 405,
+    "slug": "megamewtwoy",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Buzzwole": {
+    "id": 406,
+    "slug": "buzzwole",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Gallade": {
+    "id": 407,
+    "slug": "megagallade",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Mewtwo X": {
+    "id": 408,
+    "slug": "megamewtwox",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Pheromosa": {
+    "id": 409,
+    "slug": "pheromosa",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Absol": {
+    "id": 410,
+    "slug": "megaabsol",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Sableye": {
+    "id": 411,
+    "slug": "megasableye",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Banette": {
+    "id": 412,
+    "slug": "megabanette",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Gyarados": {
+    "id": 413,
+    "slug": "megagyarados",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Xurkitree": {
+    "id": 414,
+    "slug": "xurkitree",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Celesteela": {
+    "id": 415,
+    "slug": "celesteela",
+    "rarity": "UX",
+    "mp": 1
+  },
+  "Mega Ampharos": {
+    "id": 416,
+    "slug": "megaampharos",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Kartana": {
+    "id": 417,
+    "slug": "kartana",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Shaymin Sky Forme": {
+    "id": 418,
+    "slug": "shayminskyforme",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Aggron": {
+    "id": 419,
+    "slug": "megaaggron",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Tyranitar": {
+    "id": 420,
+    "slug": "megatyranitar",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Black Kyurem": {
+    "id": 421,
+    "slug": "blackkyurem",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "White Kyurem": {
+    "id": 422,
+    "slug": "whitekyurem",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Glalie": {
+    "id": 423,
+    "slug": "megaglalie",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Lucario": {
+    "id": 424,
+    "slug": "megalucario",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Primal Groudon": {
+    "id": 425,
+    "slug": "primalgroudon",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Regigigas": {
+    "id": 426,
+    "slug": "regigigas",
+    "rarity": "UX",
+    "mp": 0
+  },
+  "Primal Kyogre": {
+    "id": 427,
+    "slug": "primalkyogre",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Keldeo Resolute Form": {
+    "id": 428,
+    "slug": "keldeoresoluteform",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Houndoom": {
+    "id": 429,
+    "slug": "megahoundoom",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Drampa": {
+    "id": 430,
+    "slug": "drampa",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Altaria": {
+    "id": 431,
+    "slug": "altaria",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Cresselia": {
+    "id": 432,
+    "slug": "cresselia",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Toxapex": {
+    "id": 433,
+    "slug": "toxapex",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Gallade": {
+    "id": 434,
+    "slug": "gallade",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Bewear": {
+    "id": 435,
+    "slug": "bewear",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Marshadow": {
+    "id": 436,
+    "slug": "marshadow",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Zoroark": {
+    "id": 437,
+    "slug": "zoroark",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Drifblim": {
+    "id": 438,
+    "slug": "drifblim",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Honchkrow": {
+    "id": 439,
+    "slug": "honchkrow",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Ampharos": {
+    "id": 440,
+    "slug": "ampharos",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Eelektross": {
+    "id": 441,
+    "slug": "eelektross",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Shaymin Land Forme": {
+    "id": 442,
+    "slug": "shayminlandforme",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Lurantis": {
+    "id": 443,
+    "slug": "lurantis",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Regirock": {
+    "id": 444,
+    "slug": "regirock",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Meganium": {
+    "id": 445,
+    "slug": "meganium",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Regice": {
+    "id": 446,
+    "slug": "regice",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Kyurem": {
+    "id": 447,
+    "slug": "kyurem",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Registeel": {
+    "id": 448,
+    "slug": "registeel",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Arcanine": {
+    "id": 449,
+    "slug": "arcanine",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Houndoom": {
+    "id": 450,
+    "slug": "houndoom",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Turtonator": {
+    "id": 451,
+    "slug": "turtonator",
+    "rarity": "EX",
+    "mp": 1
+  },
+  "Milotic": {
+    "id": 452,
+    "slug": "milotic",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiinotic": {
+    "id": 453,
+    "slug": "shiinotic",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Dragalge": {
+    "id": 454,
+    "slug": "dragalge",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Alolan Vulpix": {
+    "id": 455,
+    "slug": "alolanvulpix",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Mareanie": {
+    "id": 456,
+    "slug": "mareanie",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Toxicroak": {
+    "id": 457,
+    "slug": "toxicroak",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Beheeyem": {
+    "id": 458,
+    "slug": "beheeyem",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Elgyem": {
+    "id": 459,
+    "slug": "elgyem",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Zorua": {
+    "id": 460,
+    "slug": "zorua",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Scrafty": {
+    "id": 461,
+    "slug": "scrafty",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Rotom": {
+    "id": 462,
+    "slug": "rotom",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Mandibuzz": {
+    "id": 463,
+    "slug": "mandibuzz",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Eelektrik": {
+    "id": 464,
+    "slug": "eelektrik",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Sigilyph": {
+    "id": 465,
+    "slug": "sigilyph",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Cacturne": {
+    "id": 466,
+    "slug": "cacturne",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Tangrowth": {
+    "id": 467,
+    "slug": "tangrowth",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Fan Rotom": {
+    "id": 468,
+    "slug": "fanrotom",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Lycanroc Midday Form": {
+    "id": 469,
+    "slug": "lycanrocmiddayform",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Lycanroc Midnight Form": {
+    "id": 470,
+    "slug": "lycanrocmidnightform",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Glalie": {
+    "id": 471,
+    "slug": "glalie",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Froslass": {
+    "id": 472,
+    "slug": "froslass",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Frost Rotom": {
+    "id": 473,
+    "slug": "frostrotom",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Excadrill": {
+    "id": 474,
+    "slug": "excadrill",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Alolan Sandslash": {
+    "id": 475,
+    "slug": "alolansandslash",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Growlithe": {
+    "id": 476,
+    "slug": "growlithe",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Heat Rotom": {
+    "id": 477,
+    "slug": "heatrotom",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Swablu": {
+    "id": 478,
+    "slug": "swablu",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Morelull": {
+    "id": 479,
+    "slug": "morelull",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Skrelp": {
+    "id": 480,
+    "slug": "skrelp",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Croagunk": {
+    "id": 481,
+    "slug": "croagunk",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Stufful": {
+    "id": 482,
+    "slug": "stufful",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Scraggy": {
+    "id": 483,
+    "slug": "scraggy",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Drifloon": {
+    "id": 484,
+    "slug": "drifloon",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Vullaby": {
+    "id": 485,
+    "slug": "vullaby",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Tynamo": {
+    "id": 486,
+    "slug": "tynamo",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Fomantis": {
+    "id": 487,
+    "slug": "fomantis",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Tangela": {
+    "id": 488,
+    "slug": "tangela",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Rockruff": {
+    "id": 489,
+    "slug": "rockruff",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Carnivine": {
+    "id": 490,
+    "slug": "carnivine",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Snorunt": {
+    "id": 491,
+    "slug": "snorunt",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Relicanth": {
+    "id": 492,
+    "slug": "relicanth",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Drilbur": {
+    "id": 493,
+    "slug": "drilbur",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Houndour": {
+    "id": 494,
+    "slug": "houndour",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Feebas": {
+    "id": 495,
+    "slug": "feebas",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Alolan Sandshrew": {
+    "id": 496,
+    "slug": "alolansandshrew",
+    "rarity": "C",
+    "mp": 2
+  },
+  "Guzzlord": {
+    "id": 497,
+    "slug": "guzzlord",
+    "rarity": "UX",
+    "mp": 1
+  },
+  "Necrozma": {
+    "id": 498,
+    "slug": "necrozma",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Rayquaza": {
+    "id": 499,
+    "slug": "megarayquaza",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Poipole": {
+    "id": 500,
+    "slug": "poipole",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Naganadel": {
+    "id": 501,
+    "slug": "naganadel",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Giratina Origin Forme": {
+    "id": 502,
+    "slug": "giratinaoriginforme",
+    "rarity": "UX",
+    "mp": 1
+  },
+  "Dusk Mane Necrozma": {
+    "id": 503,
+    "slug": "duskmanenecrozma",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Dawn Wings Necrozma": {
+    "id": 648,
+    "slug": "dawnwingsnecrozma",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Metagross": {
+    "id": 505,
+    "slug": "megametagross",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Shiny Mega Gengar": {
+    "id": 507,
+    "slug": "shinymegagengar",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Shiny Gengar": {
+    "id": 509,
+    "slug": "shinygengar",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiny Eevee": {
+    "id": 512,
+    "slug": "shinyeevee",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Vaporeon": {
+    "id": 513,
+    "slug": "shinyvaporeon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Jolteon": {
+    "id": 514,
+    "slug": "shinyjolteon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Flareon": {
+    "id": 515,
+    "slug": "shinyflareon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Espeon": {
+    "id": 516,
+    "slug": "shinyespeon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Umbreon": {
+    "id": 517,
+    "slug": "shinyumbreon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Leafeon": {
+    "id": 518,
+    "slug": "shinyleafeon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Glaceon": {
+    "id": 519,
+    "slug": "shinyglaceon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Shiny Sylveon": {
+    "id": 520,
+    "slug": "shinysylveon",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Stakataka": {
+    "id": 523,
+    "slug": "stakataka",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Blacephalon": {
+    "id": 524,
+    "slug": "blacephalon",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Ultra Necrozma": {
+    "id": 525,
+    "slug": "ultranecrozma",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Alakazam": {
+    "id": 535,
+    "slug": "megaalakazam",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Kangaskhan": {
+    "id": 536,
+    "slug": "megakangaskhan",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Pinsir": {
+    "id": 537,
+    "slug": "megapinsir",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Aerodactyl": {
+    "id": 538,
+    "slug": "megaaerodactyl",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Steelix": {
+    "id": 539,
+    "slug": "megasteelix",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Heracross": {
+    "id": 540,
+    "slug": "megaheracross",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Mawile": {
+    "id": 541,
+    "slug": "megamawile",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Manectric": {
+    "id": 542,
+    "slug": "megamanectric",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Sharpedo": {
+    "id": 543,
+    "slug": "megasharpedo",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Latias": {
+    "id": 544,
+    "slug": "megalatias",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Latios": {
+    "id": 545,
+    "slug": "megalatios",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Mega Garchomp": {
+    "id": 546,
+    "slug": "megagarchomp",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Mega Abomasnow": {
+    "id": 547,
+    "slug": "megaabomasnow",
+    "rarity": "UX",
+    "mp": 1
+  },
+  "Mega Diancie": {
+    "id": 548,
+    "slug": "megadiancie",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Tornadus Therian Forme": {
+    "id": 549,
+    "slug": "tornadustherianforme",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Thundurus Therian Forme": {
+    "id": 550,
+    "slug": "thundurustherianforme",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Landorus Therian Forme": {
+    "id": 551,
+    "slug": "landorustherianforme",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Zygarde Complete Forme": {
+    "id": 552,
+    "slug": "zygardecompleteforme",
+    "rarity": "UX",
+    "mp": 1
+  },
+  "Arceus": {
+    "id": 553,
+    "slug": "arceus",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Alakazam": {
+    "id": 558,
+    "slug": "alakazam",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Kangaskhan": {
+    "id": 560,
+    "slug": "kangaskhan",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Aerodactyl": {
+    "id": 596,
+    "slug": "aerodactyl",
+    "rarity": "R",
+    "mp": 3
+  },
+  "Celebi": {
+    "id": 567,
+    "slug": "celebi",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Manectric": {
+    "id": 569,
+    "slug": "manectric",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Mismagius": {
+    "id": 574,
+    "slug": "mismagius",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Victini": {
+    "id": 576,
+    "slug": "victini",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Haxorus": {
+    "id": 577,
+    "slug": "haxorus",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Tornadus Incarnate Forme": {
+    "id": 579,
+    "slug": "tornadusincarnateforme",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Thundurus Incarnate Forme": {
+    "id": 580,
+    "slug": "thundurusincarnateforme",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Landorus Incarnate Forme": {
+    "id": 581,
+    "slug": "landorusincarnateforme",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Tyrantrum": {
+    "id": 582,
+    "slug": "tyrantrum",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Aurorus": {
+    "id": 583,
+    "slug": "aurorus",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Zygarde 10Percent Forme": {
+    "id": 585,
+    "slug": "zygarde10percentforme",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Diancie": {
+    "id": 586,
+    "slug": "diancie",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Tsareena": {
+    "id": 587,
+    "slug": "tsareena",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Silvally": {
+    "id": 588,
+    "slug": "silvally",
+    "rarity": "EX",
+    "mp": 3
+  },
+  "Abra": {
+    "id": 591,
+    "slug": "abra",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Kadabra": {
+    "id": 592,
+    "slug": "kadabra",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Rapidash": {
+    "id": 593,
+    "slug": "rapidash",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Omastar": {
+    "id": 594,
+    "slug": "omastar",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Misdreavus": {
+    "id": 597,
+    "slug": "misdreavus",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Abomasnow": {
+    "id": 599,
+    "slug": "abomasnow",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Cofagrigus": {
+    "id": 600,
+    "slug": "cofagrigus",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Garbodor": {
+    "id": 601,
+    "slug": "garbodor",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Fraxure": {
+    "id": 602,
+    "slug": "fraxure",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Volcarona": {
+    "id": 603,
+    "slug": "volcarona",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Steenee": {
+    "id": 604,
+    "slug": "steenee",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Type: Null": {
+    "id": 605,
+    "slug": "type:null",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Ponyta": {
+    "id": 607,
+    "slug": "ponyta",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Slowpoke": {
+    "id": 608,
+    "slug": "slowpoke",
+    "rarity": "R",
+    "mp": 1
+  },
+  "Omanyte": {
+    "id": 609,
+    "slug": "omanyte",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Electrike": {
+    "id": 610,
+    "slug": "electrike",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Snover": {
+    "id": 612,
+    "slug": "snover",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Yamask": {
+    "id": 613,
+    "slug": "yamask",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Trubbish": {
+    "id": 614,
+    "slug": "trubbish",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Axew": {
+    "id": 615,
+    "slug": "axew",
+    "rarity": "UC",
+    "mp": 3
+  },
+  "Larvesta": {
+    "id": 617,
+    "slug": "larvesta",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Tyrunt": {
+    "id": 618,
+    "slug": "tyrunt",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Amaura": {
+    "id": 619,
+    "slug": "amaura",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Carbink": {
+    "id": 620,
+    "slug": "carbink",
+    "rarity": "UC",
+    "mp": 1
+  },
+  "Bounsweet": {
+    "id": 621,
+    "slug": "bounsweet",
+    "rarity": "UC",
+    "mp": 2
+  },
+  "Shiny Tapu Koko": {
+    "id": 623,
+    "slug": "shinytapukoko",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiny Mimikyu": {
+    "id": 628,
+    "slug": "shinymimikyu",
+    "rarity": "R",
+    "mp": 2
+  },
+  "Shiny Mewtwo": {
+    "id": 629,
+    "slug": "shinymewtwo",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiny Charizard": {
+    "id": 630,
+    "slug": "shinycharizard",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiny Genesect": {
+    "id": 633,
+    "slug": "shinygenesect",
+    "rarity": "EX",
+    "mp": 2
+  },
+  "Shiny Mega Rayquaza": {
+    "id": 638,
+    "slug": "shinymegarayquaza",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Shiny Mega Charizard X": {
+    "id": 639,
+    "slug": "shinymegacharizardx",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Shiny Mega Charizard Y": {
+    "id": 640,
+    "slug": "shinymegacharizardy",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Shiny Mega Mewtwo X": {
+    "id": 641,
+    "slug": "shinymegamewtwox",
+    "rarity": "UX",
+    "mp": 2
+  },
+  "Shiny Mega Mewtwo Y": {
+    "id": 642,
+    "slug": "shinymegamewtwoy",
+    "rarity": "UX",
+    "mp": 3
+  },
+  "Shiny Greninja": {
+    "id": 643,
+    "slug": "shinygreninja",
+    "rarity": "EX",
+    "mp": 3
+  }
+}

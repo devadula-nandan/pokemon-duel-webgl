@@ -1,0 +1,8762 @@
+[
+  {
+    "id": 1,
+    "name": "Dialga",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Roar of Time",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 110,
+        "effect": "If the battle opponent is knocked out, the next turn will always be the other player's."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Claw",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Tauros",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 8,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Take Down",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 80,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 8,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Kick Away",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 2 steps back (the opponent chooses the point) and gains Wait."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Armaldo",
+    "rarity": "R",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      },
+      {
+        "name": "Pierce Through",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 130,
+        "effect": ""
+      },
+      {
+        "name": "Iron Tail",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Charmander",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Flame Tail",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Smokescreen",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent now has Wait."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Mightyena",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Taunt",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "If this Pok\u00e9mon or the opponent Pok\u00e9mon spins purple, they must respin for that turn."
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Ekans",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Wrap",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Spit Poison",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Wrap",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Bayleef",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Poison Powder",
+        "color": "purple",
+        "size": 20,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Body Slam",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Snubbull",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Roar",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 1 step back (the opponent chooses the point) and gains Wait."
+      },
+      {
+        "name": "Paw",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Plusle",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Seedot",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Explosion",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and all neighbor Pokemon faint."
+      },
+      {
+        "name": "Bullet Seed",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 20,
+        "effect": "Spin again until Bullet Seed does not and - damage is multiplied by the number of Bullet Seed spins.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Metagross",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Metal Claw",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hyper Beam",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 150,
+        "effect": "If the battle opponent is knocked out, the next turn will always be the other player's."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Metal Claw",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bullet Punch",
+        "color": "gold",
+        "size": 20,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Sentret",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Step Away",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon mvoes 1-3 steps back."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tail Smack",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Golem",
+    "rarity": "UC",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Rock Throw",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Rock Blast",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 60,
+        "effect": "Spin again until Rock Blast does not land - damage is multiplied by the number of Rock Blast spins.",
+        "multiply": true
+      },
+      {
+        "name": "Rockwall",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": "If the battle opponent's Attack is below 120 damage, this Pok\u00e9mon cannot be knocked out."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Spinarak",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Poison Sting",
+        "color": "purple",
+        "size": 16,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Constrict",
+        "color": "purple",
+        "size": 36,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent now has Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Aipom",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Tail Smack",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Sandshrew",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Defense Curl",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If the battle opponent's Attack is below 50, this Pok\u00e9mon cannot be knocked out."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Murkrow",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Whirlwind",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is moved to the bench and gains Wait."
+      },
+      {
+        "name": "Astonish",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Caterpie",
+    "rarity": "UC",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "String Wrap",
+        "color": "purple",
+        "size": 52,
+        "stars": 1,
+        "damage": 0,
+        "effect": "Attaches an MP-1 marker to the battle opponent."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Mudkip",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Water Gun",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Take Down",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Bidoof",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Cut",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Rock Smash",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Steelix",
+    "rarity": "R",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Iron Tail",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Screech",
+        "color": "purple",
+        "size": 20,
+        "stars": 1,
+        "damage": 0,
+        "effect": "All neighboring Pok\u00e9mon now have Wait."
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Explosion",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and all neighboring Pok\u00e9mon faint."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Marill",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Water Gun",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Rollout",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 30,
+        "effect": "Spin again until Rollout does not land - damage is multiplied by the number of Rollout spins.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Raticate",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Hyper Fang",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 64,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Machop",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Focus Punch",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Luxray",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Roar",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 1 step back (the opponent chooses the point) and gains Wait."
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Poliwag",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bubble",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Hypnosis",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      },
+      {
+        "name": "Bubble",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Teddiursa",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Feint Attack",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Fake Tears",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Spin again until an Attack that isn't Fake Tears is spun. Damage Attacks deal +20 damage."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Tyrogue",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "High Jump Kick",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 72,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Chespin",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Vine Whip",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Vine Whip",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Lugia",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Aeroblast",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Hurricane",
+        "color": "purple",
+        "size": 24,
+        "stars": 3,
+        "damage": 0,
+        "effect": "The battle opponent is moved to the bench and gains Wait."
+      },
+      {
+        "name": "Aeroblast",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Shinx",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 64,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Blind",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon moves 1-2 steps back."
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Aron",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Big Bite",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If the battle opponent's type is Steel, this Pok\u00e9mon takes no damage and the opponent is knocked out."
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Emolga",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Shock",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Volt Switch",
+        "color": "purple",
+        "size": 36,
+        "stars": 1,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon switches with a Pok\u00e9mon on your bench."
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Doduo",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Fury Attack",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 20,
+        "effect": "Spin again until Fury Attack does not land - damage is multiplied by the number of Fury Attack spins.",
+        "multiply": true
+      },
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Treecko",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Pound",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Slam",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Heracross",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Horn Attack",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Overhead Toss",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The opponent is moved 1 step behind this Pok\u00e9mon."
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Squirtle",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bubble",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Withdraw",
+        "color": "blue",
+        "size": 40,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Meowth",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Fake Out",
+        "color": "purple",
+        "size": 32,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon switches places with its battle opponent."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Zubat",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Leech Life",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Air Cutter",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Supersonic",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes confused."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Ho-Oh",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Gust",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Fire Blast",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Rainbow Wing",
+        "color": "purple",
+        "size": 24,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon moves 2 steps away."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Skarmory",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Air Cutter",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Steel Wing",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 80,
+        "effect": ""
+      },
+      {
+        "name": "Air Cutter",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Fly Away",
+        "color": "purple",
+        "size": 28,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands on a surrounding point."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Audino",
+    "rarity": "C",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Healing Wish",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Pound",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Machamp",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Karate Chop",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Submission",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 80,
+        "effect": ""
+      },
+      {
+        "name": "Karate Chop",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Kyogre",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Water Pulse",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Tidal Wave",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "All neighbor pokemon are knocked 3 steps back and gain wait."
+      },
+      {
+        "name": "Hydro Pump",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 120,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Psyduck",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Super Psy",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this Pok\u00e9mon is knocked out, the battle opponent becomes confused."
+      },
+      {
+        "name": "Disable",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent now has Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Spinda",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Feint Attack",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Teeter Dance",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "All neighbor Pok\u00e9mon become confused."
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Shroomish",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Stun Spore",
+        "color": "purple",
+        "size": 24,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes paralyzed."
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Poison Powder",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Charizard",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fire Spin",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 50,
+        "effect": "Spin again until Fire Spin does not land - damage is multiplied by the number of Fire Spin spins.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Tail",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": "Benches your battle opponent (except when opponent has fainted). Your battle opponent must then Wait."
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Wobbuffet",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Counter",
+        "color": "white",
+        "size": 60,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If the battle opponent's Attack is above 20, the opponent is knocked out instead of this Pok\u00e9mon."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Pikachu",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Thunder Shock",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Thunderbolt",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Shock",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Pikachu R",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Thunder",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Wave",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes paralyzed."
+      },
+      {
+        "name": "Thunder Shock",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Palkia",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dragon Claw",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Spacial Rend",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 100,
+        "effect": "If the battle is a tie, the opponent is knocked out."
+      },
+      {
+        "name": "Dragon Claw",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Cacnea",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Poison Sting",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Pin Missle",
+        "color": "white",
+        "size": 64,
+        "stars": 0,
+        "damage": 10,
+        "effect": "Spin again until Pin Missle does not land - damage is multiplied by the number of Pin Missle spins.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Froakie",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bubble",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Dratini",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dragon Rage",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 80,
+        "effect": ""
+      },
+      {
+        "name": "Push Aside",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is moved to the bench and gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tail Snap",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Eevee",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Focus Energy",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Spin again until an Attack other than Focus Energy is spun. Damage Attacks deal x2 damage.",
+        "multiply": true
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Minun",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Pinsir",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Guillotine",
+        "color": "purple",
+        "size": 12,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is knocked out."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Guillotine",
+        "color": "purple",
+        "size": 24,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is knocked out."
+      },
+      {
+        "name": "Vice Grip",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Bagon",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Headbutt",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Kabuto",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Geodude",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Self-Destruct",
+        "color": "purple",
+        "size": 20,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and the battle opponent are knocked out."
+      },
+      {
+        "name": "Rollout",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 30,
+        "effect": "Spin again until Rollout does not land - damage is multiplied by the number of Rollout spins.",
+        "multiply": true
+      },
+      {
+        "name": "Rock Throw",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Bulbasaur",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Poison Powder",
+        "color": "purple",
+        "size": 20,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Vine Whip",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Sleep Powder",
+        "color": "purple",
+        "size": 24,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 36,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Magnemite",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Wave",
+        "color": "purple",
+        "size": 40,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes paralyzed."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Fennekin",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Darkrai",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Night Shade",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dark Pulse",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dark Leave",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked back 2 steps and gains Wait."
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Absol",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Razor Wind",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Double-Edge",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and the battle opponent are knocked out."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Drowzee",
+    "rarity": "C",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 32,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hypnosis",
+        "color": "purple",
+        "size": 36,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      },
+      {
+        "name": "Confusion",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Salamence",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Fly Away",
+        "color": "purple",
+        "size": 24,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands on a surrounding point."
+      },
+      {
+        "name": "Dragon Breath",
+        "color": "white",
+        "size": 64,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Mareep",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Thunder Wave",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes paralyzed."
+      },
+      {
+        "name": "Thunder Shock",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Exeggcute",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Scyther",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "False Swipe",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Swords Dance",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Spin again until an Attack other than Swords Dance is spun. Damage Attacks deal x2 damage.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Goomy",
+    "rarity": "C",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Flail",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Spit Poison",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Flail",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Slippery Swap",
+        "color": "purple",
+        "size": 36,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon switches places with its battle opponent."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Smoochum",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Pound",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Sweet Kiss",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes confused."
+      },
+      {
+        "name": "Lick*",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 20,
+        "effect": "* If this Pok\u00e9mon is knocked out, the battle opponent becomes paralyzed."
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Spearow",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fly Away",
+        "color": "purple",
+        "size": 44,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands on a surrounding point."
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Gabite",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Claw",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Sand-Attack",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent now has Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Dedenne",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Nuzzle*",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 10,
+        "effect": "* If this Pok\u00e9mon is knocked out, the battle opponent becomes paralyzed."
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Nuzzle*",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 10,
+        "effect": "* If this Pok\u00e9mon is knocked out, the battle opponent becomes paralyzed."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Hawlucha",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Press",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": "* If the opponent's Pok\u00e9mon is knocked out, so is this Pok\u00e9mon."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Fletchling",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Acrobatics*",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 50,
+        "effect": "* If the battle opponent is knocked out, this Pok\u00e9mon moves one step back and gains Wait."
+      },
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Espurr",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Psychic Power",
+        "color": "purple",
+        "size": 8,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is moved to the bench and gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psychic Power",
+        "color": "purple",
+        "size": 12,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is moved to the bench and gains Wait."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Beedrill",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Twineedle*",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 40,
+        "effect": "Spin again - if Twineedle* is spun, it deals x2 damage. * If this Pok\u00e9mon is knocked out, the battle opponent becomes poisoned.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 52,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Ledyba",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Double-Edge",
+        "color": "purple",
+        "size": 16,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and the battle opponent are knocked out."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Light Screen",
+        "color": "purple",
+        "size": 20,
+        "stars": 3,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Rhyhorn",
+    "rarity": "C",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hyper Take Down*",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 90,
+        "effect": "* If the battle opponent is knocked out, this Pok\u00e9mon claims its previous spot and gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Stomp",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Torchic",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Mankey",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Thrash*",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 50,
+        "effect": "* This Pok\u00e9mon becomes confused."
+      },
+      {
+        "name": "Tease",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "Switches the battle opponent with a neighboring opponent Pok\u00e9mon."
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Zangoose",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Crush Claw",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Swords Dance",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Spin again until an Attack other than Swords Dance is spun. Damage Attacks deal x2 damage.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Weedle",
+    "rarity": "C",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Poison Sting",
+        "color": "purple",
+        "size": 60,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Drapion",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Cross Poison",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Toxic",
+        "color": "purple",
+        "size": 20,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes noxious."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Pachirisu",
+    "rarity": "C",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 31,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Discharge",
+        "color": "white",
+        "size": 17,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 9,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 31,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Venusaur",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Vine Whip",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Solar Beam",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 130,
+        "effect": ""
+      },
+      {
+        "name": "Sleep Powder",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Seviper",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Wrap",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Toxic Fluid",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes noxious."
+      },
+      {
+        "name": "Wrap",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Poison Tail",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 50,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes poisoned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Piplup",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bubble Beam",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Peck",
+        "color": "white",
+        "size": 64,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Mewtwo",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Psychic Shove",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked as far back as possible in a straight line. Any pokemon it collides with are also knocked back. All affected pokemon gain Wait."
+      },
+      {
+        "name": "Annihilate",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This pokemon moves to the bench and gains wait"
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Weezing",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Sludge Bomb",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, all pokemon within 2 steps become poisoned."
+      },
+      {
+        "name": "Poison Gas",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent beomes poisoned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Goodra",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dragon Breath",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Muddy Water",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent and one neighbour Pok\u00e9mon directly behind it are knocked 1 step back and gain Wait"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Girafarig",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Stomp",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Magic Coat",
+        "color": "purple",
+        "size": 40,
+        "stars": 3,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Stomp",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Butterfree",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psybeam",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes confused"
+      },
+      {
+        "name": "Startling powder",
+        "color": "purple",
+        "size": 36,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent either becomes poisoned, paralyzed or falls asleep"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Blastoise",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hydro Pump",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Mirror Coat",
+        "color": "purple",
+        "size": 40,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked out if they spin purple."
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Lapras",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Pound",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Surf",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Sing",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Staraptor",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fly Away",
+        "color": "purple",
+        "size": 20,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This pokemon jumps over the battle opponent and lands on a surrounding point."
+      },
+      {
+        "name": "Brave Bird",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 80,
+        "effect": "This pokemon is knocked out if the opponent's attack deals more than half the damage this pokemon's attack deals."
+      },
+      {
+        "name": "Wing Attack",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Bronzong",
+    "rarity": "UC",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Confusion",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Extrasensory",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 80,
+        "effect": ""
+      },
+      {
+        "name": "Confuse Ray",
+        "color": "purple",
+        "size": 20,
+        "stars": 3,
+        "damage": 0,
+        "effect": "The battle opponent becomes confused."
+      },
+      {
+        "name": "Iron Defense",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This pokemon gains wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Sneasel",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 20,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Fake Out",
+        "color": "purple",
+        "size": 16,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This pokemon switches places with its battle opponent."
+      },
+      {
+        "name": "Fury Swipes",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 10,
+        "effect": "Spin again until Fury Swipes doesn't land - damage is multiplied by the number of fury swipes spins."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Turtwig",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Withdraw",
+        "color": "blue",
+        "size": 32,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This pokemon gains wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Mew",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Hyper Sonic",
+        "color": "gold",
+        "size": 48,
+        "stars": 0,
+        "damage": 30,
+        "effect": "If the battle opponent's Attack is 100 damage or more, this Pok\u00e9mon cannot be knocked out."
+      },
+      {
+        "name": "Shuttle Flip",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon can take 1-2 steps back"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Taillow",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Wing Attack",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 16,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Wing Attack",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Rayquaza",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fly",
+        "color": "purple",
+        "size": 28,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands 1-2 steps away."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Extreme Speed",
+        "color": "gold",
+        "size": 28,
+        "stars": 0,
+        "damage": 120,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Break Energy",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": "Your opponent's Energy Plate-based effects are lost"
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Tropius",
+    "rarity": "UC",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Razor Leaf",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Solar Beam",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 120,
+        "effect": ""
+      },
+      {
+        "name": "Razor Leaf",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Whirlwind",
+        "color": "purple",
+        "size": 20,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is moved to the bench and gains wait."
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "name": "Rattata",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 68,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "name": "Electabuzz",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Thunder Punch",
+        "color": "white",
+        "size": 60,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "name": "Tyranitar",
+    "rarity": "R",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Earthquake*",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 110,
+        "effect": "All pokemon on the field spin, except this one - if they spin a miss, they are knocked out"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "name": "Zygarde",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Land's Wrath",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Breath",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Extreme Speed",
+        "color": "gold",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Tentacruel",
+    "rarity": "R",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tentacle Sting",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 80,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes poisoned or paralyzed."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Mirror Coat",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked out if they spin purple."
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "name": "Snorlax",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Big Yawn",
+        "color": "purple",
+        "size": 36,
+        "stars": 1,
+        "damage": 0,
+        "effect": "This pokemon and the battle opponent fall asleep."
+      },
+      {
+        "name": "Body Slam",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Pound",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "name": "Bellsprout",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Sweet Scent",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "One pokemon within 3 steps is drawn 1-2 steps closer to this pokemon and gains Wait 1."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Sleep Powder",
+        "color": "purple",
+        "size": 20,
+        "stars": 1,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Vine Whip",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Voltorb",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      },
+      {
+        "name": "Explosion",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Spark",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "name": "Xatu",
+    "rarity": "UC",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Teleport",
+        "color": "purple",
+        "size": 48,
+        "stars": 3,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "name": "Chimchar",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fury Swipes",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 20,
+        "effect": "",
+        "multiply": true
+      },
+      {
+        "name": "Taunt",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "name": "Banette",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Night Shade",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Curse",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and its battle opponent gain a Curse marker."
+      },
+      {
+        "name": "Shadow Claw",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Haunter",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Eerie Light",
+        "color": "purple",
+        "size": 33,
+        "stars": 1,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 17,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Night Shade",
+        "color": "white",
+        "size": 42,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "name": "Keldeo",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Sacred Sword",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 51,
+        "effect": ""
+      },
+      {
+        "name": "Hydro Kick*",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": "Benches your battle opponent ( except when opponent has Fainted ). Your battle opponent must then Wait."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "name": "Giratina",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Shadow Claw",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 110,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "name": "Hariyama",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Slap Push",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Push Away",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Knocks the battle opponent back one space and takes the opponent's previous space."
+      },
+      {
+        "name": "Slap Push",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "name": "Diglett",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Feint Attack",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dig",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This pokemon moves through the battle opponent."
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "name": "Jigglypuff",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Lullaby",
+        "color": "purple",
+        "size": 36,
+        "stars": 1,
+        "damage": 0,
+        "effect": "All adjacent pokemon fall asleep."
+      },
+      {
+        "name": "Hyper Voice",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Double Slap",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 40,
+        "effect": "Spin again - if Double Slap is spun, it deals +20 damage."
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Mawile",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 8,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Vice Grip",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Trickery",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Shifts this pokemon's attack 2 segment clockwise."
+      },
+      {
+        "name": "Vice Grip",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Cyndaquil",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Xerneas",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Moonblast",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Geomancy",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Spin again until an Attack other than Geomancy is spun. Damage attacks do +50 damage"
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Moonblast",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fairy Mist",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "When this Pok\u00e9mon is on the field, your Fairy-type Pok\u00e9mon receive a +10 boost to attack damage"
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "name": "Yveltal",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Draining Wind",
+        "color": "purple",
+        "size": 20,
+        "stars": 3,
+        "damage": 0,
+        "effect": "One Pok\u00e9mon within 3 steps' range is drawn 1-2 steps closer to this Pok\u00e9mon and gains Wait."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Oblivion Wing",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dark Mist",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "When this Pok\u00e9mon is on the field, your Dark-type Pok\u00e9mon receive a +10 boost to attack damage"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "name": "Chesnaught",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Spiky Shield",
+        "color": "purple",
+        "size": 40,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 2 steps back and gains Wait 3"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hammer Arm",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 90,
+        "effect": "This Pok\u00e9mon gains Wait"
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Poliwhirl",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Water Gun",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Water Gun",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Hypnosis",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "name": "Quilladin",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Needle Arm",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": "The battle opponent gains Wait"
+      },
+      {
+        "name": "Mud Shot",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 40,
+        "effect": "Attach MP-1 marker to the battle opponent."
+      },
+      {
+        "name": "Needle Arm",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 60,
+        "effect": "The battle opponent gains Wait"
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "name": "Tentacool",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tentacle Barrage",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 40,
+        "effect": "This move's damage is boosted by the number of Pok\u00e9mon on the field that know moves that can cause Poison or Toxic status effect, plus 10. If this Pok\u00e9mon faints, the battle opponent will become Poisoned"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Poison Sting",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "name": "Pichu",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Shock",
+        "color": "white",
+        "size": 60,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 32,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "name": "Monferno",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Scratch",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Mid-air Strike",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 60,
+        "effect": "If the battle opponent is knocked out, this pokemon moves one step back and gains wait."
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "name": "Gyarados",
+    "rarity": "R",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hyper Beam",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 100,
+        "effect": "If the battle opponent is knocked out, the next turn is the opponent's."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Storm",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "All neighbor pokemon are moved to the bench and gain Wait."
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "name": "Greninja",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hydro Pump",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Water Shuriken*",
+        "color": "gold",
+        "size": 40,
+        "stars": 0,
+        "damage": 20,
+        "effect": "Spin again until Water Shuriken Attack does not land - damage is multiplied by the number of Water Shuriken Attack spins. An opponent Pokemon next to the target spins, and if it spins a Purple Attack then it is knocked out",
+        "multiply": true
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "name": "Sylveon",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Round",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 30,
+        "effect": "Damage is multiplied by the number of your own Pok\u00e9mon on the field that also have Round"
+      },
+      {
+        "name": "Moonblast",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 179,
+    "name": "Leafeon",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Leaf Blade",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Grass Whistle",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 186,
+    "name": "Rhyperior",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Rock Wrecker",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Knock out 1 of your opponent's Flying-type Pok\u00e9mon within 2 steps. (When using the Long Barrel plate: \"Knock out 1 of your opponent's Fire, Ice, Flying or Bug-type Pok\u00e9mon that are 2 or 3 steps away.)"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bulldozer",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon knocks the battle opponent one step back and claims its previous spot"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Rock Blast",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 100,
+        "effect": "Spin again until Rock Blast does not land - damage is multiplied by the number of Rock Blast spins",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "name": "Vaporeon",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Water Slide",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 1 step back and gains Wait"
+      },
+      {
+        "name": "Water Pulse",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 188,
+    "name": "Jolteon",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Jolt",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 28,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "name": "Garchomp",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Claw",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Rush",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Double Flight",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This pokemon jumps over the battle opponent and lands on a surrounding point. After moving, it may attack again."
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "name": "Empoleon",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Metal Claw",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Aqua Jet",
+        "color": "gold",
+        "size": 32,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hydro Pump",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 198,
+    "name": "Magikarp",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Splash",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Flail",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "name": "Natu",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 16,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Teleport",
+        "color": "purple",
+        "size": 16,
+        "stars": 3,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "MIss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 16,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Future Sight",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 203,
+    "name": "Lucario",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Aura Sphere",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "Either the battle opponent or a Pok\u00e9mon behind it in a straight line from this Pok\u00e9mon is knocked out."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Metal Claw",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 205,
+    "name": "Kakuna",
+    "rarity": "UC",
+    "mp": 0,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Hard Shell",
+        "color": "white",
+        "size": 64,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If this pokemon is knocked out, the battle opponent gains an MP -2 marker."
+      },
+      {
+        "name": "Poison Sting",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      }
+    ]
+  },
+  {
+    "id": 207,
+    "name": "Aggron",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Counter",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If the battle opponent's attack is above 20, the opponent is knocked out instead of this pokemon"
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This pokemon gains wait"
+      },
+      {
+        "name": "Metal Claw",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Iron Tail",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 208,
+    "name": "Infernape",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Drive Kick*",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 80,
+        "effect": "If the battle opponent is knocked out, this pokemon claims its previous spot and gains wait"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Mach Punch",
+        "color": "gold",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 211,
+    "name": "Gardevoir",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Wave Hole",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Moonblast",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Super Psy",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes confused."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 214,
+    "name": "Shiftry",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Pound",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Fan Away",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 1 step back and gains Wait."
+      },
+      {
+        "name": "Razor Wind",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 215,
+    "name": "Kirlia",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Moonblast",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Super Psy",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes confused."
+      },
+      {
+        "name": "Psycho Switch",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Benches the battle opponent. This pokemon switches with another of your pokemon from the field, bench, or P.C."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 217,
+    "name": "Ralts",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Confusion",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Imprison",
+        "color": "purple",
+        "size": 44,
+        "stars": 3,
+        "damage": 0,
+        "effect": "The battle opponent's attack is turned into a respin."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 220,
+    "name": "Exeggutor",
+    "rarity": "UC",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Barrage",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Stun Spore",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "MIss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 223,
+    "name": "Glaceon",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Tackle",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Diamond Dust",
+        "color": "purple",
+        "size": 24,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes frozen."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 225,
+    "name": "Weavile",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Taunt",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "If this pokemon or the opponent spin Purple, they must respin for the turn."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Ice Punch",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Ice Shard",
+        "color": "gold",
+        "size": 32,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 226,
+    "name": "Manaphy",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Manaphy's Song",
+        "color": "purple",
+        "size": 36,
+        "stars": 2,
+        "damage": 0,
+        "effect": "One other Water-type Pok\u00e9mon on the field (that is not asleep or frozen) may be moved within their MP range. That Pok\u00e9mon gains wait"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bubble",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 227,
+    "name": "Heatran",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Iron Head",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 110,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Crunch",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Magma Slide",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is knocked 2 steps back and becomes burned. The battle opponent now has Wait."
+      }
+    ]
+  },
+  {
+    "id": 230,
+    "name": "Torterra",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Earthquake",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 120,
+        "effect": "All Pok\u00e9mon on the field will spin their wheel. If is Misses, the Pok\u00e9mon is sent to the PC"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Withdraw",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 232,
+    "name": "Zekrom",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fly",
+        "color": "purple",
+        "size": 12,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands 1-2 steps away."
+      },
+      {
+        "name": "Bolt Strike",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 90,
+        "effect": "The battle opponent becomes paralyzed"
+      },
+      {
+        "name": "Fly",
+        "color": "purple",
+        "size": 12,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands 1-2 steps away."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fusion Bolt",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 70,
+        "effect": "If you have Reshiram on the field, and this Pok\u00e9mon is not affected by a special condition, exclude the Pok\u00e9mon knocked out by this Attack from the duel."
+      }
+    ]
+  },
+  {
+    "id": 233,
+    "name": "Raikou",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Thunderous Blow",
+        "color": "gold",
+        "size": 24,
+        "stars": 0,
+        "damage": 80,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 234,
+    "name": "Latios",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Luster Purge",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 120,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Breath",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "name": "Genesect",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Techno Blast",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Techno Charge",
+        "color": "purple",
+        "size": 24,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon must Wait. In exchange, it receives a damage boost of +50 until the end of its next battle"
+      }
+    ]
+  },
+  {
+    "id": 237,
+    "name": "Latias",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Fly away",
+        "color": "purple",
+        "size": 12,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This pokemon jumps over the battle opponent and lands on a surrounding point"
+      },
+      {
+        "name": "Mist Ball",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 110,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Breathe",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Fly Away",
+        "color": "purple",
+        "size": 12,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This pokemon jumps over the battle opponent and lands on a surrounding point"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 238,
+    "name": "Vigoroth",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Fury Swipes",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 30,
+        "effect": "Spin again until Fury Swipes doesn't land - damage is multiplied by the number of fury swipes spins.",
+        "multiply": true
+      },
+      {
+        "name": "Slash",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "name": "Sliggoo",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Flail",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Breath",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Flail",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Slippery Swap",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Swaps spot with the battke opponent."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 240,
+    "name": "Crobat",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Poison Fang",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": "If this Pok\u00e9mon is knocked out, the battle opponent becomes poisoned."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Noxious Fang",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If this Pok\u00e9mon is knocked out, the battle opponent becomes noxious"
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Poison Fang",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 20,
+        "effect": "If this Pok\u00e9mon is knocked out, the battle opponent becomes poisoned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Shuttle Flip",
+        "color": "blue",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 245,
+    "name": "Quilava",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Flamethrower",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, the battle opponent is burned."
+      },
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 246,
+    "name": "Braixen",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Light Screen",
+        "color": "purple",
+        "size": 48,
+        "stars": 3,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Flamethrower",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes burned."
+      }
+    ]
+  },
+  {
+    "id": 248,
+    "name": "Flareon",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Flamethrower",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes burned."
+      },
+      {
+        "name": "Focus Energy",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Spin again until an Attack other than Focus Energy is spun. Damage Attacks deal x2 damage.",
+        "multiply": true
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 249,
+    "name": "Arbok",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Glare",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Poison Fang",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If this pokemon is knocked out, the battle opponent is poisoned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 250,
+    "name": "Magmar",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Fire Punch*",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 50,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes burned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Confuse Ray",
+        "color": "purple",
+        "size": 28,
+        "stars": 3,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 251,
+    "name": "Shuppet",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Will-o-Wisp",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes burned"
+      },
+      {
+        "name": "Night Shade",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 10,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 253,
+    "name": "Delphox",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Flamethrower*",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 50,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes burned."
+      },
+      {
+        "name": "Hyperspace Hole",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent is moved 3 steps away from this pokemon."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fire Blast",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 255,
+    "name": "Charmeleon",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Searing Shot",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes burned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Iron Tail",
+        "color": "white",
+        "size": 56,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 256,
+    "name": "Umbreon",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Toxic",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Faint Attack",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 258,
+    "name": "Typhlosion",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Hot Air",
+        "color": "purple",
+        "size": 28,
+        "stars": 1,
+        "damage": 0,
+        "effect": "All neighbor pokemon become burned."
+      },
+      {
+        "name": "Ember",
+        "color": "white",
+        "size": 12,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fire Blast",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 261,
+    "name": "Reshiram",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fly",
+        "color": "purple",
+        "size": 12,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands 1-2 steps away."
+      },
+      {
+        "name": "Blue Flare",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 100,
+        "effect": "The battle opponent becomes burned"
+      },
+      {
+        "name": "Fly",
+        "color": "purple",
+        "size": 12,
+        "stars": 3,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon jumps over the battle opponent and lands 1-2 steps away."
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Fusion Flare",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 70,
+        "effect": "If you have Zekrom on the field, and this Pok\u00e9mon is not affected by a special condition, exclude the Pok\u00e9mon knocked out by this Attack from the duel."
+      }
+    ]
+  },
+  {
+    "id": 262,
+    "name": "Magmortar",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "MIss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Flame Gun",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Also knocks out one adjacent pokemon"
+      },
+      {
+        "name": "Fire Punch*",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 60,
+        "effect": "If this pokemon is knocked out, the battle opponent becomes burned."
+      }
+    ]
+  },
+  {
+    "id": 269,
+    "name": "Zapdos",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Steel Wing",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Thunder Crash",
+        "color": "gold",
+        "size": 32,
+        "stars": 0,
+        "damage": 100,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Roost",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Recovers from all staus effects, then the pokemon waits 3"
+      },
+      {
+        "name": "Thunder Charge",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are paralyzed, and the turn ends."
+      }
+    ]
+  },
+  {
+    "id": 271,
+    "name": "Moltres",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Steel Wing",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 60,
+        "effect": ""
+      },
+      {
+        "name": "Crushing Flames",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 110,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Roost",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Recovers from all staus effects, then the pokemon waits 3"
+      },
+      {
+        "name": "Flame Charge",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are burned, and the turn ends."
+      }
+    ]
+  },
+  {
+    "id": 273,
+    "name": "Floatzel",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Aqua Jet",
+        "color": "gold",
+        "size": 28,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Surf",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "name": "Articuno",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Steel Wing",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Cold Crush",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Roost",
+        "color": "blue",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": "Recovers from all staus effects, then the pokemon waits 3"
+      },
+      {
+        "name": "Ice Charge",
+        "color": "purple",
+        "size": 20,
+        "stars": 2,
+        "damage": 0,
+        "effect": "Adds a Charge Marker to this pokemon, which can be expended before you move the pokemon. When this is expended, the opposing pokemon, as well as any pokemon in the same row, are frozen, and the turn ends."
+      }
+    ]
+  },
+  {
+    "id": 280,
+    "name": "Dragonair",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Magnetic Storm",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon and all neigbour Pok\u00e9mon become Paralyzed"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dragon Tail",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 60,
+        "effect": "Benches your battle opponent (except when opponent has fainted). Your battle opponent must then Wait."
+      }
+    ]
+  },
+  {
+    "id": 282,
+    "name": "Grovyle",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 24,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Leaf Blade",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 70,
+        "effect": "Spin again - if Leaf Blade is spun, it deals +50 damage"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 283,
+    "name": "Sceptile",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Quick Attack",
+        "color": "gold",
+        "size": 20,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Leaf Blade",
+        "color": "white",
+        "size": 44,
+        "stars": 0,
+        "damage": 90,
+        "effect": "Spin again - if Leaf Blade is spun, it deals +50 damage"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Stealth Hit",
+        "color": "blue",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon can jump over its battle opponent and land 1 step away."
+      }
+    ]
+  },
+  {
+    "id": 298,
+    "name": "Whimsicott",
+    "rarity": "R",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Moonblast",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Cotton Guard",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "In this Pok\u00e9mon's next battle, it cannot be knocked out"
+      }
+    ]
+  },
+  {
+    "id": 299,
+    "name": "Petilil",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Grass Knot",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 30,
+        "effect": "If the battle opponent's Attack is 120 damage or higher, the opponent is knocked out instead of this Pok\u00e9mon."
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 35,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait"
+      },
+      {
+        "name": "Sleep Powder",
+        "color": "purple",
+        "size": 25,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      }
+    ]
+  },
+  {
+    "id": 300,
+    "name": "Lilligant",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Petal Dance",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 30,
+        "effect": "Spin again until Petal Dance does not land - damage is multiplied by the number of Petal Dance spins. This Pok\u00e9mon becomes confused.",
+        "multiply": true
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Sleep Powder",
+        "color": "purple",
+        "size": 32,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent falls asleep."
+      }
+    ]
+  },
+  {
+    "id": 308,
+    "name": "Reuniclus",
+    "rarity": "R",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Brain Link",
+        "color": "white",
+        "size": 32,
+        "stars": 0,
+        "damage": 50,
+        "effect": "Deals x2 damage if one of your own Reuniclus is within 2 steps of this Pok\u00e9mon"
+      },
+      {
+        "name": "Hyper Beam",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 120,
+        "effect": "If the battle opponent is knocked out, the next turn will always be the other player's"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Confuse Ray",
+        "color": "purple",
+        "size": 24,
+        "stars": 3,
+        "damage": 0,
+        "effect": "The battle opponent becomes confused"
+      }
+    ]
+  },
+  {
+    "id": 309,
+    "name": "Joltik",
+    "rarity": "UC",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Leech Life",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 30,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Electric Thread",
+        "color": "purple",
+        "size": 36,
+        "stars": 2,
+        "damage": 0,
+        "effect": "The battle opponent becomes paralyzed. The battle opponent gains Wait 3"
+      }
+    ]
+  },
+  {
+    "id": 318,
+    "name": "Virizion",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Grass Knot",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 40,
+        "effect": "If the battle opponent's Attack is 120 damage or higher, the opponent is knocked out instead of this Pok\u00e9mon."
+      },
+      {
+        "name": "Sword of Justice",
+        "color": "white",
+        "size": 36,
+        "stars": 0,
+        "damage": 101,
+        "effect": ""
+      },
+      {
+        "name": "Typhoon Slash",
+        "color": "purple",
+        "size": 28,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon may switch places with its battle opponent."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 323,
+    "name": "Phantump",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 24,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait"
+      },
+      {
+        "name": "Confuse Ray",
+        "color": "purple",
+        "size": 28,
+        "stars": 3,
+        "damage": 0,
+        "effect": "The battle opponent becomes confused."
+      },
+      {
+        "name": "Feint Attack",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 324,
+    "name": "Trevenant",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Manipulative",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": "One other Grass-type Pok\u00e9mon on the field (that is not frozen) may be moved within its MP range. The moved Pok\u00e9mon gains Wait. If the moved Pok\u00e9mon is one of the opponent's Pok\u00e9mon, that Pok\u00e9mon falls asleep."
+      },
+      {
+        "name": "Destiny Bond",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If this Pok\u00e9mon is knocked out, so is the battle opponent"
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 4,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Smash",
+        "color": "white",
+        "size": 40,
+        "stars": 0,
+        "damage": 110,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 3861,
+    "name": "Deoxys-S",
+    "rarity": "EX",
+    "mp": 3,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Extreme Speed",
+        "color": "gold",
+        "size": 28,
+        "stars": 0,
+        "damage": 20,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 52,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 3862,
+    "name": "Deoxys-N",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Psycho Boost",
+        "color": "white",
+        "size": 24,
+        "stars": 0,
+        "damage": 90,
+        "effect": ""
+      },
+      {
+        "name": "Psychic",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 50,
+        "effect": ""
+      },
+      {
+        "name": "Evade",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Teleport",
+        "color": "purple",
+        "size": 24,
+        "stars": 2,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon moves 2 steps away"
+      }
+    ]
+  },
+  {
+    "id": 3863,
+    "name": "Deoxys-A",
+    "rarity": "EX",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psycho Boost",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 130,
+        "effect": ""
+      },
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Dimensional Slip",
+        "color": "purple",
+        "size": 32,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  },
+  {
+    "id": 3864,
+    "name": "Deoxys-D",
+    "rarity": "EX",
+    "mp": 1,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Dodge",
+        "color": "blue",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Psycho Barrier",
+        "color": "purple",
+        "size": 60,
+        "stars": 2,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 8,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Counter",
+        "color": "white",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "If the battle opponent's Attack is above 20, the battle opponent is knocked out instead."
+      }
+    ]
+  },
+  {
+    "id": 9001,
+    "name": "Deino",
+    "rarity": "UC",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 16,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Bite",
+        "color": "white",
+        "size": 48,
+        "stars": 0,
+        "damage": 40,
+        "effect": ""
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 12,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      },
+      {
+        "name": "Protect",
+        "color": "blue",
+        "size": 20,
+        "stars": 0,
+        "damage": 0,
+        "effect": "This Pok\u00e9mon gains Wait."
+      }
+    ]
+  },
+  {
+    "id": 9002,
+    "name": "Nidoran\u2642",
+    "rarity": "C",
+    "mp": 2,
+    "ability": null,
+    "wheel": [
+      {
+        "name": "Poison Kick*",
+        "color": "white",
+        "size": 28,
+        "stars": 0,
+        "damage": 40,
+        "effect": "* If this Pok\u00e9mon is knocked out, the battle opponent becomes poisoned."
+      },
+      {
+        "name": "Horn Attack",
+        "color": "white",
+        "size": 16,
+        "stars": 0,
+        "damage": 70,
+        "effect": ""
+      },
+      {
+        "name": "Poison Sting",
+        "color": "purple",
+        "size": 24,
+        "stars": 1,
+        "damage": 0,
+        "effect": "The battle opponent becomes poisoned."
+      },
+      {
+        "name": "Miss",
+        "color": "miss",
+        "size": 28,
+        "stars": 0,
+        "damage": 0,
+        "effect": ""
+      }
+    ]
+  }
+]

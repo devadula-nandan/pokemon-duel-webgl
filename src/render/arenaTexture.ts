@@ -1,0 +1,220 @@
+import * as THREE from 'three';
+
+/** Procedural rocky / volcanic arena albedo — multi-scale detail, no external assets. */
+export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+
+  // Base
+  ctx.fillStyle = '#22140e';
+  ctx.fillRect(0, 0, size, size);
+
+  // Macro color blotches (large rock plates)
+  for (let i = 0; i < 140; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const r = (0.04 + Math.random() * 0.12) * size;
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    const tone = 26 + Math.floor(Math.random() * 40);
+    const warm = Math.floor(Math.random() * 22);
+    g.addColorStop(0, `rgba(${tone + warm},${tone - 2},${tone - 8},0.5)`);
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Mid-scale mottling
+  for (let i = 0; i < 420; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const r = (0.008 + Math.random() * 0.028) * size;
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    const t = 20 + Math.floor(Math.random() * 55);
+    const a = 0.12 + Math.random() * 0.28;
+    g.addColorStop(0, `rgba(${t + 10},${t},${t - 6},${a})`);
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Multi-octave noise grain (fine surface detail)
+  const img = ctx.getImageData(0, 0, size, size);
+  const d = img.data;
+  const seed = (Math.random() * 1e9) | 0;
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const i = (y * size + x) * 4;
+      const n =
+        fbm2(x * 0.045, y * 0.045, seed) * 22 +
+        fbm2(x * 0.14, y * 0.14, seed + 17) * 14 +
+        fbm2(x * 0.55, y * 0.55, seed + 31) * 8 +
+        (hash2(x, y, seed + 99) - 0.5) * 10;
+      d[i] = clampByte(d[i] + n + 3);
+      d[i + 1] = clampByte(d[i + 1] + n * 0.92);
+      d[i + 2] = clampByte(d[i + 2] + n * 0.78 - 2);
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+
+  // Deep fissures
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  for (let i = 0; i < 90; i++) {
+    strokeCrack(ctx, size, 2.2 + Math.random() * 3.5, 0.22 + Math.random() * 0.3, true);
+  }
+  // Fine hairline cracks
+  for (let i = 0; i < 220; i++) {
+    strokeCrack(ctx, size, 0.6 + Math.random() * 1.4, 0.1 + Math.random() * 0.18, false);
+  }
+
+  // Dense grit / pebbles (micro + small)
+  for (let i = 0; i < 1800; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const r = 0.4 + Math.random() * 2.8;
+    ctx.beginPath();
+    ctx.ellipse(
+      x,
+      y,
+      r,
+      r * (0.45 + Math.random() * 0.7),
+      Math.random() * Math.PI,
+      0,
+      Math.PI * 2,
+    );
+    const lit = Math.random() > 0.55;
+    ctx.fillStyle = lit
+      ? `rgba(${55 + Math.random() * 55},${40 + Math.random() * 35},${28 + Math.random() * 22},${0.2 + Math.random() * 0.35})`
+      : `rgba(${12 + Math.random() * 20},${8 + Math.random() * 14},${5 + Math.random() * 10},${0.25 + Math.random() * 0.4})`;
+    ctx.fill();
+  }
+
+  // Speck highlight dust
+  for (let i = 0; i < 900; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    ctx.fillStyle = `rgba(210,160,110,${0.04 + Math.random() * 0.1})`;
+    ctx.fillRect(x, y, 1, 1);
+  }
+
+  // Soft vignette
+  const vig = ctx.createRadialGradient(size / 2, size / 2, size * 0.18, size / 2, size / 2, size * 0.74);
+  vig.addColorStop(0, 'rgba(0,0,0,0)');
+  vig.addColorStop(0.7, 'rgba(0,0,0,0.12)');
+  vig.addColorStop(1, 'rgba(0,0,0,0.5)');
+  ctx.fillStyle = vig;
+  ctx.fillRect(0, 0, size, size);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.wrapS = THREE.ClampToEdgeWrapping;
+  tex.wrapT = THREE.ClampToEdgeWrapping;
+  tex.anisotropy = 16;
+  tex.generateMipmaps = true;
+  tex.minFilter = THREE.LinearMipmapLinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.needsUpdate = true;
+  return tex;
+}
+
+/** Matching roughness map: brighter = rougher. */
+export function createArenaRoughnessTexture(size = 1024): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const img = ctx.createImageData(size, size);
+  const d = img.data;
+  const seed = (Math.random() * 1e9) | 0;
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const i = (y * size + x) * 4;
+      const n =
+        fbm2(x * 0.05, y * 0.05, seed) * 0.45 +
+        fbm2(x * 0.2, y * 0.2, seed + 7) * 0.35 +
+        hash2(x, y, seed) * 0.2;
+      const v = clampByte(110 + n * 130);
+      d[i] = d[i + 1] = d[i + 2] = v;
+      d[i + 3] = 255;
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.wrapS = THREE.ClampToEdgeWrapping;
+  tex.wrapT = THREE.ClampToEdgeWrapping;
+  tex.anisotropy = 8;
+  tex.needsUpdate = true;
+  return tex;
+}
+
+function strokeCrack(
+  ctx: CanvasRenderingContext2D,
+  size: number,
+  width: number,
+  alpha: number,
+  ember: boolean,
+) {
+  let x = Math.random() * size;
+  let y = Math.random() * size;
+  const segs = 4 + Math.floor(Math.random() * 8);
+  const step = size * (0.012 + Math.random() * 0.03);
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  for (let s = 0; s < segs; s++) {
+    x += (Math.random() - 0.5) * step * 2;
+    y += (Math.random() - 0.5) * step * 2;
+    ctx.lineTo(x, y);
+  }
+  ctx.strokeStyle = `rgba(6,3,2,${alpha})`;
+  ctx.lineWidth = width;
+  ctx.stroke();
+  if (ember && Math.random() > 0.55) {
+    ctx.strokeStyle = `rgba(190,75,28,${0.05 + Math.random() * 0.09})`;
+    ctx.lineWidth = Math.max(0.5, width * 0.35);
+    ctx.stroke();
+  }
+}
+
+function hash2(x: number, y: number, seed: number) {
+  let n = (x * 374761393 + y * 668265263 + seed * 1274126177) | 0;
+  n = (n ^ (n >>> 13)) * 1274126177;
+  n = n ^ (n >>> 16);
+  return (n >>> 0) / 4294967295;
+}
+
+function smoothNoise(x: number, y: number, seed: number) {
+  const x0 = Math.floor(x);
+  const y0 = Math.floor(y);
+  const fx = x - x0;
+  const fy = y - y0;
+  const ux = fx * fx * (3 - 2 * fx);
+  const uy = fy * fy * (3 - 2 * fy);
+  const a = hash2(x0, y0, seed);
+  const b = hash2(x0 + 1, y0, seed);
+  const c = hash2(x0, y0 + 1, seed);
+  const d = hash2(x0 + 1, y0 + 1, seed);
+  return a + (b - a) * ux + (c - a) * uy + (a - b - c + d) * ux * uy;
+}
+
+function fbm2(x: number, y: number, seed: number) {
+  let v = 0;
+  let amp = 0.5;
+  let freq = 1;
+  for (let i = 0; i < 4; i++) {
+    v += smoothNoise(x * freq, y * freq, seed + i * 101) * amp;
+    amp *= 0.5;
+    freq *= 2;
+  }
+  return v * 2 - 1;
+}
+
+function clampByte(n: number) {
+  return Math.max(0, Math.min(255, Math.round(n)));
+}
