@@ -1,14 +1,21 @@
 import type { DuelEngine } from './engine';
 import { goalNode, entryNodes } from './board';
 import { canInitiateBattle, canMove } from './combat';
+import {
+  PLATE_BY_ID,
+  canUsePlatesNow,
+  platesFor,
+  validTargets,
+} from './plates';
 
 export type AiAction =
   | { type: 'move'; pieceUid: string; targetNode: string }
   | { type: 'battle'; pieceUid: string; battleUid: string }
   | { type: 'heal'; pieceUid: string; targetUid: string }
+  | { type: 'plate'; instanceId: string; targets: string[] }
   | { type: 'end' };
 
-/** Tactical AI respecting move-then-battle turn structure. */
+/** Tactical AI respecting move-then-battle turn structure + plates. */
 export function pickAiAction(engine: DuelEngine): AiAction | null {
   const turn = engine.state.turn;
   const goal = goalNode(engine.board.nodes, turn);
@@ -17,7 +24,12 @@ export function pickAiAction(engine: DuelEngine): AiAction | null {
     turn === 'player' ? 'opponent' : 'player',
   );
 
-  // Post-move: battle if good, else end
+  // Prefer a plate at turn start when useful
+  if (canUsePlatesNow(engine, turn)) {
+    const plateAct = pickPlate(engine, turn);
+    if (plateAct) return plateAct;
+  }
+
   if (engine.state.turnStep === 'post-move' && engine.state.movedUid) {
     const piece = engine.piece(engine.state.movedUid)!;
     engine.selectPiece(piece.uid);
@@ -43,7 +55,6 @@ export function pickAiAction(engine: DuelEngine): AiAction | null {
   const mine = engine.activePieces(turn).filter((p) => p.wait === 0);
 
   for (const piece of mine) {
-    // Heal
     if (piece.location === 'field') {
       engine.selectPiece(piece.uid);
       for (const ally of engine.adjacentAlliesNeedingHeal(piece.uid)) {
@@ -54,7 +65,6 @@ export function pickAiAction(engine: DuelEngine): AiAction | null {
       }
     }
 
-    // Battle without moving
     if (piece.location === 'field' && canInitiateBattle(piece)) {
       engine.selectPiece(piece.uid);
       for (const enemy of engine.adjacentEnemies(piece.uid)) {
@@ -68,7 +78,6 @@ export function pickAiAction(engine: DuelEngine): AiAction | null {
       }
     }
 
-    // Move
     if (!canMove(piece)) continue;
     engine.selectPiece(piece.uid);
     for (const node of engine.state.legalMoves) {
@@ -88,7 +97,6 @@ export function pickAiAction(engine: DuelEngine): AiAction | null {
       }
       if (piece.location === 'bench') score += piece.baseMp * 12;
 
-      // Prefer ending adjacent to enemies for follow-up battle
       const tmpNeighbors = (engine.board.edges.get(node) || []).filter((n) => {
         const occ = engine.piecesAt(n)[0];
         return occ && occ.owner !== turn;
@@ -105,5 +113,83 @@ export function pickAiAction(engine: DuelEngine): AiAction | null {
   engine.selectPiece(null);
   if (!cands.length) return null;
   cands.sort((a, b) => b.score - a.score);
+  return cands[0].action;
+}
+
+function pickPlate(engine: DuelEngine, turn: 'player' | 'opponent'): AiAction | null {
+  const plates = platesFor(engine, turn).filter((p) => !p.used);
+  type Cand = { score: number; action: AiAction };
+  const cands: Cand[] = [];
+
+  for (const inst of plates) {
+    const def = PLATE_BY_ID.get(inst.plateId);
+    if (!def) continue;
+    const targets = validTargets(engine, turn, def.targeting, def);
+
+    if (def.effectId === 'full_heal' || def.effectId === 'antidote' || def.effectId === 'awakening') {
+      for (const uid of targets) {
+        const p = engine.piece(uid);
+        if (p && p.statuses.length) {
+          cands.push({
+            score: 40 + p.statuses.length * 15,
+            action: { type: 'plate', instanceId: inst.instanceId, targets: [uid] },
+          });
+        }
+      }
+    }
+    if (def.effectId === 'x_attack' && targets.length) {
+      const best = targets
+        .map((uid) => engine.piece(uid)!)
+        .filter(Boolean)
+        .sort((a, b) => b.baseMp - a.baseMp)[0];
+      if (best) {
+        cands.push({
+          score: 28,
+          action: { type: 'plate', instanceId: inst.instanceId, targets: [best.uid] },
+        });
+      }
+    }
+    if (def.effectId === 'long_throw' && targets.length) {
+      cands.push({
+        score: 22,
+        action: { type: 'plate', instanceId: inst.instanceId, targets: [targets[0]] },
+      });
+    }
+    if (def.effectId === 'hurdle_jump') {
+      for (const jumperUid of targets) {
+        const hurdles = validTargets(engine, turn, def.targeting, def, {
+          stepFirstUid: jumperUid,
+        });
+        if (!hurdles.length) continue;
+        cands.push({
+          score: 45,
+          action: {
+            type: 'plate',
+            instanceId: inst.instanceId,
+            targets: [jumperUid, hurdles[0]],
+          },
+        });
+      }
+    }
+    if (def.effectId === 'max_revive' && targets.length) {
+      cands.push({
+        score: 45,
+        action: { type: 'plate', instanceId: inst.instanceId, targets: [targets[0]] },
+      });
+    }
+    if (def.targeting === 'none') {
+      if (def.effectId === 'priority_recovery' && engine.pcQueue(turn).length >= 2) {
+        cands.push({
+          score: 30,
+          action: { type: 'plate', instanceId: inst.instanceId, targets: [] },
+        });
+      }
+    }
+  }
+
+  if (!cands.length) return null;
+  cands.sort((a, b) => b.score - a.score);
+  // Only use plate if score is competitive
+  if (cands[0].score < 28) return null;
   return cands[0].action;
 }

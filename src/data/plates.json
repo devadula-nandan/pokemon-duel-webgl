@@ -1,0 +1,246 @@
+[
+  {
+    "id": 1,
+    "name": "Long Throw",
+    "rarity": "EX",
+    "cost": 2,
+    "endsTurn": true,
+    "targeting": "own-bench",
+    "effectId": "long_throw",
+    "description": "Move one Pokémon from your bench to one space away from your entry point. Your turn ends."
+  },
+  {
+    "id": 2,
+    "name": "Bright Powder",
+    "rarity": "EX",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "bright_powder",
+    "description": "Choose one of your Pokémon on the field. For this turn, you can make any battle opponent of this Pokémon spin again once."
+  },
+  {
+    "id": 5,
+    "name": "Max Revive",
+    "rarity": "R",
+    "cost": 2,
+    "endsTurn": false,
+    "targeting": "own-pc",
+    "effectId": "max_revive",
+    "description": "Choose one of your Pokémon in the P.C. Move that Pokémon to the bench (no Wait)."
+  },
+  {
+    "id": 7,
+    "name": "Double Chance",
+    "rarity": "R",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-any",
+    "effectId": "double_chance",
+    "description": "Choose a Pokémon on the field or bench. For this turn, you can choose to respin once for it."
+  },
+  {
+    "id": 9,
+    "name": "Focus Band",
+    "rarity": "R",
+    "cost": 2,
+    "endsTurn": false,
+    "targeting": "own-any",
+    "effectId": "focus_band",
+    "description": "Select a Pokémon on the field or bench. This turn, it cannot be knocked out by attacks."
+  },
+  {
+    "id": 10,
+    "name": "Full Heal",
+    "rarity": "R",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "full_heal",
+    "description": "Choose one of your Pokémon on the field. Remove all special conditions (excludes Wait)."
+  },
+  {
+    "id": 11,
+    "name": "Scoop Up",
+    "rarity": "UC",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "scoop_up",
+    "description": "Choose one of your Pokémon on the field. Return it to the bench."
+  },
+  {
+    "id": 12,
+    "name": "X Attack",
+    "rarity": "UC",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-any",
+    "effectId": "x_attack",
+    "description": "Choose one of your Pokémon on the field or bench. For this turn, it deals +30 damage."
+  },
+  {
+    "id": 13,
+    "name": "Pokémon Switch",
+    "rarity": "UC",
+    "cost": 1,
+    "endsTurn": true,
+    "targeting": "own-switch",
+    "effectId": "pokemon_switch",
+    "description": "Choose two of your Pokémon on the field or bench and switch their positions. Your turn ends."
+  },
+  {
+    "id": 14,
+    "name": "Swap Spot",
+    "rarity": "UC",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field-pair",
+    "effectId": "swap_spot",
+    "description": "Switch 1 of your Pokémon with another of your Pokémon on the field."
+  },
+  {
+    "id": 15,
+    "name": "X Defend",
+    "rarity": "UC",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-any",
+    "effectId": "x_defend",
+    "description": "For this turn, if the opponent deals 10–100 damage in battle, this Pokémon will not be knocked out."
+  },
+  {
+    "id": 18,
+    "name": "Priority Recovery",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": true,
+    "targeting": "none",
+    "effectId": "priority_recovery",
+    "description": "Switch the order of your Pokémon in the P.C. Your turn ends."
+  },
+  {
+    "id": 20,
+    "name": "Awakening",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "awakening",
+    "description": "Choose one of your Pokémon on the field. That Pokémon is no longer asleep."
+  },
+  {
+    "id": 21,
+    "name": "Paralyz Heal",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "paralyze_heal",
+    "description": "Choose one of your Pokémon on the field. That Pokémon is no longer paralyzed."
+  },
+  {
+    "id": 22,
+    "name": "Confuse Heal",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "confuse_heal",
+    "description": "Choose one of your Pokémon on the field. That Pokémon is no longer confused."
+  },
+  {
+    "id": 23,
+    "name": "Antidote",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "antidote",
+    "description": "Choose one of your Pokémon on the field. That Pokémon is no longer poisoned or noxious."
+  },
+  {
+    "id": 56,
+    "name": "Goal Block",
+    "rarity": "R",
+    "cost": 2,
+    "endsTurn": true,
+    "targeting": "own-field",
+    "effectId": "goal_block",
+    "description": "Choose one of your Pokémon on the field and move it to your goal point if open. Your turn ends."
+  },
+  {
+    "id": 80,
+    "name": "Ice Heal",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "ice_heal",
+    "description": "Choose one of your Pokémon on the field. That Pokémon is no longer frozen."
+  },
+  {
+    "id": 90,
+    "name": "Burn Heal",
+    "rarity": "C",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "burn_heal",
+    "description": "Choose one of your Pokémon on the field. That Pokémon is no longer burned."
+  },
+  {
+    "id": 91,
+    "name": "X Speed",
+    "rarity": "R",
+    "cost": 1,
+    "endsTurn": false,
+    "targeting": "own-any",
+    "effectId": "x_speed",
+    "description": "For this turn, one of this Pokémon's White Attacks will be changed to a Gold Attack before battle."
+  },
+  {
+    "id": 41,
+    "name": "Hurdle Jump",
+    "rarity": "UC",
+    "cost": 2,
+    "endsTurn": true,
+    "targeting": "hurdle-jump",
+    "effectId": "hurdle_jump",
+    "description": "Choose one of your Pokémon on the field and move it over a connected Pokémon. Your turn ends."
+  },
+  {
+    "id": 3,
+    "name": "Recycle",
+    "rarity": "EX",
+    "cost": 2,
+    "endsTurn": true,
+    "targeting": "none",
+    "effectId": "recycle",
+    "description": "All Plates from both players except Recycle become usable. Your turn ends."
+  },
+  {
+    "id": 344,
+    "name": "Salamencite",
+    "rarity": "EX",
+    "cost": 2,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "mega_evolve",
+    "description": "Mega Evolve your Salamence on the field for 7 turns (none of your Pokémon may already be Mega Evolved).",
+    "megaSpecies": "Salamence",
+    "megaTurns": 7
+  },
+  {
+    "id": 345,
+    "name": "Charizardite X",
+    "rarity": "EX",
+    "cost": 2,
+    "endsTurn": false,
+    "targeting": "own-field",
+    "effectId": "mega_evolve",
+    "description": "Mega Evolve your Charizard on the field for 7 turns.",
+    "megaSpecies": "Charizard",
+    "megaTurns": 7
+  }
+]

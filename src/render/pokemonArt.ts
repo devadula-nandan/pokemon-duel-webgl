@@ -261,12 +261,24 @@ function loadImage(url: string): Promise<HTMLImageElement | null> {
 }
 
 async function fetchPokemonImage(name: string): Promise<HTMLImageElement | null> {
-  const id = DEX[name];
+  const id = dexIdFor(name);
   if (!id) return null;
   return (
     (await loadImage(`${ART_BASE}/${id}.png`)) ||
     (await loadImage(`${SPRITE_BASE}/${id}.png`))
   );
+}
+
+/** National Dex id for a figure name, if known. */
+export function dexIdFor(name: string): number | undefined {
+  return DEX[name];
+}
+
+/** Official-artwork CDN URL for UI `<img>` tags (null if unknown). */
+export function pokemonArtUrl(name: string): string | null {
+  const id = dexIdFor(name);
+  if (!id) return null;
+  return `${ART_BASE}/${id}.png`;
 }
 
 /** Transparent Pokémon art for inside a glass orb. Cached per name. */

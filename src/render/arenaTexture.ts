@@ -1,14 +1,20 @@
 import * as THREE from 'three';
 
-/** Procedural rocky / volcanic arena albedo — multi-scale detail, no external assets. */
-export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
+export type ArenaTheme = 'dark' | 'light';
+
+/** Procedural rocky arena albedo — multi-scale detail, no external assets. */
+export function createArenaFloorTexture(
+  size = 2048,
+  theme: ArenaTheme = 'dark',
+): THREE.CanvasTexture {
   const canvas = document.createElement('canvas');
   canvas.width = size;
   canvas.height = size;
   const ctx = canvas.getContext('2d')!;
+  const day = theme === 'light';
 
   // Base
-  ctx.fillStyle = '#22140e';
+  ctx.fillStyle = day ? '#c8b8a0' : '#22140e';
   ctx.fillRect(0, 0, size, size);
 
   // Macro color blotches (large rock plates)
@@ -17,9 +23,15 @@ export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
     const y = Math.random() * size;
     const r = (0.04 + Math.random() * 0.12) * size;
     const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    const tone = 26 + Math.floor(Math.random() * 40);
-    const warm = Math.floor(Math.random() * 22);
-    g.addColorStop(0, `rgba(${tone + warm},${tone - 2},${tone - 8},0.5)`);
+    if (day) {
+      const tone = 170 + Math.floor(Math.random() * 45);
+      const warm = Math.floor(Math.random() * 28);
+      g.addColorStop(0, `rgba(${tone + warm},${tone + 4},${tone - 18},0.45)`);
+    } else {
+      const tone = 26 + Math.floor(Math.random() * 40);
+      const warm = Math.floor(Math.random() * 22);
+      g.addColorStop(0, `rgba(${tone + warm},${tone - 2},${tone - 8},0.5)`);
+    }
     g.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = g;
     ctx.beginPath();
@@ -33,9 +45,15 @@ export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
     const y = Math.random() * size;
     const r = (0.008 + Math.random() * 0.028) * size;
     const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    const t = 20 + Math.floor(Math.random() * 55);
-    const a = 0.12 + Math.random() * 0.28;
-    g.addColorStop(0, `rgba(${t + 10},${t},${t - 6},${a})`);
+    if (day) {
+      const t = 150 + Math.floor(Math.random() * 55);
+      const a = 0.1 + Math.random() * 0.22;
+      g.addColorStop(0, `rgba(${t + 18},${t + 6},${t - 12},${a})`);
+    } else {
+      const t = 20 + Math.floor(Math.random() * 55);
+      const a = 0.12 + Math.random() * 0.28;
+      g.addColorStop(0, `rgba(${t + 10},${t},${t - 6},${a})`);
+    }
     g.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = g;
     ctx.beginPath();
@@ -55,9 +73,15 @@ export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
         fbm2(x * 0.14, y * 0.14, seed + 17) * 14 +
         fbm2(x * 0.55, y * 0.55, seed + 31) * 8 +
         (hash2(x, y, seed + 99) - 0.5) * 10;
-      d[i] = clampByte(d[i] + n + 3);
-      d[i + 1] = clampByte(d[i + 1] + n * 0.92);
-      d[i + 2] = clampByte(d[i + 2] + n * 0.78 - 2);
+      if (day) {
+        d[i] = clampByte(d[i] + n * 0.85 + 4);
+        d[i + 1] = clampByte(d[i + 1] + n * 0.75 + 2);
+        d[i + 2] = clampByte(d[i + 2] + n * 0.55 - 6);
+      } else {
+        d[i] = clampByte(d[i] + n + 3);
+        d[i + 1] = clampByte(d[i + 1] + n * 0.92);
+        d[i + 2] = clampByte(d[i + 2] + n * 0.78 - 2);
+      }
     }
   }
   ctx.putImageData(img, 0, 0);
@@ -65,12 +89,27 @@ export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
   // Deep fissures
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
+  const crackInk = day ? '90,65,40' : '6,3,2';
   for (let i = 0; i < 90; i++) {
-    strokeCrack(ctx, size, 2.2 + Math.random() * 3.5, 0.22 + Math.random() * 0.3, true);
+    strokeCrack(
+      ctx,
+      size,
+      2.2 + Math.random() * 3.5,
+      day ? 0.12 + Math.random() * 0.18 : 0.22 + Math.random() * 0.3,
+      !day,
+      crackInk,
+    );
   }
   // Fine hairline cracks
   for (let i = 0; i < 220; i++) {
-    strokeCrack(ctx, size, 0.6 + Math.random() * 1.4, 0.1 + Math.random() * 0.18, false);
+    strokeCrack(
+      ctx,
+      size,
+      0.6 + Math.random() * 1.4,
+      day ? 0.06 + Math.random() * 0.1 : 0.1 + Math.random() * 0.18,
+      false,
+      crackInk,
+    );
   }
 
   // Dense grit / pebbles (micro + small)
@@ -89,9 +128,15 @@ export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
       Math.PI * 2,
     );
     const lit = Math.random() > 0.55;
-    ctx.fillStyle = lit
-      ? `rgba(${55 + Math.random() * 55},${40 + Math.random() * 35},${28 + Math.random() * 22},${0.2 + Math.random() * 0.35})`
-      : `rgba(${12 + Math.random() * 20},${8 + Math.random() * 14},${5 + Math.random() * 10},${0.25 + Math.random() * 0.4})`;
+    if (day) {
+      ctx.fillStyle = lit
+        ? `rgba(${200 + Math.random() * 40},${185 + Math.random() * 30},${150 + Math.random() * 25},${0.18 + Math.random() * 0.3})`
+        : `rgba(${120 + Math.random() * 40},${100 + Math.random() * 30},${70 + Math.random() * 25},${0.15 + Math.random() * 0.28})`;
+    } else {
+      ctx.fillStyle = lit
+        ? `rgba(${55 + Math.random() * 55},${40 + Math.random() * 35},${28 + Math.random() * 22},${0.2 + Math.random() * 0.35})`
+        : `rgba(${12 + Math.random() * 20},${8 + Math.random() * 14},${5 + Math.random() * 10},${0.25 + Math.random() * 0.4})`;
+    }
     ctx.fill();
   }
 
@@ -99,15 +144,23 @@ export function createArenaFloorTexture(size = 2048): THREE.CanvasTexture {
   for (let i = 0; i < 900; i++) {
     const x = Math.random() * size;
     const y = Math.random() * size;
-    ctx.fillStyle = `rgba(210,160,110,${0.04 + Math.random() * 0.1})`;
+    ctx.fillStyle = day
+      ? `rgba(255,245,220,${0.05 + Math.random() * 0.12})`
+      : `rgba(210,160,110,${0.04 + Math.random() * 0.1})`;
     ctx.fillRect(x, y, 1, 1);
   }
 
   // Soft vignette
   const vig = ctx.createRadialGradient(size / 2, size / 2, size * 0.18, size / 2, size / 2, size * 0.74);
-  vig.addColorStop(0, 'rgba(0,0,0,0)');
-  vig.addColorStop(0.7, 'rgba(0,0,0,0.12)');
-  vig.addColorStop(1, 'rgba(0,0,0,0.5)');
+  if (day) {
+    vig.addColorStop(0, 'rgba(0,0,0,0)');
+    vig.addColorStop(0.65, 'rgba(140,110,80,0.06)');
+    vig.addColorStop(1, 'rgba(100,78,55,0.28)');
+  } else {
+    vig.addColorStop(0, 'rgba(0,0,0,0)');
+    vig.addColorStop(0.7, 'rgba(0,0,0,0.12)');
+    vig.addColorStop(1, 'rgba(0,0,0,0.5)');
+  }
   ctx.fillStyle = vig;
   ctx.fillRect(0, 0, size, size);
 
@@ -160,6 +213,7 @@ function strokeCrack(
   width: number,
   alpha: number,
   ember: boolean,
+  inkRgb: string,
 ) {
   let x = Math.random() * size;
   let y = Math.random() * size;
@@ -172,7 +226,7 @@ function strokeCrack(
     y += (Math.random() - 0.5) * step * 2;
     ctx.lineTo(x, y);
   }
-  ctx.strokeStyle = `rgba(6,3,2,${alpha})`;
+  ctx.strokeStyle = `rgba(${inkRgb},${alpha})`;
   ctx.lineWidth = width;
   ctx.stroke();
   if (ember && Math.random() > 0.55) {

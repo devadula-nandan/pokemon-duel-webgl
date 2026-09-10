@@ -5,6 +5,7 @@ import type { BoardNode, Piece, PlayerId } from '../game/types';
 import {
   createMpBadgeTexture,
   createNameBandTexture,
+  createStatusIconsTexture,
   createWaitBadgeTexture,
 } from './token';
 import { pokemonColor } from './pokemonColor';
@@ -15,6 +16,8 @@ import {
 } from './pokemonArt';
 import { createArenaFloorTexture, createArenaRoughnessTexture } from './arenaTexture';
 import { createWoodBumpTexture, createWoodTexture } from './woodTexture';
+import { MatchHud3D } from './MatchHud3D';
+import { entryNodes, shortestPath, shortestPathFromBench } from '../game/board';
 
 /** Rocky arena floor Y. */
 export const FLOOR_Y = -0.08;
@@ -24,21 +27,33 @@ export const BOARD_THICK = 0.11;
 export const BOARD_TOP = FLOOR_Y + BOARD_THICK;
 /** Timer tube outer radius (= half board thickness). */
 const TIMER_R = BOARD_THICK / 2;
-/** Wooden PC pill-base thickness. */
-const PC_BASE_H = 0.07;
 
 /** Goal outline-triangle size (tip at ±GOAL_ARROW_S on X). */
 const GOAL_ARROW_S = 0.2;
 /** Same radius as path line cylinders. */
 const ROUTE_RADIUS = 0.022;
-/** Solid node sphere — slightly larger than the route so joints read as points. */
-const NODE_RADIUS = 0.09;
-/** Route / node center height above board top. */
-const ROUTE_Y = BOARD_TOP + 0.012;
+/** Hockey-puck node radius (wider than the route so joints read as pads). */
+const NODE_RADIUS = 0.1;
+/** Flat puck height — sits on the board / arena floor. */
+const PUCK_H = 0.04;
+/** Legal-path node diameter scale (in-between / destination). */
+const PATH_NODE_SCALE = 1.4;
+const PATH_DEST_SCALE = 1.55;
+/** Square path bar width (top-down); height matches puck. */
+const ROUTE_SIDE = ROUTE_RADIUS * 2;
+/** Slightly wider green highlight bars; same height as pucks. */
+const PATH_HIGHLIGHT_SIDE = ROUTE_SIDE * 1.65;
+/** Route / node center height (through puck midsection). */
+const ROUTE_Y = BOARD_TOP + PUCK_H / 2;
+/** PC pad center height on the arena floor. */
+const FLOOR_PUCK_Y = FLOOR_Y + PUCK_H / 2;
+
+/** Lift green overlays so they don’t z-fight the base path when orbiting. */
+const HIGHLIGHT_Y_BIAS = 0.004;
 
 /**
  * Visual board matching the official Pokémon Duel look:
- * thin glowing routes, 3D node spheres, concentric entries, outline goal arrows,
+ * thin routes, hockey-puck nodes, concentric entries, outline goal arrows,
  * rocky arena, portrait framing, blue/red team bases.
  */
 export class BoardView {
@@ -47,9 +62,15 @@ export class BoardView {
   private pieceMeshes = new Map<string, THREE.Group>();
   private highlight = new THREE.Group();
   readonly markers = this.highlight;
+  private plateTargetUids: string[] = [];
+  private plateFocusUid: string | null = null;
   private engine: DuelEngine;
   private viewCamera: THREE.Camera | null = null;
   private routeMat: THREE.MeshLambertMaterial;
+  private dimRouteMat: THREE.MeshLambertMaterial;
+  private boardRouteMeshes: THREE.Mesh[] = [];
+  /** PC pads / floor links — dim whenever a move path is shown. */
+  private auxRouteMeshes: THREE.Mesh[] = [];
   private moveAnims = new Map<
     string,
     {
@@ -87,82 +108,227 @@ export class BoardView {
     PlayerId,
     { root: THREE.Group; fill: THREE.Mesh; glow: THREE.Mesh; length: number }
   > | null = null;
+  readonly matchHud: MatchHud3D;
+  private statusFlash = new Map<string, number>();
+  private groundMat: THREE.MeshStandardMaterial | null = null;
+  private boardTopMat: THREE.MeshStandardMaterial | null = null;
+  private boardSideMats: THREE.MeshStandardMaterial[] = [];
+  private floorMapDark: THREE.CanvasTexture | null = null;
+  private floorMapLight: THREE.CanvasTexture | null = null;
+  private woodTopDark: THREE.CanvasTexture | null = null;
+  private woodTopLight: THREE.CanvasTexture | null = null;
+  private woodSideDark: THREE.CanvasTexture | null = null;
+  private woodSideLight: THREE.CanvasTexture | null = null;
+  private woodBump: THREE.CanvasTexture | null = null;
+  private benchRingMats: THREE.MeshBasicMaterial[] = [];
+  private worldTheme: 'light' | 'dark' = 'dark';
+  private lastLegal: string[] = [];
+  private lastSelectedNode: string | null = null;
 
   constructor(engine: DuelEngine) {
     this.engine = engine;
+    this.matchHud = new MatchHud3D(engine);
     this.routeMat = new THREE.MeshLambertMaterial({
       color: 0xffffff,
+    });
+    this.dimRouteMat = new THREE.MeshLambertMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.2,
+      depthWrite: false,
     });
 
     this.buildEnvironment();
     this.buildRoutes();
     this.buildNodes();
     this.buildBenches();
+    this.layoutPlateHud();
     this.root.add(this.highlight);
+    this.root.add(this.matchHud.root);
+  }
+
+  private layoutPlateHud() {
+    const layout = this.benchLayout('player');
+    const pc = this.pcWorldSlots('player');
+    // Keep clear of figure tubes (r≈0.36) — tuck beside the PC, not midway into a bench slot.
+    const figureClear = layout.rightEdge + layout.mirror * 0.5;
+    const nearPc = pc[0].x - layout.mirror * 0.42;
+    const x =
+      layout.mirror > 0
+        ? Math.max(figureClear, nearPc)
+        : Math.min(figureClear, nearPc);
+    this.matchHud.setPlateSlot(x, layout.zNear, layout.mirror);
+  }
+
+  /** Flash token when status applied. */
+  flashStatus(uid: string) {
+    this.statusFlash.set(uid, performance.now());
   }
 
   setCamera(camera: THREE.Camera) {
     this.viewCamera = camera;
+    this.matchHud.setCamera(camera);
+  }
+
+  /** Day (light) / night (dark) albedo + accents for arena, board, routes. */
+  setWorldTheme(theme: 'light' | 'dark') {
+    this.worldTheme = theme;
+    const day = theme === 'light';
+    this.ensureThemeTextures(theme);
+
+    if (this.groundMat) {
+      const floor = day ? this.floorMapLight : this.floorMapDark;
+      if (floor) this.groundMat.map = floor;
+      this.groundMat.color.setHex(0xffffff);
+      this.groundMat.emissive.setHex(day ? 0x000000 : 0x1a0c08);
+      this.groundMat.emissiveIntensity = day ? 0 : 0.22;
+      this.groundMat.metalness = day ? 0.02 : 0.06;
+      this.groundMat.needsUpdate = true;
+    }
+
+    if (this.boardTopMat) {
+      const wood = day ? this.woodTopLight : this.woodTopDark;
+      if (wood) this.boardTopMat.map = wood;
+      this.boardTopMat.color.setHex(0xffffff);
+      this.boardTopMat.roughness = day ? 0.58 : 0.68;
+      this.boardTopMat.needsUpdate = true;
+    }
+
+    const sideMap = day ? this.woodSideLight : this.woodSideDark;
+    for (const m of this.boardSideMats) {
+      if (sideMap) m.map = sideMap;
+      m.color.setHex(day ? 0xfff8f0 : 0xe8e4e0);
+      m.needsUpdate = true;
+    }
+
+    // Paths must contrast the board: white on night charcoal, ink on day oak
+    this.routeMat.color.setHex(day ? 0x3a2818 : 0xffffff);
+    this.routeMat.needsUpdate = true;
+    this.dimRouteMat.color.copy(this.routeMat.color);
+    this.dimRouteMat.opacity = day ? 0.18 : 0.2;
+    this.dimRouteMat.needsUpdate = true;
+
+    for (const m of this.benchRingMats) {
+      m.color.setHex(day ? 0x5a4030 : 0xffffff);
+      m.opacity = day ? 0.45 : 0.5;
+      m.needsUpdate = true;
+    }
+
+    // Refresh move markers so green accent matches the new theme
+    this.setHighlights(this.lastLegal, this.lastSelectedNode);
+  }
+
+  /** Legal-move green — tuned per theme for contrast on board/path. */
+  private moveAccent() {
+    if (this.worldTheme === 'light') {
+      // Deep emerald on cream oak — cool hue, high sat, dark enough to punch
+      return {
+        color: 0x1a7f5c,
+        emissive: 0x146349,
+        emissiveIntensity: 0.35,
+        opacity: 0.94,
+      };
+    }
+    // Teal-mint on charcoal — cooler cyan bias, saturated, mid-dark luminance
+    return {
+      color: 0x14b89a,
+      emissive: 0x0e9a80,
+      emissiveIntensity: 0.45,
+      opacity: 0.94,
+    };
+  }
+
+  private moveAccentMat(pulse = true) {
+    const a = this.moveAccent();
+    // Unlit — Standard materials shimmer under lights when the camera orbits
+    const mat = new THREE.MeshBasicMaterial({
+      color: a.color,
+      transparent: true,
+      opacity: a.opacity,
+      depthWrite: false,
+      polygonOffset: true,
+      polygonOffsetFactor: -4,
+      polygonOffsetUnits: -4,
+    });
+    return { mat, accent: a, pulse };
+  }
+
+  /** Build day maps lazily so boot only pays for the active theme. */
+  private ensureThemeTextures(theme: 'light' | 'dark') {
+    if (theme === 'dark') {
+      if (!this.floorMapDark) this.floorMapDark = createArenaFloorTexture(2560, 'dark');
+      if (!this.woodTopDark) this.woodTopDark = createWoodTexture(1536, 'dark');
+      if (!this.woodSideDark) {
+        this.woodSideDark = createWoodTexture(512, 'dark');
+        this.woodSideDark.repeat.set(1, 0.18);
+        this.woodSideDark.wrapS = THREE.RepeatWrapping;
+        this.woodSideDark.wrapT = THREE.ClampToEdgeWrapping;
+      }
+      return;
+    }
+    if (!this.floorMapLight) this.floorMapLight = createArenaFloorTexture(2560, 'light');
+    if (!this.woodTopLight) this.woodTopLight = createWoodTexture(1536, 'light');
+    if (!this.woodSideLight) {
+      this.woodSideLight = createWoodTexture(512, 'light');
+      this.woodSideLight.repeat.set(1, 0.18);
+      this.woodSideLight.wrapS = THREE.RepeatWrapping;
+      this.woodSideLight.wrapT = THREE.ClampToEdgeWrapping;
+    }
   }
 
   private buildEnvironment() {
-    // Higher-res + multi-scale procedural detail (one continuous map)
-    const floorMap = createArenaFloorTexture(2560);
-    floorMap.wrapS = THREE.ClampToEdgeWrapping;
-    floorMap.wrapT = THREE.ClampToEdgeWrapping;
+    this.ensureThemeTextures('dark');
     const roughMap = createArenaRoughnessTexture(1280);
     roughMap.wrapS = THREE.ClampToEdgeWrapping;
     roughMap.wrapT = THREE.ClampToEdgeWrapping;
 
-    // Craggy dark arena — oversized so orbit never reveals an edge
-    const ground = new THREE.Mesh(
-      new THREE.CircleGeometry(48, 96),
-      new THREE.MeshStandardMaterial({
-        map: floorMap,
-        roughnessMap: roughMap,
-        color: 0xffffff,
-        roughness: 1,
-        metalness: 0.06,
-        emissive: 0x1a0c08,
-        emissiveIntensity: 0.22,
-      }),
-    );
+    this.groundMat = new THREE.MeshStandardMaterial({
+      map: this.floorMapDark!,
+      roughnessMap: roughMap,
+      color: 0xffffff,
+      roughness: 1,
+      metalness: 0.06,
+      emissive: 0x1a0c08,
+      emissiveIntensity: 0.22,
+    });
+    const ground = new THREE.Mesh(new THREE.CircleGeometry(48, 96), this.groundMat);
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = FLOOR_Y;
     ground.receiveShadow = true;
     this.root.add(ground);
 
-    // Thick dark wooden duel board — visible grain + soft sheen, rounded corners
-    const woodTop = createWoodTexture(1536);
-    const woodBump = createWoodBumpTexture(768);
-    const woodSide = createWoodTexture(512);
-    woodSide.repeat.set(1, 0.18);
-    woodSide.wrapS = THREE.RepeatWrapping;
-    woodSide.wrapT = THREE.ClampToEdgeWrapping;
-    const topMat = new THREE.MeshStandardMaterial({
-      map: woodTop,
-      bumpMap: woodBump,
+    this.woodBump = createWoodBumpTexture(768);
+    this.boardTopMat = new THREE.MeshStandardMaterial({
+      map: this.woodTopDark!,
+      bumpMap: this.woodBump,
       bumpScale: 0.012,
       color: 0xffffff,
       roughness: 0.68,
       metalness: 0.03,
     });
     const sideMat = new THREE.MeshStandardMaterial({
-      map: woodSide,
+      map: this.woodSideDark!,
       color: 0xe8e4e0,
       roughness: 0.78,
       metalness: 0.02,
     });
+    this.boardSideMats = [
+      sideMat,
+      sideMat.clone(),
+      sideMat.clone(),
+      sideMat.clone(),
+      sideMat.clone(),
+    ];
     // Slightly rounded corners (radius capped by board thickness)
     const boardGeo = new RoundedBoxGeometry(5.2, BOARD_THICK, 5.6, 4, TIMER_R * 0.85);
     // Materials: +x -x +y -y +z -z
     const board = new THREE.Mesh(boardGeo, [
-      sideMat,
-      sideMat.clone(),
-      topMat,
-      sideMat.clone(),
-      sideMat.clone(),
-      sideMat.clone(),
+      this.boardSideMats[0],
+      this.boardSideMats[1],
+      this.boardTopMat,
+      this.boardSideMats[2],
+      this.boardSideMats[3],
+      this.boardSideMats[4],
     ]);
     board.position.y = BOARD_TOP - BOARD_THICK / 2;
     board.castShadow = true;
@@ -331,7 +497,7 @@ export class BoardView {
         if (nb.kind === 'goal') {
           wb = this.goalLineAttach(wb, wa, nb.owner === 'player' ? 1 : -1);
         }
-        this.root.add(this.makeRoute(wa, wb));
+        this.root.add(this.makeRoute(wa, wb, ROUTE_Y, key));
       }
     }
   }
@@ -355,33 +521,80 @@ export class BoardView {
     return goal.clone().add(new THREE.Vector3(baseX, 0, 0));
   }
 
-  /** Thin glowing route — matches official white path lines. */
-  private makeRoute(a: THREE.Vector3, b: THREE.Vector3, y = ROUTE_Y) {
+  /** Bar along a→b — width × puck height, upright on the board. */
+  private makeSquareBar(
+    a: THREE.Vector3,
+    b: THREE.Vector3,
+    y: number,
+    width: number,
+    mat: THREE.Material,
+  ) {
     const dir = new THREE.Vector3().subVectors(b, a);
     const len = dir.length();
     if (len < 1e-6) return new THREE.Group();
     const mid = new THREE.Vector3().addVectors(a, b).multiplyScalar(0.5);
-    const mesh = new THREE.Mesh(
-      new THREE.CylinderGeometry(ROUTE_RADIUS, ROUTE_RADIUS, len, 10, 1, true),
-      this.routeMat,
-    );
-    mesh.position.copy(mid);
-    mesh.position.y = y;
-    mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize());
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(width, PUCK_H, len), mat);
+    mesh.position.set(mid.x, y, mid.z);
+    mesh.rotation.y = Math.atan2(dir.x, dir.z);
     return mesh;
   }
 
-  /** Round 3D node — same material as path cylinders. */
-  private makeNodeSphere(radius = NODE_RADIUS, y = ROUTE_Y) {
-    const mesh = new THREE.Mesh(
-      new THREE.SphereGeometry(radius, 20, 16),
-      this.routeMat,
-    );
-    mesh.position.y = y;
+  /** Thin square route — board path lines. */
+  private makeRoute(a: THREE.Vector3, b: THREE.Vector3, y = ROUTE_Y, edgeKey?: string) {
+    const mesh = this.makeSquareBar(a, b, y, ROUTE_SIDE, this.routeMat);
+    if (mesh instanceof THREE.Mesh) {
+      mesh.userData.routePart = true;
+      if (edgeKey) {
+        mesh.userData.edgeKey = edgeKey;
+        this.boardRouteMeshes.push(mesh);
+      }
+    }
     return mesh;
   }
 
-  /** Outline triangle: same cylinders as paths + sphere joints at corners. */
+  /** Hockey-puck node — flat cylinder, same material as path lines. */
+  private makeNodePuck(radius = NODE_RADIUS, y = ROUTE_Y) {
+    const mesh = new THREE.Mesh(
+      new THREE.CylinderGeometry(radius, radius, PUCK_H, 28),
+      this.routeMat,
+    );
+    mesh.position.y = y;
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    mesh.userData.nodePuck = true;
+    return mesh;
+  }
+
+  /** Single square-tube ring around an entry (same bar profile as path lines). */
+  private makeEntryRing(radius = 0.22) {
+    const hw = ROUTE_SIDE / 2;
+    const hh = PUCK_H / 2;
+    const shape = new THREE.Shape();
+    shape.moveTo(-hw, -hh);
+    shape.lineTo(hw, -hh);
+    shape.lineTo(hw, hh);
+    shape.lineTo(-hw, hh);
+    shape.closePath();
+
+    const segs = 64;
+    const pts: THREE.Vector3[] = [];
+    for (let i = 0; i <= segs; i++) {
+      const t = (i / segs) * Math.PI * 2;
+      pts.push(new THREE.Vector3(Math.cos(t) * radius, 0, Math.sin(t) * radius));
+    }
+    const path = new THREE.CatmullRomCurve3(pts, true);
+    const geo = new THREE.ExtrudeGeometry(shape, {
+      steps: segs,
+      bevelEnabled: false,
+      extrudePath: path,
+    });
+    const mesh = new THREE.Mesh(geo, this.routeMat);
+    mesh.position.y = ROUTE_Y;
+    mesh.userData.entryRing = true;
+    return mesh;
+  }
+
+  /** Outline triangle: same bars as paths + cube joints at corners. */
   private makeGoalArrowOutline(y = ROUTE_Y): THREE.Group {
     const s = GOAL_ARROW_S;
     const hy = (s * Math.sqrt(3)) / 2;
@@ -394,13 +607,13 @@ export class BoardView {
     g.add(this.makeRoute(tip, b1, y));
     g.add(this.makeRoute(b0, b1, y));
 
-    // Round joints so corners match path thickness cleanly
     for (const p of [tip, b0, b1]) {
       const joint = new THREE.Mesh(
-        new THREE.SphereGeometry(ROUTE_RADIUS, 12, 10),
+        new THREE.BoxGeometry(ROUTE_SIDE, PUCK_H, ROUTE_SIDE),
         this.routeMat,
       );
       joint.position.copy(p);
+      joint.userData.routePart = true;
       g.add(joint);
     }
     return g;
@@ -421,19 +634,8 @@ export class BoardView {
     g.userData.nodeId = node.id;
 
     if (node.kind === 'entry') {
-      // Same solid sphere as normal nodes, plus 3D concentric rings
-      g.add(this.makeNodeSphere());
-
-      const tube = ROUTE_RADIUS * 0.55;
-      for (const r of [0.2, 0.14]) {
-        const ring = new THREE.Mesh(
-          new THREE.TorusGeometry(r, tube, 10, 36),
-          this.routeMat,
-        );
-        ring.rotation.x = Math.PI / 2;
-        ring.position.y = ROUTE_Y;
-        g.add(ring);
-      }
+      g.add(this.makeNodePuck());
+      g.add(this.makeEntryRing());
     } else if (node.kind === 'goal') {
       // Flat team-color background (not a raised puck)
       const isBottom = node.owner === 'player';
@@ -448,6 +650,8 @@ export class BoardView {
       );
       disc.rotation.x = -Math.PI / 2;
       disc.position.y = BOARD_TOP + 0.004;
+      disc.userData.goalDecor = true;
+      disc.userData.baseOpacity = 1;
       g.add(disc);
 
       const rim = new THREE.Mesh(
@@ -461,6 +665,8 @@ export class BoardView {
       );
       rim.rotation.x = -Math.PI / 2;
       rim.position.y = BOARD_TOP + 0.006;
+      rim.userData.goalDecor = true;
+      rim.userData.baseOpacity = 0.9;
       g.add(rim);
 
       // Same height as path lines so the outline joins the routes
@@ -468,7 +674,7 @@ export class BoardView {
       if (!isBottom) arrow.rotation.y = Math.PI;
       g.add(arrow);
     } else {
-      g.add(this.makeNodeSphere());
+      g.add(this.makeNodePuck());
     }
 
     const hit = new THREE.Mesh(
@@ -486,115 +692,40 @@ export class BoardView {
     for (const owner of ['player', 'opponent'] as PlayerId[]) {
       const slots = this.benchWorldSlots(owner);
       for (const pos of slots) {
-        const ring = new THREE.Mesh(
-          new THREE.RingGeometry(0.28, 0.34, 28),
-          new THREE.MeshBasicMaterial({
-            color: 0xffffff,
-            transparent: true,
-            opacity: 0.5,
-            side: THREE.DoubleSide,
-          }),
-        );
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: 0xffffff,
+          transparent: true,
+          opacity: 0.5,
+          side: THREE.DoubleSide,
+        });
+        this.benchRingMats.push(ringMat);
+        const ring = new THREE.Mesh(new THREE.RingGeometry(0.28, 0.34, 28), ringMat);
         ring.rotation.x = -Math.PI / 2;
         ring.position.set(pos.x, FLOOR_Y + 0.002, pos.z);
         this.root.add(ring);
       }
 
-      // PC pads — same 3D spheres as board nodes, linked by a route
+      // PC pads — same hockey pucks as board nodes, linked by a route
       const pcSlots = this.pcWorldSlots(owner);
       for (const pos of pcSlots) {
-        const sphere = this.makeNodeSphere(
-          NODE_RADIUS,
-          FLOOR_Y + PC_BASE_H + 0.012,
-        );
-        sphere.position.x = pos.x;
-        sphere.position.z = pos.z;
-        this.root.add(sphere);
+        const puck = this.makeNodePuck(NODE_RADIUS, FLOOR_PUCK_Y);
+        puck.position.x = pos.x;
+        puck.position.z = pos.z;
+        this.auxRouteMeshes.push(puck);
+        this.root.add(puck);
       }
       if (pcSlots.length >= 2) {
-        this.root.add(this.makeFloorRoute(pcSlots[0], pcSlots[1]));
-        this.root.add(this.makePcDome(pcSlots[0], pcSlots[1]));
+        const link = this.makeFloorRoute(pcSlots[0], pcSlots[1]);
+        if (link instanceof THREE.Mesh) this.auxRouteMeshes.push(link);
+        this.root.add(link);
       }
     }
   }
 
-  /**
-   * PC wooden stadium base (no glass enclosure).
-   */
-  private makePcDome(a: THREE.Vector3, b: THREE.Vector3): THREE.Group {
-    const mid = new THREE.Vector3().addVectors(a, b).multiplyScalar(0.5);
-    const span = a.distanceTo(b);
-    const pillR = 0.48;
-    const midLen = Math.max(0.05, span);
-    const baseH = PC_BASE_H;
-
-    const group = new THREE.Group();
-    group.position.set(mid.x, FLOOR_Y, mid.z);
-
-    const baseShape = this.makeStadiumShape(midLen, pillR + 0.08);
-    const baseGeo = new THREE.ExtrudeGeometry(baseShape, {
-      depth: baseH,
-      bevelEnabled: true,
-      bevelThickness: 0.012,
-      bevelSize: 0.012,
-      bevelSegments: 2,
-      curveSegments: 28,
-    });
-    baseGeo.rotateX(-Math.PI / 2);
-    const woodMap = createWoodTexture(512);
-    const woodBump = createWoodBumpTexture(256);
-    const base = new THREE.Mesh(
-      baseGeo,
-      new THREE.MeshStandardMaterial({
-        map: woodMap,
-        bumpMap: woodBump,
-        bumpScale: 0.01,
-        color: 0xffffff,
-        roughness: 0.7,
-        metalness: 0.03,
-      }),
-    );
-    base.castShadow = true;
-    base.receiveShadow = true;
-    group.add(base);
-
-    return group;
-  }
-
-  /** Stadium / pill outline as Shape (for extrude). */
-  private makeStadiumShape(midLen: number, radius: number): THREE.Shape {
-    const shape = new THREE.Shape();
-    this.traceStadium(shape, midLen, radius);
-    return shape;
-  }
-
-  private traceStadium(
-    path: THREE.Shape | THREE.Path,
-    midLen: number,
-    radius: number,
-  ) {
-    const hw = midLen / 2;
-    const r = radius;
-    path.moveTo(-hw, -r);
-    path.lineTo(hw, -r);
-    path.absarc(hw, 0, r, -Math.PI / 2, Math.PI / 2, false);
-    path.lineTo(-hw, r);
-    path.absarc(-hw, 0, r, Math.PI / 2, (3 * Math.PI) / 2, false);
-  }
-
   /** Route segment on the arena floor (PC queue link). */
   private makeFloorRoute(a: THREE.Vector3, b: THREE.Vector3) {
-    const dir = new THREE.Vector3().subVectors(b, a);
-    const len = dir.length();
-    if (len < 1e-6) return new THREE.Group();
-    const mid = new THREE.Vector3().addVectors(a, b).multiplyScalar(0.5);
-    const mesh = new THREE.Mesh(
-      new THREE.CylinderGeometry(ROUTE_RADIUS, ROUTE_RADIUS, len, 10, 1, true),
-      this.routeMat,
-    );
-    mesh.position.copy(mid);
-    mesh.position.y = FLOOR_Y + PC_BASE_H + 0.012;
-    mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize());
+    const mesh = this.makeSquareBar(a, b, FLOOR_PUCK_Y, ROUTE_SIDE, this.routeMat);
+    if (mesh instanceof THREE.Mesh) mesh.userData.routePart = true;
     return mesh;
   }
 
@@ -631,25 +762,21 @@ export class BoardView {
   }
 
   /**
-   * PC queue centered on both bench rows (zMid).
-   * Entire PC enclosure stays inside the board edge (±2.6).
+   * PC queue on the bottom bench row (back row toward the camera).
+   * Stays inside the board edge (±2.6).
    */
   pcWorldSlots(owner: PlayerId): THREE.Vector3[] {
-    const { zNear, zFar, mirror } = this.benchLayout(owner);
+    const { zFar, mirror } = this.benchLayout(owner);
     const gap = 0.75;
-    const y = FLOOR_Y + PC_BASE_H;
+    const y = FLOOR_Y;
     const boardEnd = 2.6; // half of board width 5.2
-    // Match makePcDome: midLen/2 + pillR + basePad
-    const pillR = 0.48;
-    const basePad = 0.08;
-    const domeHalf = gap / 2 + pillR + basePad;
-    const xCenter = mirror * (boardEnd - domeHalf);
+    const padHalf = gap / 2 + 0.48;
+    const xCenter = mirror * (boardEnd - padHalf);
     const xFront = xCenter - mirror * (gap / 2);
     const xBack = xCenter + mirror * (gap / 2);
-    const zMid = (zNear + zFar) / 2;
     return [
-      new THREE.Vector3(xFront, y, zMid),
-      new THREE.Vector3(xBack, y, zMid),
+      new THREE.Vector3(xFront, y, zFar),
+      new THREE.Vector3(xBack, y, zFar),
     ];
   }
 
@@ -1073,28 +1200,39 @@ export class BoardView {
 
       const waiting = piece.wait > 0;
       this.syncPieceBadge(g, piece);
+      this.syncStatusIcons(g, piece, t);
       const selected = piece.uid === selectedUid && !animating && !pinned && !clashing;
+      const isPlateTarget = this.plateTargetUids.includes(piece.uid);
+      const isPlateFocus = piece.uid === this.plateFocusUid;
 
       const selectRing = g.userData.selectRing as THREE.Mesh | undefined;
       if (selectRing) {
-        selectRing.visible = selected;
-        if (selected) {
+        selectRing.visible = selected || isPlateTarget;
+        if (selected || isPlateTarget) {
           const mat = selectRing.material as THREE.MeshStandardMaterial;
+          if (isPlateTarget) {
+            mat.color.setHex(isPlateFocus ? 0xffab40 : 0x40c4ff);
+            mat.emissive.setHex(isPlateFocus ? 0xff6d00 : 0x00b0ff);
+          } else {
+            mat.color.setHex(0xffe66d);
+            mat.emissive.setHex(0xffc107);
+          }
           mat.opacity = 0.72 + Math.sin(t * 5) * 0.16;
-          mat.emissiveIntensity = 0.5 + Math.sin(t * 5) * 0.2;
+          mat.emissiveIntensity = (isPlateTarget ? 0.75 : 0.5) + Math.sin(t * 5) * 0.2;
         }
       }
 
       if (!animating && !pinned && !clashing) {
         const orbRoot = g.userData.orb as THREE.Object3D | undefined;
+        const statusPlane = g.userData.statusPlane as THREE.Object3D | undefined;
         g.traverse((o) => {
           if (o === selectRing) return;
+          if (o === statusPlane) return;
           if (orbRoot && (o === orbRoot || o.parent === orbRoot)) return;
           if (o instanceof THREE.Mesh && o.material instanceof THREE.Material) {
             const mats = Array.isArray(o.material) ? o.material : [o.material];
             for (const m of mats) {
               m.transparent = true;
-              // Keep wait figures readable so the stop-hand badge stays clear
               m.opacity = waiting ? 0.72 : 1;
             }
           }
@@ -1102,7 +1240,7 @@ export class BoardView {
             o.material.opacity = waiting ? 0.72 : 1;
           }
         });
-        g.scale.setScalar(1);
+        g.scale.setScalar(isPlateTarget ? 1.08 + Math.sin(t * 4) * 0.03 : 1);
       }
 
       // Inverted test-tube + art facing the camera
@@ -1117,7 +1255,11 @@ export class BoardView {
       }
     }
 
-    // (goalPulse removed — goals stay matte)
+    this.matchHud.sync(t);
+  }
+
+  pickPlate(raycaster: THREE.Raycaster) {
+    return this.matchHud.pickPlate(raycaster);
   }
 
   private makePiece(piece: Piece) {
@@ -1142,13 +1284,13 @@ export class BoardView {
     base.receiveShadow = true;
     g.add(base);
 
-    // Selection ring (same green style as legal-move markers)
+    // Selection ring (yellow when selected; plate targets override in sync)
     const selectRing = new THREE.Mesh(
       new THREE.TorusGeometry(0.42, 0.016, 10, 36),
       new THREE.MeshStandardMaterial({
-        color: 0x69f0ae,
-        emissive: 0x1de9b6,
-        emissiveIntensity: 0.65,
+        color: 0xffe66d,
+        emissive: 0xffc107,
+        emissiveIntensity: 0.5,
         transparent: true,
         opacity: 0.88,
         roughness: 0.45,
@@ -1207,7 +1349,8 @@ export class BoardView {
       roughness: 0.06,
       transparent: true,
       opacity: 0.28,
-      depthWrite: false,
+      // Write depth so floor plates behind/under the tube stay occluded.
+      depthWrite: true,
       clearcoat: 1,
       clearcoatRoughness: 0.04,
       side: THREE.DoubleSide,
@@ -1224,6 +1367,7 @@ export class BoardView {
     );
     body.position.y = tubeH / 2;
     body.castShadow = true;
+    body.renderOrder = 3;
     orbRoot.add(body);
 
     // Closed dome on top
@@ -1232,6 +1376,7 @@ export class BoardView {
       glassMat,
     );
     dome.position.y = tubeH;
+    dome.renderOrder = 3;
     orbRoot.add(dome);
 
     // Soft highlight on the dome
@@ -1256,9 +1401,11 @@ export class BoardView {
       toneMapped: false,
       side: THREE.DoubleSide,
     });
-    const art = new THREE.Mesh(new THREE.CircleGeometry(tubeR * 0.88, 40), artMat);
-    art.position.y = tubeH * 0.82;
-    art.renderOrder = 3;
+    // Large enough to read; kept in the cylinder body so angled lookAt won't pierce the dome.
+    const artR = tubeR * 0.78;
+    const art = new THREE.Mesh(new THREE.CircleGeometry(artR, 40), artMat);
+    art.position.y = tubeH * 0.48;
+    art.renderOrder = 2;
     orbRoot.add(art);
 
     g.userData.orb = orbRoot;
@@ -1314,7 +1461,62 @@ export class BoardView {
     g.userData.waitMap = null as THREE.CanvasTexture | null;
     g.userData.badgeWaitCount = 0;
     g.userData.teamColor = team;
+
+    // Status icon strip above the tube
+    const statusPlane = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.55, 0.14),
+      new THREE.MeshBasicMaterial({
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+        toneMapped: false,
+      }),
+    );
+    statusPlane.position.set(0, 0.95, 0);
+    g.add(statusPlane);
+    g.userData.statusPlane = statusPlane;
+    g.userData.statusKey = '';
+    g.userData.statusPop = 0;
+
     return g;
+  }
+
+  private syncStatusIcons(g: THREE.Group, piece: Piece, t?: number) {
+    const plane = g.userData.statusPlane as THREE.Mesh | undefined;
+    if (!plane) return;
+    const key = piece.statuses.join(',');
+    const mat = plane.material as THREE.MeshBasicMaterial;
+    if (g.userData.statusKey !== key) {
+      g.userData.statusKey = key;
+      mat.map?.dispose();
+      if (piece.statuses.length) {
+        mat.map = createStatusIconsTexture(piece.statuses);
+        mat.opacity = 1;
+        g.userData.statusPop = performance.now();
+        this.statusFlash.set(piece.uid, performance.now());
+      } else {
+        mat.map = null;
+        mat.opacity = 0;
+      }
+      mat.needsUpdate = true;
+    }
+    const pop = g.userData.statusPop as number;
+    if (pop && performance.now() - pop < 280) {
+      const u = (performance.now() - pop) / 280;
+      plane.scale.setScalar(0.6 + Math.sin(u * Math.PI) * 0.55);
+    } else {
+      plane.scale.setScalar(1);
+    }
+    const flash = this.statusFlash.get(piece.uid);
+    if (flash && performance.now() - flash < 350) {
+      const base = g.children[0];
+      if (base instanceof THREE.Mesh && base.material instanceof THREE.MeshStandardMaterial) {
+        base.material.emissiveIntensity =
+          0.18 + 0.7 * (1 - (performance.now() - flash) / 350);
+      }
+    }
+    if (this.viewCamera) plane.quaternion.copy(this.viewCamera.quaternion);
+    void t;
   }
 
   private syncPieceBadge(g: THREE.Group, piece: Piece) {
@@ -1353,28 +1555,41 @@ export class BoardView {
     faceMat.needsUpdate = true;
   }
 
-  setHighlights(legal: string[], selectedNode: string | null) {
-    while (this.highlight.children.length) this.highlight.remove(this.highlight.children[0]);
+  setPlateTargets(uids: string[], focusUid: string | null = null) {
+    this.plateTargetUids = uids;
+    this.plateFocusUid = focusUid;
+  }
 
-    for (const id of legal) {
-      const node = this.engine.board.nodes.get(id)!;
-      const w = this.world(node);
-      const ring = new THREE.Mesh(
-        new THREE.TorusGeometry(0.2, 0.016, 10, 36),
-        new THREE.MeshStandardMaterial({
-          color: 0x69f0ae,
-          emissive: 0x1de9b6,
-          emissiveIntensity: 0.65,
-          transparent: true,
-          opacity: 0.88,
-          roughness: 0.45,
-          metalness: 0.05,
-        }),
-      );
-      ring.rotation.x = Math.PI / 2;
-      ring.position.set(w.x, ROUTE_Y, w.z);
-      ring.userData.pulse = true;
-      this.highlight.add(ring);
+  setHighlights(legal: string[], selectedNode: string | null) {
+    this.lastLegal = legal;
+    this.lastSelectedNode = selectedNode;
+
+    while (this.highlight.children.length) {
+      const c = this.highlight.children[0];
+      this.highlight.remove(c);
+      if (c instanceof THREE.Mesh) {
+        c.geometry.dispose();
+        const m = c.material;
+        if (Array.isArray(m)) m.forEach((x) => x.dispose());
+        else m.dispose();
+      }
+    }
+
+    const { nodeIds, edges } = this.legalPathGraph(legal);
+    const edgeKeys = new Set(edges.map(([a, b]) => (a < b ? `${a}|${b}` : `${b}|${a}`)));
+    this.syncNetworkDim(legal.length ? nodeIds : null, legal.length ? edgeKeys : null);
+
+    // Enlarge path pucks; green stroke radius matches that diameter
+    this.resetNodeScales();
+    for (const id of nodeIds) {
+      const isDest = legal.includes(id);
+      const diameter = isDest ? PATH_DEST_SCALE : PATH_NODE_SCALE;
+      this.setNodeDiameterScale(id, diameter);
+      this.highlight.add(this.makeHighlightPuck(id, isDest ? 1 : 0.72, diameter));
+    }
+
+    for (const [a, b] of edges) {
+      this.highlight.add(this.makeHighlightRoute(a, b));
     }
 
     if (selectedNode) {
@@ -1391,13 +1606,193 @@ export class BoardView {
             opacity: 0.9,
             roughness: 0.45,
             metalness: 0.05,
+            depthWrite: false,
           }),
         );
         ring.rotation.x = Math.PI / 2;
-        ring.position.set(w.x, ROUTE_Y, w.z);
+        ring.position.set(w.x, ROUTE_Y + PUCK_H * 0.55, w.z);
         this.highlight.add(ring);
       }
     }
+
+    // Plate target markers under valid figures.
+    for (const uid of this.plateTargetUids) {
+      const piece = this.engine.piece(uid);
+      if (!piece) continue;
+      const g = this.pieceMeshes.get(uid);
+      if (!g) continue;
+      const focus = uid === this.plateFocusUid;
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(focus ? 0.42 : 0.36, focus ? 0.028 : 0.022, 10, 40),
+        new THREE.MeshStandardMaterial({
+          color: focus ? 0xffab40 : 0x40c4ff,
+          emissive: focus ? 0xff6d00 : 0x00b0ff,
+          emissiveIntensity: focus ? 0.85 : 0.7,
+          transparent: true,
+          opacity: 0.95,
+          roughness: 0.4,
+          metalness: 0.1,
+          depthWrite: false,
+        }),
+      );
+      ring.rotation.x = Math.PI / 2;
+      ring.position.set(g.position.x, BOARD_TOP + 0.02, g.position.z);
+      ring.userData.pulse = true;
+      ring.userData.pulseEmissive = focus ? 0.85 : 0.7;
+      ring.userData.pulseOpacity = 0.95;
+      this.highlight.add(ring);
+    }
+  }
+
+  /** Shortest-path nodes + edges for the current legal-move set. */
+  private legalPathGraph(legal: string[]): {
+    nodeIds: Set<string>;
+    edges: [string, string][];
+  } {
+    const nodeIds = new Set<string>();
+    const edgeKeys = new Set<string>();
+    const edges: [string, string][] = [];
+
+    const addPath = (path: string[] | null) => {
+      if (!path?.length) return;
+      for (const id of path) nodeIds.add(id);
+      for (let i = 0; i < path.length - 1; i++) {
+        const a = path[i];
+        const b = path[i + 1];
+        const key = a < b ? `${a}|${b}` : `${b}|${a}`;
+        if (edgeKeys.has(key)) continue;
+        edgeKeys.add(key);
+        edges.push([a, b]);
+      }
+    };
+
+    const uid = this.engine.state.selectedUid;
+    const piece = uid ? this.engine.piece(uid) : null;
+    if (!piece || legal.length === 0) {
+      for (const id of legal) nodeIds.add(id);
+      return { nodeIds, edges };
+    }
+
+    const occ = this.engine.occupied();
+    if (piece.location === 'field' && piece.nodeId) {
+      const occ2 = new Set(occ);
+      occ2.delete(piece.nodeId);
+      for (const goal of legal) {
+        addPath(shortestPath(this.engine.board.edges, piece.nodeId, goal, occ2));
+      }
+    } else if (piece.location === 'bench') {
+      const entries = entryNodes(this.engine.board.nodes, piece.owner);
+      for (const goal of legal) {
+        addPath(shortestPathFromBench(this.engine.board.edges, entries, goal, occ));
+      }
+    } else {
+      for (const id of legal) nodeIds.add(id);
+    }
+    return { nodeIds, edges };
+  }
+
+  /**
+   * Dim board network outside the active legal path.
+   * Pass null sets to restore full brightness.
+   */
+  private syncNetworkDim(pathNodes: Set<string> | null, pathEdges: Set<string> | null) {
+    const active = !!(pathNodes && pathNodes.size > 0);
+
+    for (const mesh of this.boardRouteMeshes) {
+      const key = mesh.userData.edgeKey as string;
+      const onPath = active && !!pathEdges?.has(key);
+      mesh.material = !active || onPath ? this.routeMat : this.dimRouteMat;
+    }
+
+    for (const mesh of this.auxRouteMeshes) {
+      mesh.material = active ? this.dimRouteMat : this.routeMat;
+    }
+
+    const day = this.worldTheme === 'light';
+    const benchBase = day ? 0.45 : 0.5;
+    for (const m of this.benchRingMats) {
+      m.opacity = active ? benchBase * 0.28 : benchBase;
+    }
+
+    for (const [id, g] of this.nodeMeshes) {
+      const onPath = active && !!pathNodes?.has(id);
+      const routeMat = !active || onPath ? this.routeMat : this.dimRouteMat;
+      g.traverse((o) => {
+        if (!(o instanceof THREE.Mesh)) return;
+        if (o.userData.nodePuck || o.userData.entryRing || o.userData.routePart) {
+          o.material = routeMat;
+        }
+        if (o.userData.goalDecor) {
+          const m = o.material as THREE.MeshLambertMaterial | THREE.MeshBasicMaterial;
+          const base = (o.userData.baseOpacity as number | undefined) ?? 1;
+          m.transparent = true;
+          m.opacity = !active || onPath ? base : base * 0.22;
+          m.needsUpdate = true;
+        }
+      });
+    }
+  }
+
+  private resetNodeScales() {
+    for (const g of this.nodeMeshes.values()) {
+      g.scale.set(1, 1, 1);
+      g.traverse((o) => {
+        if (o.userData.nodePuck) o.scale.set(1, 1, 1);
+      });
+    }
+  }
+
+  /** Scale only the puck diameter; entry rings stay fixed. */
+  private setNodeDiameterScale(nodeId: string, diameter: number) {
+    const g = this.nodeMeshes.get(nodeId);
+    if (!g) return;
+    const node = this.engine.board.nodes.get(nodeId);
+    if (node?.kind === 'goal') return;
+    g.traverse((o) => {
+      if (o.userData.nodePuck) o.scale.set(diameter, 1, diameter);
+    });
+  }
+
+  private makeHighlightPuck(nodeId: string, strength = 1, diameter = PATH_NODE_SCALE) {
+    const node = this.engine.board.nodes.get(nodeId);
+    if (!node) return new THREE.Group();
+    const w = this.world(node);
+    const { mat, accent } = this.moveAccentMat();
+    mat.opacity = accent.opacity * strength;
+    // Same radius as highlight lines (destinations slightly larger caps)
+    const r = NODE_RADIUS * diameter;
+    const mesh = new THREE.Mesh(
+      new THREE.CylinderGeometry(r, r, PUCK_H, 28),
+      mat,
+    );
+    mesh.position.set(w.x, ROUTE_Y + HIGHLIGHT_Y_BIAS, w.z);
+    mesh.userData.pulse = true;
+    mesh.userData.pulseOpacity = accent.opacity * strength;
+    mesh.renderOrder = 2;
+    return mesh;
+  }
+
+  private makeHighlightRoute(aId: string, bId: string) {
+    const na = this.engine.board.nodes.get(aId);
+    const nb = this.engine.board.nodes.get(bId);
+    if (!na || !nb) return new THREE.Group();
+    let wa = this.world(na);
+    let wb = this.world(nb);
+    if (na.kind === 'goal') {
+      wa = this.goalLineAttach(wa, wb, na.owner === 'player' ? 1 : -1);
+    }
+    if (nb.kind === 'goal') {
+      wb = this.goalLineAttach(wb, wa, nb.owner === 'player' ? 1 : -1);
+    }
+
+    const { mat, accent } = this.moveAccentMat();
+    const mesh = this.makeSquareBar(wa, wb, ROUTE_Y + HIGHLIGHT_Y_BIAS, PATH_HIGHLIGHT_SIDE, mat);
+    if (mesh instanceof THREE.Mesh) {
+      mesh.userData.pulse = true;
+      mesh.userData.pulseOpacity = accent.opacity;
+      mesh.renderOrder = 2;
+    }
+    return mesh;
   }
 
   pickNode(raycaster: THREE.Raycaster): string | null {

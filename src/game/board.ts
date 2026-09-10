@@ -26,9 +26,9 @@ const INNER_RING: string[] = [
   'n2_1', 'n3_1', 'n4_1', 'n4_2', 'n4_3', 'n3_3', 'n2_3', 'n2_2',
 ];
 
-/** Non-uniform spacing: outer frame + inset inner square (official silhouette). */
+/** Square frame: same outer extent on X and Z (board Y → world −Z). */
 const X_POS = [-2.2, -1.45, -0.75, 0, 0.75, 1.45, 2.2];
-const Y_POS = [-2.4, -1.0, 0, 1.0, 2.4];
+const Y_POS = [-2.2, -1.0, 0, 1.0, 2.2];
 
 export function createBoard(): {
   nodes: Map<string, BoardNode>;

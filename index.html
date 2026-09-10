@@ -1,17 +1,134 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="booting">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Duel Field — Pokémon Duel WebGL</title>
+    <script>
+      (() => {
+        const t = localStorage.getItem('duel-field-theme');
+        document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
+      })();
+    </script>
+    <style>
+      html.booting,
+      html.booting body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #140e0a;
+        color: #f3ebe3;
+      }
+      html.booting[data-theme='light'],
+      html.booting[data-theme='light'] body {
+        background: #f4ece3;
+        color: #2a1c12;
+      }
+      #boot {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(ellipse 80% 50% at 20% 0%, rgba(232, 168, 96, 0.18), transparent 55%),
+          radial-gradient(ellipse 60% 40% at 90% 100%, rgba(255, 107, 53, 0.12), transparent 50%),
+          linear-gradient(165deg, #1a120e 0%, #0e0a08 45%, #16100c 100%);
+        font-family: system-ui, sans-serif;
+      }
+      html.booting[data-theme='light'] #boot {
+        background:
+          radial-gradient(ellipse 80% 50% at 20% 0%, rgba(196, 120, 58, 0.16), transparent 55%),
+          radial-gradient(ellipse 60% 40% at 90% 100%, rgba(196, 120, 58, 0.1), transparent 50%),
+          linear-gradient(165deg, #fffaf4 0%, #f3ebe3 55%, #ebe1d4 100%);
+      }
+      #boot .boot-copy {
+        text-align: center;
+      }
+      #boot .boot-kicker {
+        margin: 0 0 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a89888;
+      }
+      html.booting[data-theme='light'] #boot .boot-kicker {
+        color: #8a6a4a;
+      }
+      #boot h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2rem, 6vw, 2.75rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      #boot .boot-status {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #a89888;
+      }
+      html.booting[data-theme='light'] #boot .boot-status {
+        color: #8a6a4a;
+      }
+      #boot .boot-bar {
+        width: 120px;
+        height: 3px;
+        margin: 14px auto 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+      html.booting[data-theme='light'] #boot .boot-bar {
+        background: rgba(42, 28, 18, 0.1);
+      }
+      #boot .boot-bar > i {
+        display: block;
+        height: 100%;
+        width: 40%;
+        border-radius: inherit;
+        background: #e8a860;
+        animation: boot-slide 1s ease-in-out infinite;
+      }
+      @keyframes boot-slide {
+        0% {
+          transform: translateX(-120%);
+        }
+        100% {
+          transform: translateX(320%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot .boot-bar > i {
+          width: 100%;
+          animation: none;
+        }
+      }
+      html.booting #c,
+      html.booting #ui,
+      html.booting #settings-btn,
+      html.booting #settings-dialog {
+        visibility: hidden;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <div id="boot" role="status" aria-live="polite" aria-busy="true">
+      <div class="boot-copy">
+        <p class="boot-kicker">Pokémon Duel · WebGL</p>
+        <h1>Duel Field</h1>
+        <p class="boot-status">Loading…</p>
+        <div class="boot-bar" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
     <div id="app">
       <canvas id="c"></canvas>
       <div id="ui"></div>

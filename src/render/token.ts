@@ -232,6 +232,52 @@ export function createWaitBadgeTexture(wait: number): THREE.CanvasTexture {
   return tex;
 }
 
+const STATUS_DOT: Record<string, string> = {
+  poison: '#ab47bc',
+  noxious: '#6a1b9a',
+  paralysis: '#fdd835',
+  sleep: '#90caf9',
+  frozen: '#4fc3f7',
+  burn: '#ff7043',
+  confusion: '#f48fb1',
+  curse: '#212121',
+};
+
+/** Compact status icon strip for token billboards. */
+export function createStatusIconsTexture(statuses: string[]): THREE.CanvasTexture {
+  const w = 256;
+  const h = 64;
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d')!;
+  ctx.clearRect(0, 0, w, h);
+  const list = statuses.slice(0, 6);
+  const r = 14;
+  const gap = 6;
+  const total = list.length * (r * 2) + Math.max(0, list.length - 1) * gap;
+  let x = (w - total) / 2 + r;
+  for (const s of list) {
+    ctx.beginPath();
+    ctx.arc(x, h / 2, r, 0, Math.PI * 2);
+    ctx.fillStyle = STATUS_DOT[s] ?? '#fff';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.45)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 14px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(s[0]!.toUpperCase(), x, h / 2 + 1);
+    x += r * 2 + gap;
+  }
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.needsUpdate = true;
+  return tex;
+}
+
 /** Transparent wrap: plain white letters on the team-colored base. */
 export function createNameBandTexture(name: string): THREE.CanvasTexture {
   // Match cylinder unwrap aspect (~circumference / band height ≈ 16:1)

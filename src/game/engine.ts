@@ -9,18 +9,36 @@ import {
 } from './board';
 import {
   TOUCH_CURABLE,
+  applyAbilityPassives,
   applyPurpleEffect,
+  applyTurnBuffToWheel,
   battleWheelFor,
   canInitiateBattle,
   canMove,
+  effectiveDamageWithBuffs,
   prepareSpin,
   resolveBattle,
+  resolveMultiplyDamage,
+  shouldBlockKo,
 } from './combat';
+import {
+  DEFAULT_AI_PLATES,
+  DEFAULT_PLAYER_PLATES,
+  PLATE_BY_ID,
+  applyPlateEffect,
+  canUsePlatesNow,
+  getPlateDef,
+  makePlateInstances,
+  platesFor,
+  resetPlateInstanceCounter,
+  validTargets,
+} from './plates';
 import type {
   FigureDef,
   GameState,
   Piece,
   PlayerId,
+  TurnBuff,
   WheelSegment,
 } from './types';
 
@@ -32,7 +50,6 @@ export type PcEject = {
   uid: string;
   owner: PlayerId;
   fromSlot: number;
-  /** Figure whose PC entry forced this eject. */
   causedByUid: string;
 };
 export type PcShift = {
@@ -47,14 +64,13 @@ export class DuelEngine {
   readonly board = createBoard();
   state: GameState;
   defs: Map<number, FigureDef>;
-  /** Surround KOs from the last resolveSurrounds call (for PC hop anim). */
   private lastSurrounds: SurroundSend[] = [];
-  /** PC → bench returns when PC was full (for hop + wait marker). */
   private lastPcEjects: PcEject[] = [];
-  /** Remaining PC figures sliding forward after a dequeue. */
   private lastPcShifts: PcShift[] = [];
-  /** FIFO PC queues per side (front = index 0 = next to leave). */
   private pcQueues: Record<PlayerId, string[]> = { player: [], opponent: [] };
+  /** Last plate anim hint for presentation. */
+  lastPlateAnim: ReturnType<typeof applyPlateEffect>['anim'] | null = null;
+  lastUsedPlateInstanceId: string | null = null;
 
   constructor(allFigures: FigureDef[]) {
     this.defs = new Map(allFigures.map((f) => [f.id, f]));
@@ -68,14 +84,21 @@ export class DuelEngine {
       turnNumber: 0,
       duelFirstMoveDone: false,
       turnStep: 'choose',
+      plateWindowOpen: true,
       movedUid: null,
       pieces: [],
+      playerPlates: [],
+      opponentPlates: [],
+      turnBuffs: [],
       selectedUid: null,
+      pendingPlateInstanceId: null,
+      pendingPlateTargetUid: null,
       legalMoves: [],
       battle: null,
       winner: null,
       winReason: null,
       log: [],
+      actionSeq: 0,
     };
   }
 
@@ -83,8 +106,14 @@ export class DuelEngine {
     this.state.log = [msg, ...this.state.log].slice(0, 50);
   }
 
-  startMatch(playerTeam: FigureDef[], opponentTeam: FigureDef[]) {
+  startMatch(
+    playerTeam: FigureDef[],
+    opponentTeam: FigureDef[],
+    playerPlateIds: number[] = DEFAULT_PLAYER_PLATES,
+    opponentPlateIds: number[] = DEFAULT_AI_PLATES,
+  ) {
     uidCounter = 0;
+    resetPlateInstanceCounter();
     const make = (def: FigureDef, owner: PlayerId, benchSlot: number): Piece => ({
       uid: uid(),
       defId: def.id,
@@ -101,6 +130,9 @@ export class DuelEngine {
       statuses: [],
       mpMarkers: 0,
       removed: false,
+      ability: def.ability ?? null,
+      types: def.types ? [...def.types] : undefined,
+      megaTurnsLeft: 0,
     });
 
     this.state = {
@@ -109,26 +141,29 @@ export class DuelEngine {
       turn: Math.random() < 0.5 ? 'player' : 'opponent',
       turnNumber: 1,
       turnStep: 'choose',
+      plateWindowOpen: true,
       pieces: [
         ...playerTeam.map((d, i) => make(d, 'player', i)),
         ...opponentTeam.map((d, i) => make(d, 'opponent', i)),
       ],
+      playerPlates: makePlateInstances(playerPlateIds),
+      opponentPlates: makePlateInstances(opponentPlateIds),
     };
     this.pcQueues = { player: [], opponent: [] };
     this.lastSurrounds = [];
     this.lastPcEjects = [];
     this.lastPcShifts = [];
+    this.lastPlateAnim = null;
+    for (const p of this.state.pieces) applyAbilityPassives(p, 'start');
     this.log(
       `${this.state.turn === 'player' ? 'You' : 'Opponent'} go first. First move of the duel is −1 MP.`,
     );
   }
 
-  /** FIFO PC order for an owner (index 0 = front / next out). */
   pcQueue(owner: PlayerId): readonly string[] {
     return this.pcQueues[owner];
   }
 
-  /** Queue slot for a figure currently in PC, or -1. */
   pcSlotIndex(uid: string): number {
     const piece = this.piece(uid);
     if (!piece || piece.location !== 'pc') return -1;
@@ -157,16 +192,32 @@ export class DuelEngine {
     );
   }
 
-  /** MP for this move action. */
+  buffFor(uid: string): TurnBuff | undefined {
+    return this.state.turnBuffs.find((b) => b.pieceUid === uid);
+  }
+
   currentMp(piece: Piece): number {
     let mp = piece.baseMp - piece.mpMarkers;
     if (!this.state.duelFirstMoveDone) mp -= 1;
+    mp += applyAbilityPassives(piece, 'mpBonus');
     if (!canMove(piece)) return 0;
     return Math.max(0, mp);
   }
 
+  /** Close plate window when committing a non-plate action. */
+  private closePlateWindow() {
+    this.state.plateWindowOpen = false;
+    this.state.pendingPlateInstanceId = null;
+    this.state.pendingPlateTargetUid = null;
+  }
+
   selectPiece(id: string | null) {
     if (this.state.phase !== 'playing') return;
+    // If selecting a plate target, don't overwrite with move selection unless clearing
+    if (this.state.pendingPlateInstanceId && id) {
+      this.tryCompletePlateTarget(id);
+      return;
+    }
     this.state.selectedUid = id;
     this.state.legalMoves = [];
     if (!id) return;
@@ -174,10 +225,9 @@ export class DuelEngine {
     const piece = this.piece(id);
     if (!piece || piece.owner !== this.state.turn || piece.removed) return;
 
-    // After a move, only the moved figure stays selected for possible battle
     if (this.state.turnStep === 'post-move') {
       if (piece.uid !== this.state.movedUid) return;
-      return; // battles via adjacentEnemies, no moves
+      return;
     }
 
     if (!canMove(piece)) return;
@@ -198,17 +248,175 @@ export class DuelEngine {
     }
   }
 
-  /**
-   * Move selected figure. Does NOT end the turn if a battle is still possible
-   * with the moved figure (or if somehow another battle option exists — only moved figure).
-   */
+  /** Begin or confirm plate use. */
+  trySelectPlate(instanceId: string): boolean {
+    const owner = this.state.turn;
+    if (!canUsePlatesNow(this, owner)) return false;
+    const inst = platesFor(this, owner).find((p) => p.instanceId === instanceId);
+    if (!inst || inst.used) return false;
+    const def = getPlateDef(inst);
+    if (!def) return false;
+
+    if (def.targeting === 'none') {
+      return this.commitPlate(inst, []);
+    }
+
+    const targets = validTargets(this, owner, def.targeting, def);
+    if (!targets.length) {
+      this.log(`${def.name}: no valid targets.`);
+      return false;
+    }
+
+    this.state.pendingPlateInstanceId = instanceId;
+    this.state.pendingPlateTargetUid = null;
+    this.state.selectedUid = null;
+    this.state.legalMoves = [];
+    this.log(`Select target for ${def.name}.`);
+    return true;
+  }
+
+  private tryCompletePlateTarget(targetUid: string): boolean {
+    const instanceId = this.state.pendingPlateInstanceId;
+    if (!instanceId) return false;
+    const owner = this.state.turn;
+    const inst = platesFor(this, owner).find((p) => p.instanceId === instanceId);
+    if (!inst || inst.used) return false;
+    const def = getPlateDef(inst);
+    if (!def) return false;
+
+    const allowed = validTargets(this, owner, def.targeting, def, {
+      stepFirstUid: this.state.pendingPlateTargetUid,
+    });
+    if (!allowed.includes(targetUid)) {
+      this.log('Invalid plate target.');
+      return false;
+    }
+
+    const needsTwo =
+      def.targeting === 'own-switch' ||
+      def.targeting === 'own-field-pair' ||
+      def.targeting === 'hurdle-jump';
+    if (needsTwo) {
+      if (!this.state.pendingPlateTargetUid) {
+        this.state.pendingPlateTargetUid = targetUid;
+        this.log('Select second target.');
+        return true;
+      }
+      if (this.state.pendingPlateTargetUid === targetUid) return false;
+      return this.commitPlate(inst, [this.state.pendingPlateTargetUid, targetUid]);
+    }
+
+    return this.commitPlate(inst, [targetUid]);
+  }
+
+  private commitPlate(inst: { instanceId: string; plateId: number; used: boolean }, targets: string[]): boolean {
+    const def = PLATE_BY_ID.get(inst.plateId);
+    if (!def) return false;
+    const result = applyPlateEffect(this, this.state.turn, def, targets);
+    if (!result.ok) {
+      this.log(result.message);
+      if (result.needsSecondTarget) return true;
+      return false;
+    }
+    inst.used = true;
+    this.state.pendingPlateInstanceId = null;
+    this.state.pendingPlateTargetUid = null;
+    this.lastPlateAnim = result.anim ?? null;
+    this.lastUsedPlateInstanceId = inst.instanceId;
+    this.log(`Plate: ${def.name} — ${result.message}`);
+    this.state.actionSeq += 1;
+    if (result.endedTurn) {
+      this.closePlateWindow();
+      this.endTurn();
+    } else {
+      // Non-ending plates still close further plate uses this turn (authentic: one plate per turn typically; we allow only start window — once any plate used, close window)
+      this.state.plateWindowOpen = false;
+    }
+    return true;
+  }
+
+  cancelPendingPlate() {
+    this.state.pendingPlateInstanceId = null;
+    this.state.pendingPlateTargetUid = null;
+  }
+
+  forceToBench(uid: string, withWait: boolean) {
+    const piece = this.piece(uid);
+    if (!piece) return;
+    this.sendToBench(piece, withWait);
+  }
+
+  forcePcToBench(uid: string, withWait: boolean) {
+    const piece = this.piece(uid);
+    if (!piece || piece.location !== 'pc') return;
+    this.removeFromPcQueue(uid, piece.owner);
+    piece.location = 'bench';
+    piece.nodeId = null;
+    if (withWait) piece.wait = Math.max(piece.wait, 1);
+    else piece.wait = 0;
+  }
+
+  swapPcOrder(owner: PlayerId) {
+    const q = this.pcQueues[owner];
+    if (q.length >= 2) {
+      const a = q[0];
+      q[0] = q[1];
+      q[1] = a;
+    }
+  }
+
+  applyMega(uid: string, turns: number) {
+    const piece = this.piece(uid);
+    if (!piece) return;
+    const def = this.defs.get(piece.defId);
+    piece.preMegaWheel = piece.wheel.map((w) => ({ ...w }));
+    piece.preMegaMp = piece.baseMp;
+    if (def?.megaWheel?.length) {
+      piece.wheel = def.megaWheel.map((w) => ({ ...w }));
+    } else {
+      // Generic mega boost: +20 white/gold damage, +1 MP
+      piece.wheel = piece.wheel.map((w) =>
+        w.color === 'white' || w.color === 'gold'
+          ? { ...w, damage: w.damage + 20 }
+          : { ...w },
+      );
+    }
+    piece.baseMp = def?.megaMp ?? piece.baseMp + 1;
+    piece.mp = piece.baseMp;
+    piece.megaTurnsLeft = turns;
+    piece.name = piece.name.startsWith('Mega ') ? piece.name : `Mega ${piece.name}`;
+  }
+
+  private tickMega() {
+    for (const p of this.activePieces()) {
+      if ((p.megaTurnsLeft ?? 0) > 0) {
+        p.megaTurnsLeft! -= 1;
+        if (p.megaTurnsLeft! <= 0) {
+          if (p.preMegaWheel) {
+            p.wheel = p.preMegaWheel;
+            p.preMegaWheel = undefined;
+          }
+          if (p.preMegaMp != null) {
+            p.baseMp = p.preMegaMp;
+            p.preMegaMp = undefined;
+          }
+          p.name = p.name.replace(/^Mega\s+/, '');
+          this.log(`${p.name} Mega ended.`);
+        }
+      }
+    }
+  }
+
   tryMove(targetNodeId: string): boolean {
     if (this.state.phase !== 'playing' || this.state.turnStep !== 'choose') return false;
+    if (this.state.pendingPlateInstanceId) return false;
     if (!this.state.selectedUid) return false;
     if (!this.state.legalMoves.includes(targetNodeId)) return false;
 
     const piece = this.piece(this.state.selectedUid)!;
     if (!canMove(piece)) return false;
+
+    this.closePlateWindow();
 
     if (piece.location === 'bench') {
       piece.location = 'field';
@@ -224,20 +432,18 @@ export class DuelEngine {
     this.state.legalMoves = [];
     this.state.selectedUid = piece.uid;
     this.state.turnStep = 'post-move';
+    this.state.actionSeq += 1;
 
     if (this.checkGoal(piece)) return true;
 
-    // Surrounds resolve after movement, before battle
     this.resolveSurrounds();
     if (this.state.winner) return true;
 
-    // If moved figure was surrounded somehow (rare), it's gone
     if (piece.location !== 'field') {
       this.endTurn();
       return true;
     }
 
-    // If can battle, stay in post-move; else end turn
     const foes = this.adjacentEnemies(piece.uid).filter(() => canInitiateBattle(piece));
     if (!foes.length || !canInitiateBattle(piece)) {
       this.endTurn();
@@ -247,9 +453,9 @@ export class DuelEngine {
     return true;
   }
 
-  /** Battle an adjacent enemy. Ends the turn after resolution (caller finishes presentation). */
   tryBattleAdjacent(enemyUid: string): boolean {
     if (this.state.phase !== 'playing') return false;
+    if (this.state.pendingPlateInstanceId) return false;
     if (!this.state.selectedUid) return false;
 
     const piece = this.piece(this.state.selectedUid)!;
@@ -261,24 +467,22 @@ export class DuelEngine {
     if (!neighbors(this.board.edges, piece.nodeId).includes(enemy.nodeId)) return false;
     if (!canInitiateBattle(piece)) return false;
 
-    // post-move: only the figure that moved may battle
     if (this.state.turnStep === 'post-move' && piece.uid !== this.state.movedUid) {
       return false;
     }
 
-    // Surround check: if enemy is surrounded they should already be gone;
-    // if WE are surrounded we shouldn't be able to battle (already KO'd after opp move)
+    this.closePlateWindow();
     this.state.phase = 'battle';
     this.state.battle = { attackerUid: piece.uid, defenderUid: enemy.uid };
-    // Attacking wakes sleep on defender
     enemy.statuses = enemy.statuses.filter((s) => s !== 'sleep');
     this.log(`Battle: ${piece.name} vs ${enemy.name}`);
+    this.state.actionSeq += 1;
     return true;
   }
 
-  /** Ally touch heal — ends turn. */
   tryHeal(targetUid: string): boolean {
     if (this.state.phase !== 'playing' || this.state.turnStep !== 'choose') return false;
+    if (this.state.pendingPlateInstanceId) return false;
     if (!this.state.selectedUid) return false;
     const healer = this.piece(this.state.selectedUid)!;
     const target = this.piece(targetUid);
@@ -292,7 +496,9 @@ export class DuelEngine {
     target.statuses = target.statuses.filter((s) => !TOUCH_CURABLE.includes(s));
     if (target.statuses.length === before) return false;
 
+    this.closePlateWindow();
     this.log(`${healer.name} cured ${target.name}.`);
+    this.state.actionSeq += 1;
     this.endTurn();
     return true;
   }
@@ -316,32 +522,75 @@ export class DuelEngine {
     const attacker = this.piece(b.attackerUid)!;
     const defender = this.piece(b.defenderUid)!;
 
-    const aWheel = battleWheelFor(attacker);
-    const dWheel = battleWheelFor(defender);
-    const attackerSpin = prepareSpin(attacker, aWheel);
-    const defenderSpin = prepareSpin(defender, dWheel);
+    let aWheel = applyTurnBuffToWheel(battleWheelFor(attacker), this.buffFor(attacker.uid));
+    let dWheel = applyTurnBuffToWheel(battleWheelFor(defender), this.buffFor(defender.uid));
+
+    let attackerSpin = prepareSpin(attacker, aWheel);
+    let defenderSpin = prepareSpin(defender, dWheel);
+
+    // Double Chance / Bright Powder respins (auto-apply better spin once)
+    const aBuff = this.buffFor(attacker.uid);
+    const dBuff = this.buffFor(defender.uid);
+    if (aBuff?.respinOwn) {
+      const alt = prepareSpin(attacker, aWheel);
+      if (spinScore(alt) > spinScore(attackerSpin)) attackerSpin = alt;
+      aBuff.respinOwn = false;
+    }
+    if (dBuff?.respinOwn) {
+      const alt = prepareSpin(defender, dWheel);
+      if (spinScore(alt) > spinScore(defenderSpin)) defenderSpin = alt;
+      dBuff.respinOwn = false;
+    }
+    if (aBuff?.forceOpponentRespin) {
+      const alt = prepareSpin(defender, dWheel);
+      if (spinScore(alt) < spinScore(defenderSpin)) defenderSpin = alt;
+      aBuff.forceOpponentRespin = false;
+    }
+    if (dBuff?.forceOpponentRespin) {
+      const alt = prepareSpin(attacker, aWheel);
+      if (spinScore(alt) < spinScore(attackerSpin)) attackerSpin = alt;
+      dBuff.forceOpponentRespin = false;
+    }
+
+    // Multiply white attacks
+    attackerSpin = resolveMultiplyDamage(attackerSpin, aWheel);
+    defenderSpin = resolveMultiplyDamage(defenderSpin, dWheel);
+
     b.attackerSpin = attackerSpin;
     b.defenderSpin = defenderSpin;
 
-    const outcome = resolveBattle(attacker, defender, attackerSpin, defenderSpin);
+    const outcome = resolveBattle(
+      attacker,
+      defender,
+      attackerSpin,
+      defenderSpin,
+      (p, seg) => effectiveDamageWithBuffs(p, seg, this.buffFor(p.uid)),
+    );
     let note = outcome.note;
     let playerResult: 'win' | 'lose' | 'draw' = 'draw';
     let sentToPcUid: string | null = null;
 
     if (outcome.type === 'ko') {
       const winPiece = outcome.winner === 'attacker' ? attacker : defender;
-      playerResult = winPiece.owner === 'player' ? 'win' : 'lose';
       const loser = outcome.winner === 'attacker' ? defender : attacker;
-      if (this.sendToPC(loser)) sentToPcUid = loser.uid;
-      note += ` ${loser.name} → PC.`;
+      playerResult = winPiece.owner === 'player' ? 'win' : 'lose';
+      if (shouldBlockKo(loser, this.buffFor(loser.uid), outcome)) {
+        note += ` ${loser.name} endured (plate)!`;
+      } else {
+        if (this.sendToPC(loser)) sentToPcUid = loser.uid;
+        note += ` ${loser.name} → PC.`;
+      }
     } else if (outcome.type === 'purple') {
       const winPiece = outcome.winner === 'attacker' ? attacker : defender;
       playerResult = winPiece.owner === 'player' ? 'win' : 'lose';
       const loser = outcome.winner === 'attacker' ? defender : attacker;
-      const fx = applyPurpleEffect(outcome.effect, loser);
+      const fx = applyPurpleEffect(outcome.effect, loser, this);
       note += ' ' + fx;
       if (fx.includes('BENCH')) {
         this.sendToBench(loser, true);
+      }
+      if (fx.includes('KNOCKBACK') && loser.nodeId && winPiece.nodeId) {
+        this.applyKnockback(winPiece, loser);
       }
     } else if (outcome.type === 'blue') {
       const spin = outcome.spin;
@@ -358,7 +607,6 @@ export class DuelEngine {
       }
     }
 
-    // Frozen clears after battle (common Duel ruling)
     attacker.statuses = attacker.statuses.filter((s) => s !== 'frozen');
     defender.statuses = defender.statuses.filter((s) => s !== 'frozen');
 
@@ -373,17 +621,39 @@ export class DuelEngine {
     };
   }
 
+  private applyKnockback(winner: Piece, loser: Piece) {
+    if (!winner.nodeId || !loser.nodeId) return;
+    const loserNode = loser.nodeId;
+    const nbs = neighbors(this.board.edges, loserNode).filter(
+      (n) => n !== winner.nodeId && !this.occupied().has(n),
+    );
+    if (!nbs.length) return;
+    // Prefer further from winner
+    const wNode = this.board.nodes.get(winner.nodeId)!;
+    nbs.sort((a, b) => {
+      const na = this.board.nodes.get(a)!;
+      const nb = this.board.nodes.get(b)!;
+      const da = Math.hypot(na.x - wNode.x, na.y - wNode.y);
+      const db = Math.hypot(nb.x - wNode.x, nb.y - wNode.y);
+      return db - da;
+    });
+    loser.nodeId = nbs[0];
+    // Winner may take loser's space
+    if (!this.occupied().has(loserNode) || this.piecesAt(loserNode)[0]?.uid === loser.uid) {
+      // after move loser vacated
+    }
+    winner.nodeId = loserNode;
+  }
+
   finishBattleAndContinue() {
     this.state.battle = null;
     if (this.state.phase === 'game-over') return;
     this.state.phase = 'playing';
-    // Battle ends the turn
     this.resolveSurrounds();
     if (this.state.winner) return;
     this.endTurn();
   }
 
-  /** @returns true if the figure was enqueued in PC. */
   private sendToPC(piece: Piece): boolean {
     if (piece.removed) return false;
     if (piece.statuses.includes('curse')) {
@@ -398,7 +668,6 @@ export class DuelEngine {
     const owner = piece.owner;
     const q = this.pcQueues[owner];
 
-    // Capacity 2: dequeue front before the new figure enqueues
     if (q.length >= 2) {
       const oldestUid = q.shift()!;
       const oldest = this.piece(oldestUid);
@@ -413,7 +682,6 @@ export class DuelEngine {
         });
         this.log(`${oldest.name} left PC → bench (Wait 1).`);
       }
-      // Remaining figure slides forward to the front pad
       if (q.length === 1) {
         this.lastPcShifts.push({
           uid: q[0],
@@ -460,10 +728,6 @@ export class DuelEngine {
     return false;
   }
 
-  /**
-   * Surround = every adjacent point occupied by an opposing figure.
-   * Official: after movement ends; KO before battle can be initiated.
-   */
   resolveSurrounds(): SurroundSend[] {
     const sent: SurroundSend[] = [];
     let changed = true;
@@ -471,6 +735,7 @@ export class DuelEngine {
       changed = false;
       for (const piece of [...this.activePieces()]) {
         if (piece.location !== 'field' || !piece.nodeId) continue;
+        if (applyAbilityPassives(piece, 'surroundImmune')) continue;
         const nbs = neighbors(this.board.edges, piece.nodeId);
         if (!nbs.length) continue;
         const surrounded = nbs.every((n) => {
@@ -491,36 +756,39 @@ export class DuelEngine {
     return sent;
   }
 
-  /** Consume surround events for presentation (PC hop). */
   takeLastSurrounds(): SurroundSend[] {
     const s = this.lastSurrounds;
     this.lastSurrounds = [];
     return s;
   }
 
-  /** Consume PC→bench ejects (full PC) for presentation. */
   takeLastPcEjects(): PcEject[] {
     const e = this.lastPcEjects;
     this.lastPcEjects = [];
     return e;
   }
 
-  /** Consume PC queue forward-shifts for presentation. */
   takeLastPcShifts(): PcShift[] {
     const s = this.lastPcShifts;
     this.lastPcShifts = [];
     return s;
   }
 
+  takeLastPlateAnim() {
+    const a = this.lastPlateAnim;
+    this.lastPlateAnim = null;
+    return a;
+  }
+
   private hasLegalAction(side: PlayerId): boolean {
+    // Unused plates that don't need targets can count — skip for wait-win simplicity
     const mine = this.activePieces(side).filter((p) => p.wait === 0 && !p.removed);
     for (const p of mine) {
-      // Can move?
       if (canMove(p)) {
         const mp = (() => {
           let m = p.baseMp - p.mpMarkers;
-          // During wait-win check at start of their turn, duelFirstMoveDone is already true usually
           if (!this.state.duelFirstMoveDone) m -= 1;
+          m += applyAbilityPassives(p, 'mpBonus');
           return Math.max(0, m);
         })();
         const occ = this.occupied();
@@ -534,11 +802,9 @@ export class DuelEngine {
           if (reachable(this.board.edges, p.nodeId, mp, occ2).length) return true;
         }
       }
-      // Can battle?
       if (p.location === 'field' && canInitiateBattle(p) && this.adjacentEnemies(p.uid).length) {
         return true;
       }
-      // Can heal?
       if (p.location === 'field' && p.nodeId) {
         for (const n of neighbors(this.board.edges, p.nodeId)) {
           const ally = this.piecesAt(n)[0];
@@ -567,17 +833,22 @@ export class DuelEngine {
   }
 
   endTurn() {
-    // Tick wait on the player whose turn is ending
     for (const p of this.activePieces(this.state.turn)) {
       if (p.wait > 0) p.wait -= 1;
     }
+    this.tickMega();
 
     this.state.turn = this.state.turn === 'player' ? 'opponent' : 'player';
     this.state.turnNumber += 1;
     this.state.turnStep = 'choose';
+    this.state.plateWindowOpen = true;
+    this.state.turnBuffs = [];
     this.state.movedUid = null;
     this.state.selectedUid = null;
     this.state.legalMoves = [];
+    this.state.pendingPlateInstanceId = null;
+    this.state.pendingPlateTargetUid = null;
+    this.state.actionSeq += 1;
 
     if (this.state.turnNumber > 300) {
       this.state.phase = 'game-over';
@@ -609,4 +880,12 @@ export class DuelEngine {
           p.statuses.some((s) => TOUCH_CURABLE.includes(s)),
       );
   }
+}
+
+function spinScore(seg: WheelSegment): number {
+  if (seg.color === 'blue') return 1000;
+  if (seg.color === 'gold') return 500 + seg.damage;
+  if (seg.color === 'purple') return 400 + seg.stars * 50;
+  if (seg.color === 'white') return 200 + seg.damage;
+  return 0;
 }

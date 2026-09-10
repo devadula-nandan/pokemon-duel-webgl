@@ -1,4 +1,5 @@
-import type { Piece, SegmentColor, Status, WheelSegment } from './types';
+import type { DuelEngine } from './engine';
+import type { Piece, SegmentColor, Status, TurnBuff, WheelSegment } from './types';
 
 /** Official color outcomes from Pokemon.com strategy guide. */
 export function spinWheel(wheel: WheelSegment[]): WheelSegment {
@@ -45,6 +46,19 @@ export function battleWheelFor(piece: Piece): WheelSegment[] {
   return wheel;
 }
 
+/** X Speed: convert one white attack to gold. */
+export function applyTurnBuffToWheel(wheel: WheelSegment[], buff?: TurnBuff): WheelSegment[] {
+  if (!buff?.whiteToGold) return wheel;
+  let done = false;
+  return wheel.map((s) => {
+    if (!done && s.color === 'white' && s.damage > 0) {
+      done = true;
+      return { ...s, color: 'gold' as SegmentColor };
+    }
+    return { ...s };
+  });
+}
+
 export function prepareSpin(piece: Piece, wheel: WheelSegment[]): WheelSegment {
   if (piece.statuses.includes('frozen')) {
     return { name: 'Miss', color: 'miss', size: 96, damage: 0, stars: 0 };
@@ -56,6 +70,19 @@ export function prepareSpin(piece: Piece, wheel: WheelSegment[]): WheelSegment {
   return seg;
 }
 
+/** Multi-spin white attacks (multiply: true). */
+export function resolveMultiplyDamage(seg: WheelSegment, wheel: WheelSegment[]): WheelSegment {
+  if (!seg.multiply || (seg.color !== 'white' && seg.color !== 'gold')) return seg;
+  // Spin again up to 2 extra times; sum damage while landing same-name or any white
+  let total = seg.damage;
+  const spins = 1 + Math.floor(Math.random() * 3); // 1–3 hits typical
+  for (let i = 1; i < spins; i++) {
+    const extra = spinWheel(wheel);
+    if (extra.color === 'white' || extra.color === 'gold') total += extra.damage;
+  }
+  return { ...seg, damage: total, name: `${seg.name} ×${spins}` };
+}
+
 export function effectiveDamage(piece: Piece, seg: WheelSegment): number {
   if (seg.color !== 'white' && seg.color !== 'gold') return 0;
   let dmg = seg.damage;
@@ -65,9 +92,21 @@ export function effectiveDamage(piece: Piece, seg: WheelSegment): number {
   return Math.max(0, dmg);
 }
 
+export function effectiveDamageWithBuffs(
+  piece: Piece,
+  seg: WheelSegment,
+  buff?: TurnBuff,
+): number {
+  let dmg = effectiveDamage(piece, seg);
+  if (buff?.damageBonus && (seg.color === 'white' || seg.color === 'gold')) {
+    dmg += buff.damageBonus;
+  }
+  return Math.max(0, dmg);
+}
+
 export type BattleOutcome =
   | { type: 'draw'; note: string }
-  | { type: 'ko'; winner: 'attacker' | 'defender'; note: string }
+  | { type: 'ko'; winner: 'attacker' | 'defender'; note: string; damageDealt?: number }
   | { type: 'blue'; note: string; user: 'attacker' | 'defender' | 'both'; spin: WheelSegment }
   | {
       type: 'purple';
@@ -76,6 +115,19 @@ export type BattleOutcome =
       effect: string;
       spin: WheelSegment;
     };
+
+export function shouldBlockKo(
+  _loser: Piece,
+  buff: TurnBuff | undefined,
+  outcome: BattleOutcome,
+): boolean {
+  if (buff?.cannotKo) return true;
+  if (buff?.xDefend && outcome.type === 'ko') {
+    const dmg = outcome.damageDealt ?? 0;
+    if (dmg >= 10 && dmg <= 100) return true;
+  }
+  return false;
+}
 
 /**
  * Resolve one battle per official color rules.
@@ -86,6 +138,7 @@ export function resolveBattle(
   defender: Piece,
   aSpin: WheelSegment,
   dSpin: WheelSegment,
+  dmgFn: (p: Piece, seg: WheelSegment) => number = effectiveDamage,
 ): BattleOutcome {
   const a = aSpin.color;
   const d = dSpin.color;
@@ -96,7 +149,6 @@ export function resolveBattle(
   if (a === 'miss') return winFromColor('defender', defender, attacker, dSpin);
   if (d === 'miss') return winFromColor('attacker', attacker, defender, aSpin);
 
-  // Blue defeats every other color
   if (a === 'blue' && d === 'blue') {
     return { type: 'blue', note: 'Blue vs Blue — draw.', user: 'both', spin: aSpin };
   }
@@ -117,10 +169,14 @@ export function resolveBattle(
     };
   }
 
-  // Gold vs Purple → Gold wins (KO if damage > 0)
   if (a === 'gold' && d === 'purple') {
-    if (effectiveDamage(attacker, aSpin) > 0) {
-      return { type: 'ko', winner: 'attacker', note: `${attacker.name}'s Gold beats Purple.` };
+    if (dmgFn(attacker, aSpin) > 0) {
+      return {
+        type: 'ko',
+        winner: 'attacker',
+        note: `${attacker.name}'s Gold beats Purple.`,
+        damageDealt: dmgFn(attacker, aSpin),
+      };
     }
     return {
       type: 'draw',
@@ -128,8 +184,13 @@ export function resolveBattle(
     };
   }
   if (d === 'gold' && a === 'purple') {
-    if (effectiveDamage(defender, dSpin) > 0) {
-      return { type: 'ko', winner: 'defender', note: `${defender.name}'s Gold beats Purple.` };
+    if (dmgFn(defender, dSpin) > 0) {
+      return {
+        type: 'ko',
+        winner: 'defender',
+        note: `${defender.name}'s Gold beats Purple.`,
+        damageDealt: dmgFn(defender, dSpin),
+      };
     }
     return {
       type: 'draw',
@@ -137,7 +198,6 @@ export function resolveBattle(
     };
   }
 
-  // Purple vs White → Purple wins (effect, usually no damage KO)
   if (a === 'purple' && d === 'white') {
     return {
       type: 'purple',
@@ -157,7 +217,6 @@ export function resolveBattle(
     };
   }
 
-  // Purple vs Purple → more stars
   if (a === 'purple' && d === 'purple') {
     if (aSpin.stars === dSpin.stars) {
       return { type: 'draw', note: `Purple ★ tie (${aSpin.stars}).` };
@@ -173,18 +232,27 @@ export function resolveBattle(
     };
   }
 
-  // White/Gold damage compare (incl. White vs Gold)
   if (
     (a === 'white' || a === 'gold') &&
     (d === 'white' || d === 'gold')
   ) {
-    const ad = effectiveDamage(attacker, aSpin);
-    const dd = effectiveDamage(defender, dSpin);
+    const ad = dmgFn(attacker, aSpin);
+    const dd = dmgFn(defender, dSpin);
     if (ad === dd) return { type: 'draw', note: `Damage tie (${ad}).` };
     if (ad > dd) {
-      return { type: 'ko', winner: 'attacker', note: `${attacker.name} ${ad} > ${dd}.` };
+      return {
+        type: 'ko',
+        winner: 'attacker',
+        note: `${attacker.name} ${ad} > ${dd}.`,
+        damageDealt: ad,
+      };
     }
-    return { type: 'ko', winner: 'defender', note: `${defender.name} ${dd} > ${ad}.` };
+    return {
+      type: 'ko',
+      winner: 'defender',
+      note: `${defender.name} ${dd} > ${ad}.`,
+      damageDealt: dd,
+    };
   }
 
   return { type: 'draw', note: 'Unresolved clash — draw.' };
@@ -218,6 +286,7 @@ function winFromColor(
       type: 'ko',
       winner: side,
       note: `${winner.name} wins (${winSpin.name}).`,
+      damageDealt: winSpin.damage,
     };
   }
   return { type: 'draw', note: 'Draw.' };
@@ -234,7 +303,11 @@ const STATUS_WORDS: { re: RegExp; status: Status }[] = [
   { re: /curse/i, status: 'curse' },
 ];
 
-export function applyPurpleEffect(effect: string, target: Piece): string {
+export function applyPurpleEffect(
+  effect: string,
+  target: Piece,
+  _engine?: DuelEngine,
+): string {
   const e = effect || '';
   const notes: string[] = [];
 
@@ -261,13 +334,47 @@ export function applyPurpleEffect(effect: string, target: Piece): string {
     notes.push('BENCH');
   }
 
+  if (/knock\s*back|blow\s*away|whirlwind|pushed/i.test(e)) {
+    notes.push('KNOCKBACK');
+  }
+
+  if (/knock\s*out|faint|exclude/i.test(e) && !notes.includes('BENCH')) {
+    // Range KO text — mark for engine; generic Wait if no engine context
+    notes.push('RANGE_KO');
+  }
+
   if (!notes.length) {
-    // Generic purple fallback: Wait 2 (many control purples)
     target.wait = Math.max(target.wait, 2);
     notes.push(`${target.name} Wait 2 (${e.slice(0, 40) || 'purple'})`);
   }
 
   return notes.join('; ');
+}
+
+/**
+ * Lightweight ability tags from free-text ability strings.
+ */
+export function applyAbilityPassives(piece: Piece, mode: 'mpBonus'): number;
+export function applyAbilityPassives(piece: Piece, mode: 'surroundImmune'): boolean;
+export function applyAbilityPassives(piece: Piece, mode: 'start'): number;
+export function applyAbilityPassives(
+  piece: Piece,
+  mode: 'start' | 'mpBonus' | 'surroundImmune',
+): number | boolean {
+  const text = (piece.ability || '').toLowerCase();
+  if (!text) {
+    if (mode === 'mpBonus') return 0;
+    if (mode === 'surroundImmune') return false;
+    return 0;
+  }
+  if (mode === 'mpBonus') {
+    if (/mp\s*\+?\s*1|plus 1 mp|\+1 mp/i.test(text)) return 1;
+    return 0;
+  }
+  if (mode === 'surroundImmune') {
+    return /cannot be surrounded|immune to surround|infiltrator/i.test(text);
+  }
+  return 0;
 }
 
 export function canInitiateBattle(piece: Piece): boolean {
@@ -280,11 +387,9 @@ export function canInitiateBattle(piece: Piece): boolean {
 export function canMove(piece: Piece): boolean {
   if (piece.wait > 0) return false;
   if (piece.statuses.includes('frozen')) return false;
-  // Sleep CAN move (official)
   return true;
 }
 
-/** Statuses cured by adjacent ally touch (almost all). */
 export const TOUCH_CURABLE: Status[] = [
   'poison',
   'noxious',

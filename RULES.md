@@ -10,7 +10,7 @@ Secondary: Serebii mechanics, Wikipedia, Pokémon Duel Archive wiki (Battle page
 - Topology: outer frame ring + inner square ring (adjacent only) + 4 corner diagonals + 2 spokes (inner top/bottom center → right of each goal).
 
 ## Turn structure
-1. (Plates — not implemented yet) may be used at start of turn only.
+1. **Plates** may be used at start of turn only (before move / battle / heal). Deck: 0–6 plates, total cost ≤ 8; each plate once per duel (unless Recycle). Core set implemented — see `src/data/plates.json`.
 2. You may **move one figure** along routes up to its current MP.
 3. **Before or after moving**, if adjacent to an enemy, you may **initiate a battle**.
 4. **Battle ends the turn immediately** when it concludes.

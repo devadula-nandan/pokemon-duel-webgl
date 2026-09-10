@@ -42,7 +42,11 @@ function drawArcText(
   }
 }
 
-export function createWheelCanvas(segments: WheelSegment[], size = 720): HTMLCanvasElement {
+export function createWheelCanvas(
+  segments: WheelSegment[],
+  size = 720,
+  opts?: { damageBonus?: number },
+): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   const dpr = Math.min(devicePixelRatio || 1, 2);
   canvas.width = Math.floor(size * dpr);
@@ -58,6 +62,7 @@ export function createWheelCanvas(segments: WheelSegment[], size = 720): HTMLCan
   const rim = size * 0.028;
   const innerR = r - rim;
   const total = segments.reduce((s, x) => s + x.size, 0) || 96;
+  const damageBonus = opts?.damageBonus ?? 0;
 
   // Soft contact shadow
   ctx.beginPath();
@@ -167,10 +172,12 @@ export function createWheelCanvas(segments: WheelSegment[], size = 720): HTMLCan
       );
     } else {
       // White / gold: big damage + curved move name near the rim
+      const base = seg.damage ?? 0;
+      const shown = base + (seg.color === 'white' || seg.color === 'gold' ? damageBonus : 0);
       const dmg =
-        seg.color === 'gold' && seg.damage
-          ? `${seg.damage}x`
-          : String(seg.damage ?? '');
+        seg.color === 'gold' && base
+          ? `${shown}*`
+          : String(shown);
       const dmgSize = Math.max(22, Math.min(64, sweep * innerR * 0.55));
       ctx.save();
       ctx.translate(cx + Math.cos(mid) * innerR * 0.42, cy + Math.sin(mid) * innerR * 0.42);
@@ -183,6 +190,12 @@ export function createWheelCanvas(segments: WheelSegment[], size = 720): HTMLCan
       ctx.strokeStyle = seg.color === 'white' ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.35)';
       ctx.strokeText(dmg, 0, 0);
       ctx.fillText(dmg, 0, 0);
+      // Rising bonus flash
+      if (damageBonus > 0 && (seg.color === 'white' || seg.color === 'gold') && base > 0) {
+        ctx.fillStyle = '#ff6b35';
+        ctx.font = `800 ${Math.max(12, dmgSize * 0.38)}px Outfit, system-ui, sans-serif`;
+        ctx.fillText(`+${Math.round(damageBonus)}`, 0, dmgSize * 0.55);
+      }
       ctx.restore();
 
       if (name) {
@@ -232,6 +245,43 @@ export function createWheelCanvas(segments: WheelSegment[], size = 720): HTMLCan
   ctx.stroke();
 
   return canvas;
+}
+
+/**
+ * Count white/gold damage up by `damageBonus` on an existing battle disc
+ * canvas (e.g. X Attack) before the spin starts.
+ */
+export function animateWheelDamageBoost(
+  canvas: HTMLCanvasElement,
+  segments: WheelSegment[],
+  size: number,
+  damageBonus: number,
+  durationMs = 1000,
+): Promise<void> {
+  if (!(damageBonus > 0)) return Promise.resolve();
+
+  const paint = (bonus: number) => {
+    const painted = createWheelCanvas(segments, size, { damageBonus: bonus });
+    const ctx = canvas.getContext('2d')!;
+    canvas.width = painted.width;
+    canvas.height = painted.height;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(painted, 0, 0);
+  };
+
+  paint(0);
+  const t0 = performance.now();
+  return new Promise((resolve) => {
+    const frame = (now: number) => {
+      const u = Math.min(1, (now - t0) / durationMs);
+      const e = 1 - Math.pow(1 - u, 3);
+      paint(Math.round(damageBonus * e));
+      if (u < 1) requestAnimationFrame(frame);
+      else resolve();
+    };
+    requestAnimationFrame(frame);
+  });
 }
 
 /**

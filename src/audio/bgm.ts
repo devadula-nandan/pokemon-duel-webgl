@@ -1,6 +1,6 @@
 /**
- * Single battle BGM via SoundCloud Widget API.
- * One track, looped with near-seamless seek-before-end restart.
+ * Battle BGM via SoundCloud Widget API (Aldrasio R/B OST set).
+ * Track index + play preference persist across refreshes.
  */
 
 declare global {
@@ -27,6 +27,9 @@ interface SoundCloudWidget {
   ): void;
   play(): void;
   pause(): void;
+  next(): void;
+  prev(): void;
+  skip(index: number): void;
   setVolume(volume: number): void;
   seekTo(ms: number): void;
   load(
@@ -43,28 +46,52 @@ interface SoundCloudWidget {
   ): void;
   getDuration(cb: (ms: number) => void): void;
   getCurrentSound(cb: (sound: { title?: string } | null) => void): void;
+  getCurrentSoundIndex(cb: (index: number) => void): void;
+  getSounds(cb: (sounds: unknown[]) => void): void;
   isPaused(cb: (paused: boolean) => void): void;
 }
 
-/** Classic R/B trainer battle (hardware rip) — one looped duel theme. */
-const TRACK_URL = 'https://soundcloud.com/aldrasio/07-trainerbattle';
-const TRACK_TITLE = 'Trainer Battle';
+/** Full hardware rip set — next/prev cycle through tracks. */
+const PLAYLIST_URL = 'https://soundcloud.com/aldrasio/sets/pokemon-red-blue-music';
+/** Default: Trainer Battle (index in set; falls back if set size differs). */
+const DEFAULT_TRACK_INDEX = 7;
 const API_SRC = 'https://w.soundcloud.com/player/api.js';
 
 const LS_MUSIC_VOL = 'duel-music-volume';
 const LS_MUSIC = 'duel-music-muted';
 const LS_LEGACY = 'duel-audio-muted';
+const LS_TRACK = 'duel-music-track';
+const LS_WANT_PLAY = 'duel-music-want-play';
 
-/** Restart this many ms before the end to avoid a FINISH gap. */
 const LOOP_LEAD_MS = 90;
 
 let widget: SoundCloudWidget | null = null;
 let iframe: HTMLIFrameElement | null = null;
 let ready = false;
-let wantPlaying = false;
+let wantPlaying = localStorage.getItem(LS_WANT_PLAY) !== '0';
 let gestureArmed = false;
 let trackDurationMs = 0;
 let loopLock = false;
+let trackIndex = readTrackIndex();
+let trackCount = 0;
+let trackTitle = 'Loading…';
+
+function readTrackIndex(): number {
+  const raw = localStorage.getItem(LS_TRACK);
+  if (raw != null) {
+    const n = Number(raw);
+    if (Number.isFinite(n) && n >= 0) return Math.floor(n);
+  }
+  return DEFAULT_TRACK_INDEX;
+}
+
+function persistTrack() {
+  localStorage.setItem(LS_TRACK, String(trackIndex));
+}
+
+function persistWantPlay() {
+  localStorage.setItem(LS_WANT_PLAY, wantPlaying ? '1' : '0');
+}
 
 function readInitialMusicVolume(): number {
   const raw = localStorage.getItem(LS_MUSIC_VOL);
@@ -81,6 +108,7 @@ function readInitialMusicVolume(): number {
 let musicVolume = readInitialMusicVolume();
 let apiLoaded: Promise<void> | null = null;
 let onTrackChange: ((title: string, index: number, total: number) => void) | null = null;
+let onPlayChange: ((playing: boolean) => void) | null = null;
 
 export function setTrackChangeListener(
   fn: ((title: string, index: number, total: number) => void) | null,
@@ -88,15 +116,48 @@ export function setTrackChangeListener(
   onTrackChange = fn;
 }
 
+export function setPlayChangeListener(fn: ((playing: boolean) => void) | null) {
+  onPlayChange = fn;
+}
+
 export function getTrackLabel(): string {
-  return TRACK_TITLE;
+  return trackTitle;
+}
+
+export function getTrackIndex(): number {
+  return trackIndex;
+}
+
+export function getTrackCount(): number {
+  return trackCount;
 }
 
 function notifyTrack() {
-  onTrackChange?.(TRACK_TITLE, 0, 1);
+  onTrackChange?.(trackTitle, trackIndex, Math.max(1, trackCount));
 }
 
-/** UI 0–100 → SoundCloud widget 0–100. Music stays a quiet bed under SFX. */
+function notifyPlay() {
+  onPlayChange?.(wantPlaying && musicVolume > 0);
+}
+
+function refreshTrackMeta() {
+  if (!widget) return;
+  widget.getCurrentSound((sound) => {
+    const raw = sound?.title?.trim() || 'Untitled';
+    trackTitle = raw.replace(/^\d+\s*/, '').trim() || raw;
+    notifyTrack();
+  });
+  widget.getCurrentSoundIndex((idx) => {
+    if (Number.isFinite(idx) && idx >= 0) {
+      trackIndex = idx;
+      persistTrack();
+    }
+  });
+  widget.getSounds((sounds) => {
+    if (Array.isArray(sounds)) trackCount = sounds.length;
+  });
+}
+
 const MUSIC_OUTPUT_MAX = 24;
 const MUSIC_CURVE = 1.4;
 
@@ -142,14 +203,13 @@ function ensureIframe(): HTMLIFrameElement {
   iframe = document.createElement('iframe');
   iframe.id = 'sc-bgm';
   iframe.allow = 'autoplay';
-  iframe.title = 'Pokémon Trainer Battle (SoundCloud)';
+  iframe.title = 'Pokémon Red/Blue OST (SoundCloud)';
   iframe.scrolling = 'no';
   iframe.frameBorder = 'no';
   const params = new URLSearchParams({
-    url: TRACK_URL,
+    url: PLAYLIST_URL,
     color: '#5cffb0',
     auto_play: 'false',
-    // Native loop when the widget supports it; we also force-seek for sync.
     loop: 'true',
     hide_related: 'true',
     show_comments: 'false',
@@ -175,7 +235,6 @@ function refreshDuration() {
   });
 }
 
-/** Seek to start immediately — used for gapless-ish looping. */
 function restartLoop() {
   if (!widget || !wantPlaying || musicVolume <= 0) return;
   if (loopLock) return;
@@ -188,11 +247,40 @@ function restartLoop() {
   }, 180);
 }
 
+function applySavedTrackThenMaybePlay() {
+  if (!widget || !ready) return;
+  widget.getSounds((sounds) => {
+    trackCount = Array.isArray(sounds) ? sounds.length : 0;
+    const max = Math.max(0, trackCount - 1);
+    const idx = Math.min(Math.max(0, trackIndex), max || DEFAULT_TRACK_INDEX);
+    trackIndex = idx;
+    persistTrack();
+    try {
+      widget!.skip(idx);
+    } catch {
+      /* ignore */
+    }
+    window.setTimeout(() => {
+      refreshTrackMeta();
+      refreshDuration();
+      applyWidgetVolume();
+      if (wantPlaying && musicVolume > 0) {
+        widget!.play();
+        window.setTimeout(() => applyWidgetVolume(), 100);
+        window.setTimeout(() => applyWidgetVolume(), 400);
+      } else {
+        widget!.pause();
+      }
+      notifyPlay();
+    }, 120);
+  });
+}
+
 export function mountBgmInSettings() {
-  if (musicVolume > 0) wantPlaying = true;
   void ensureWidget();
   armBgmGestureUnlock();
   notifyTrack();
+  notifyPlay();
 }
 
 function armBgmGestureUnlock() {
@@ -214,19 +302,17 @@ async function ensureWidget(): Promise<SoundCloudWidget | null> {
       widget.bind(window.SC!.Widget.Events.READY, () => {
         ready = true;
         applyWidgetVolume();
-        refreshDuration();
-        notifyTrack();
-        if (wantPlaying && musicVolume > 0) {
-          widget?.play();
-          window.setTimeout(() => applyWidgetVolume(), 100);
-          window.setTimeout(() => applyWidgetVolume(), 400);
-        }
+        applySavedTrackThenMaybePlay();
       });
       widget.bind(window.SC!.Widget.Events.PLAY, () => {
         applyWidgetVolume();
         refreshDuration();
+        refreshTrackMeta();
+        if (wantPlaying) notifyPlay();
       });
-      // Perfect-ish loop: jump back just before the natural end (avoids FINISH silence).
+      widget.bind(window.SC!.Widget.Events.PAUSE, () => {
+        notifyPlay();
+      });
       widget.bind(window.SC!.Widget.Events.PLAY_PROGRESS, (data) => {
         if (!wantPlaying || musicVolume <= 0 || !widget) return;
         const pos = data?.currentPosition ?? 0;
@@ -235,10 +321,8 @@ async function ensureWidget(): Promise<SoundCloudWidget | null> {
           restartLoop();
           return;
         }
-        // Fallback if duration unknown but relative is near 1
         if (trackDurationMs <= 0 && rel >= 0.985) restartLoop();
       });
-      // Backup if PLAY_PROGRESS miss
       widget.bind(window.SC!.Widget.Events.FINISH, () => {
         restartLoop();
       });
@@ -251,6 +335,8 @@ async function ensureWidget(): Promise<SoundCloudWidget | null> {
 
 export async function startBgm() {
   wantPlaying = true;
+  persistWantPlay();
+  notifyPlay();
   if (musicVolume <= 0) return;
   const w = await ensureWidget();
   if (!w || !ready) return;
@@ -259,11 +345,72 @@ export async function startBgm() {
   window.setTimeout(() => applyWidgetVolume(), 100);
   window.setTimeout(() => applyWidgetVolume(), 350);
   refreshDuration();
+  refreshTrackMeta();
 }
 
-export function stopBgm() {
+export function stopBgm(opts?: { persist?: boolean }) {
   wantPlaying = false;
+  if (opts?.persist !== false) persistWantPlay();
+  notifyPlay();
   widget?.pause();
+}
+
+/** Pause without changing the user’s play preference (e.g. mid-match sting). */
+export function pauseBgmSoft() {
+  widget?.pause();
+  notifyPlay();
+}
+
+export async function restartBgm() {
+  wantPlaying = true;
+  persistWantPlay();
+  notifyPlay();
+  if (musicVolume <= 0) return;
+  const w = await ensureWidget();
+  if (!w || !ready) return;
+  applyWidgetVolume();
+  w.seekTo(0);
+  w.play();
+  window.setTimeout(() => applyWidgetVolume(), 80);
+}
+
+export function toggleBgm(): boolean {
+  if (wantPlaying && musicVolume > 0) {
+    stopBgm();
+    return false;
+  }
+  void startBgm();
+  return true;
+}
+
+export function isBgmPlaying(): boolean {
+  return wantPlaying && musicVolume > 0;
+}
+
+async function changeTrack(dir: 1 | -1) {
+  const w = await ensureWidget();
+  if (!w || !ready) return getTrackLabel();
+  trackDurationMs = 0;
+  if (dir > 0) w.next();
+  else w.prev();
+  window.setTimeout(() => {
+    refreshTrackMeta();
+    refreshDuration();
+    applyWidgetVolume();
+    if (wantPlaying && musicVolume > 0) {
+      w.play();
+      window.setTimeout(() => applyWidgetVolume(), 80);
+    }
+  }, 150);
+  return getTrackLabel();
+}
+
+export async function nextBgmTrack() {
+  return changeTrack(1);
+}
+
+export async function prevBgmTrack() {
+  return changeTrack(-1);
 }
 
 export function getMusicVolume(): number {
@@ -281,20 +428,24 @@ export function setMusicVolume(next: number) {
     if (musicVolume <= 0) {
       applyWidgetVolume();
       w.pause();
+      notifyPlay();
       return;
     }
 
-    if (prev <= 0) wantPlaying = true;
+    if (prev <= 0 && wantPlaying) {
+      applyWidgetVolume();
+      notifyPlay();
+      if (ready) {
+        w.play();
+        window.setTimeout(() => applyWidgetVolume(), 80);
+        window.setTimeout(() => applyWidgetVolume(), 250);
+      }
+      return;
+    }
+
     applyWidgetVolume();
-
+    notifyPlay();
     if (!wantPlaying || !ready) return;
-
-    if (prev <= 0) {
-      w.play();
-      window.setTimeout(() => applyWidgetVolume(), 80);
-      window.setTimeout(() => applyWidgetVolume(), 250);
-      return;
-    }
 
     w.isPaused((paused) => {
       if (paused) w.play();
@@ -319,12 +470,6 @@ export function toggleMusicMute(): boolean {
 /** @deprecated use setMusicVolume */
 export function setBgmMuted(muted: boolean) {
   setMusicMuted(muted);
-}
-
-/** Kept for API compat — only one battle track. */
-export async function nextBgmTrack() {
-  notifyTrack();
-  return getTrackLabel();
 }
 
 export function isBgmWanted(): boolean {
